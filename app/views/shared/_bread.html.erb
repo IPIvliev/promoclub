@@ -1,0 +1,12 @@
+<% provide(:title, @title) %>
+
+      <!-- PAGE TITLE -->
+      <header id="page-title">
+        <div class="container">
+          <h1><%= @title %></h1>
+
+          <ul class="breadcrumb">
+            <%= render_breadcrumbs :tag => :li, :separator => "" %>
+          </ul>
+        </div>
+      </header>

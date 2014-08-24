@@ -1,0 +1,94 @@
+    <!-- Top Bar -->
+    <header id="topHead">
+      <div class="container">
+
+        <!-- PHONE/EMAIL -->
+        <span class="quick-contact pull-left">
+          <i class="fa fa-phone"></i> 8-903-602-89-19 &bull; 
+          <a class="hidden-xs" href="mailto:allpromoters@yandex.ru">allpromoters@yandex.ru</a>
+        </span>
+        <!-- /PHONE/EMAIL -->
+
+
+        <!-- SIGN IN -->
+        <div class="pull-right nav signin-dd">
+          <% if current_user %>
+            <%= link_to "<i class='fa fa-users'></i> Выйти".html_safe, "/users/sign_out", :class => "btn btn-default btn-xs" %>
+          <% else %>
+            <%= link_to "<i class='fa fa-users'></i> Зайти на сайт".html_safe, "/users/sign_in", :class => "btn btn-default btn-xs" %>
+          <% end %>
+        </div>
+        <!-- /SIGN IN -->
+
+        <!-- LINKS -->
+        <div class="pull-right nav hidden-xs">
+          <a href="/o-proekte.html"><i class="fa fa-angle-right"></i> О проекте</a>
+          <a href="/kontakti.html"><i class="fa fa-angle-right"></i> Контакты</a>
+        </div>
+        <!-- /LINKS -->
+
+      </div>
+    </header>
+
+
+    <header id="topNav" class="topHead">
+      <div class="container">
+
+        <!-- Mobile Menu Button -->
+        <button class="btn" data-toggle="collapse" data-target=".nav-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- Logo text or image -->
+        <a class="logo" href="/index.html">
+          <img src="/logo.png" alt="Allprogress.ru" />
+        </a>
+
+        <!-- Top Nav -->
+        <div class="navbar-collapse nav-main-collapse collapse pull-right">
+          <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main scroll-menu" id="topMain">
+              <li class="<%=is_active('index')%>">
+                <a href="/">Главная</a>
+              </li>
+              <li class="<%=is_active('about')%>">
+                <a href="/o-proekte.html">О проекте</a>
+              </li>
+              <li class="dropdown <%=is_active('services')%>">
+                <a class="dropdown-toggle" href="/uslugi.html">
+                  Услуги <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/uslugi/poisk-promouterov.html"><i class="fa fa-pencil"></i>Поиск промоутеров</a></li>
+                  <li><a href="/uslugi/naiti-rabotu-promouterom.html"><i class="fa fa-gears"></i>Найти работу промоутером</a></li>
+                </ul>
+              </li>
+              <li class="<%=is_active('catalogue')%>">
+                <a href="/baza-promouterov.html">База промоутеров</a>
+              </li>
+              <li class="<%=is_active('blog')%>">
+                <a href="/blog.html">Блог</a>
+              </li>
+              <li class="<%=is_active('contacts')%>">
+                <a href="/kontakti.html">Контакты</a>
+              </li>
+            <!--Sticky Buttons-->
+
+              <li class="<%=is_active('contacts')%>">
+                <a href="#" data-toggle="modal" data-target="#letter"><i class="fa fa-pencil-square-o"></i>ЗАДАТЬ ВОПРОС</a>
+              </li>
+
+            </ul>
+          </nav>
+        </div>
+        <!-- /Top Nav -->
+
+      </div>
+    </header>
+
+<%= render "/shared/question" %>
+
+    <span id="header_shadow"></span>
+    <!-- /TOP NAV -->
+
+

@@ -1,0 +1,113 @@
+
+
+
+		<!-- WRAPPER -->
+		<div id="wrapper">
+
+			<div id="shop">
+
+				<!-- PAGE TITLE -->
+			<%= render "/shared/bread" %>
+
+			<%= render "/shared/moremenu" %>
+
+				<section class="container">
+
+					<div class="row">
+
+						<div class="col-md-9">
+
+							<div class="row top-shop-option">
+								<div class="col-sm-6 col-md-6">
+									<p>Showing 1-12 of 38 results.</p>
+								</div>
+								<div class=" col-sm-6 col-md-6">
+									<select class="pointer fsize13 pull-right" name="orderby">
+										<option value="menu_order" selected='selected'>Default sorting</option>
+										<option value="popularity" >Sort by popularity</option>
+										<option value="rating" >Sort by average rating</option>
+										<option value="date" >Sort by newness</option>
+										<option value="price" >Sort by price: low to high</option>
+										<option value="price-desc" >Sort by price: high to low</option>
+									</select>
+								</div>
+							</div>
+
+						
+							<div class="row">
+							
+
+								<% @promoters.each do |promoter| %>
+								<!-- items -->
+								<div class="col-sm-6 col-md-4"><!-- item -->
+									<div class="item-box">
+										<figure>
+											<a class="item-hover" href="<%= user_path(promoter) %>">
+												<span class="overlay color2"></span>
+												<span class="inner">
+													<span class="block fa fa-plus fsize20"></span>
+													<strong>ПОДРОБНАЯ</strong> ИНФОРМАЦИЯ
+												</span>
+											</a>
+
+											
+					
+											<img class="img-responsive" src="<%= promoter.avatar.thumb.url %>" width="260" height="260" alt="">
+										</figure>
+										<div class="item-box-desc">
+											<h4><%= "#{promoter.name} #{promoter.surname}" %></h4>
+											<small class="styleColor"><%= promoter.city %></small>
+										</div>
+									</div>
+								</div>
+
+								<% end %>
+
+
+							
+							</div>
+
+							<!-- PAGINATION -->
+							<div class="row">
+
+								<div class="col-md-6 text-left">
+									<p class="hidden-xs pull-left nomargin padding20">Showing 1-10 of 38 results.</p>
+								</div>
+
+								<div class="col-md-6 responsive-text-center text-right">
+									<ul class="pagination">
+										<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+									</ul>
+								</div>
+
+							</div>
+							<!-- /PAGINATION -->
+
+						</div><!-- /col-md-9 -->
+
+						<aside class="col-md-3">
+
+	
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+						</aside>
+
+					</div><!-- /row -->
+
+				</section>
+
+			</div>
+		</div>
+		<!-- /WRAPPER -->

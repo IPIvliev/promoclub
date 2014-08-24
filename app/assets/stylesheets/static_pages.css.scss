@@ -1,0 +1,39 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home {
+background-image: url('/images/slider/bg.jpg');
+}
+
+#flexHome h1 {
+color: #FFF;
+background: none;
+font-size: 80px;
+margin-bottom: 11px;
+font-weight: 300;
+line-height: 1em;
+text-transform: uppercase;
+padding: 0;
+text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+width: 100%;
+text-align: left;
+display: inline-block;
+letter-spacing: 0.1em;
+margin: 0;
+
+}
+
+#flexHome {
+margin-top: 88px;
+}
+
+#flexHome h2 {
+color: #fff;
+background: none;
+}
+
+#quick_sign_in {
+	color: #fff;
+
+}

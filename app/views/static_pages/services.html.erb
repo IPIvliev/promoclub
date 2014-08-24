@@ -1,0 +1,65 @@
+<!-- WRAPPER -->
+		<div id="wrapper">
+
+			<!-- PAGE TITLE -->
+			<%= render "/shared/bread" %>
+
+			<section class="container">
+
+				<% flash.each do |key, value| %>
+	              <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+	            <% end %>
+
+
+				<h2>Потому что <strong>Вы</strong> лучшие!</h2>
+
+				<p class="lead">Здесь вы можете познакомиться с услугами, которые предоставляет сервис "Клуб промоутеров". Основным направлением нашей деятельности является поиск промоутеров и поиск работы для промоутеров в различных городах.</p>
+
+				<div class="divider"><!-- divider -->
+					<i class="fa fa-star"></i>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<h4>Поиск промоутеров</h4>
+						<div class="item-box">
+							<figure>
+								<a class="item-hover" href="/uslugi/poisk-promouterov.html">
+									<span class="overlay color2"></span>
+									<span class="inner">
+										<span class="block fa fa-eye fsize20"></span>
+										<strong>УЗНАТЬ</strong> БОЛЬШЕ
+									</span>
+								</a>
+								<img class="img-responsive" src="/images/poisk-promouterov.jpg" width="260" height="260" alt="Поиск промоутеров">
+							</figure>
+						</div>
+						<p><strong>Поиск промоутеров</strong> - задача отнюдь не травиальная. На формирование базы промоутеров btl агентства тратят огромное количество времени и денег. Мы предлагаем вам удобный способ найти промоутера под вашу акцию в любом городе России. Для начала работы вамнеобходимо пройти процедуру <a href="/users/sign_up">регистрации</a> в нашем сервисе.</p>
+						<a href="/uslugi/poisk-promouterov.html" class="btn btn-primary btn-xs center-block">Сделать Выбор</a>
+
+					</div>
+					<div class="col-md-6">
+						<h4>Найти работу промоутером</h4>
+						<div class="item-box">
+							<figure>
+								<a class="item-hover" href="/uslugi/naiti-rabotu-promouterom.html">
+									<span class="overlay color2"></span>
+									<span class="inner">
+										<span class="block fa fa-eye fsize20"></span>
+										<strong>УЗНАТЬ</strong> БОЛЬШЕ
+									</span>
+								</a>
+								<img class="img-responsive" src="/images/naiti-rabotu-promouterom.jpg" width="260" height="260" alt="Найти работу промоутером">
+							</figure>
+						</div>
+						<p>Поиск работы - сложный процесс. Даже если это временная работа на период летних каникул или работа промоутером. Мы предлагаем вам удобный способ <strong>найти работу промоутером</strong> в течении нескольких минут с использованием нашейго сервиса. Всё что вам для этого нужно - <a href="/users/sign_up">зарегистрироваться</a> у нас и разместить свою анкету в базе данных.</p>
+						<a href="/uslugi/naiti-rabotu-promouterom.html" class="btn btn-primary btn-xs center-block">Подробнее</a>
+					</div>
+				</div>
+
+<%= render "/shared/callout" %>
+
+			</section>
+
+		</div>
+		<!-- /WRAPPER -->

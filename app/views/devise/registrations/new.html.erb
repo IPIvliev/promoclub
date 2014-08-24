@@ -1,0 +1,130 @@
+		<!-- WRAPPER -->
+		<div id="wrapper">
+
+			<div id="shop">
+
+				<!-- PAGE TITLE -->
+				<header id="page-title">
+					<div class="container">
+						<h1>Sign UP</h1>
+
+						<ul class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li class="active">Sign UP</li>
+						</ul>
+					</div>
+				</header>
+
+
+				<section class="container">
+
+					<div class="row">
+
+						<!-- REGISTER -->
+						<div class="col-md-6">
+
+							<h2>Create <strong>Account</strong></h2>
+
+							<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "white-row"}) do |f| %>
+
+								<!-- alert failed -->
+								<%= devise_error_messages! %>
+
+        <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
+
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>E-mail Address</label>
+											<%= f.email_field :email, autofocus: true, :class => "form-control" %>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-6">
+											<label>Password</label>
+											<%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+										</div>
+										<div class="col-md-6">
+											<label>Re-enter Password</label>
+											<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-6">
+											<label>Вы промоутер или работодатель?</label>
+											<div class="radio">
+						                      <%= f.radio_button(:status, "promo", :checked => (params[:status] == "promo")) %>
+						                      <%= f.label(:status, "Промоутер") %>
+						                    </div>
+						                    <div class="radio">
+						                      <%= f.radio_button(:status, "agent", :checked => (params[:status] == "agent")) %>
+						                      <%= f.label(:status, "Работодатель") %>
+						                    </div>
+										</div>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<input type="submit" value="Sign Up" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+									</div>
+								</div>
+								<br>
+<p>Вы можете использовать Facebook и Вконтакте для регистрации на сайте</p>
+
+<%= link_to(image_tag("/images/facebook.jpg"), user_omniauth_authorize_path(:facebook)) %>
+<%= link_to(image_tag("/images/vk.png"), user_omniauth_authorize_path(:vkontakte)) %>
+							<% end %>
+
+						</div>
+						<!-- /REGISTER -->
+
+						<!-- WHY? -->
+						<div class="col-md-6">
+
+							<h2>Why to register?</h2>
+
+							<div class="white-row">
+
+								<h4>Registration is fast, easy, and free.</h4>
+
+								<p>Once you're registered, you can:</p>
+								<ul class="list-icon check">
+									<li>Buy, sell, and interact with other members.</li>
+									<li>Save your favorite searches and get notified.</li>
+									<li>Watch the status of up to 200 items.</li>
+									<li>View your Atropos information from any computer in the world.</li>
+									<li>Connect with the Atropos community.</li>
+								</ul>
+
+								<hr class="half-margins" />
+
+								<p>
+									Already have an account?
+									<a href="page-signin.html">Click to Sign In</a>
+								</p>
+							</div>
+
+							<div class="white-row">
+								<h4>Contact Customer Support</h4>
+								<p>
+									If you're looking for more help or have a question to ask, please <a href="contact-us.html">contact us</a>.
+								</p>
+							</div>
+
+						</div>
+						<!-- /WHY? -->
+
+					</div>
+
+				</section>
+
+			</div>
+		</div>
+		<!-- /WRAPPER -->

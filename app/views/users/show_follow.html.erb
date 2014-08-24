@@ -1,0 +1,87 @@
+<!-- WRAPPER -->
+    <div id="wrapper">
+
+      <!-- PAGE TITLE -->
+      <%= render "/shared/bread" %>
+
+      <%= render '/shared/moremenu' %>
+
+      <section class="container">
+      <% if current_user.status == "promo" %>
+        <h2>Список <strong>btl-агентств </strong></h2>
+        <p>Данные агентства добавили Вас в список своих постоянных промоутеров.</p>
+      <% elsif current_user.status == "agent" %>
+        <h2>Список <strong>отобранных промоутеров</strong></h2>
+        <p>Данные промоутеры были добавленны вами в список избранных контактов.</p>
+      <% end %>      
+
+        <div class="row">
+          <p id="notice"><%= notice %></p>
+          <div class="col-md-12">
+
+<script type="text/javascript">
+ $(document).ready( function () {
+    $('#users').dataTable();
+  } );
+</script>
+
+
+<h1>Products</h1>
+
+<table id="users">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Category</th>
+      <th>Release Date</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to(user.name, user) %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.created_at.strftime("%B %e, %Y") %></td>
+        <td><%= user.city.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+            <table class="table table-striped">
+                <!-- table head -->
+                <thead>
+                    <tr>
+                        <th>Наименование</th>
+                        <th>Город</th>
+                        <th>Телефон</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @users.each do |agent| %>
+                    <tr>
+                      <td>
+                        <%= image_tag agent.avatar.thumb.url %>
+                      </td>
+                      <td>
+                        <%= agent.name %>
+                      </td>
+                      <td>
+                        <%= agent.city.name %>
+                      </td>
+                      <td>
+                        <%= agent.phone %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
+
+          </div>
+
+      </section>
+
+    </div>
+    <!-- /WRAPPER -->

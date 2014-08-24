@@ -1,0 +1,32 @@
+<% if current_user %>
+
+<section class="container text-center">
+  <!-- Top Nav -->
+
+    <div class="navbar-collapse nav-main-collapse collapse pull-right">
+      <nav class="nav-main mega-menu">
+        <ul class="nav nav-pills nav-main scroll-menu" id="topMain">
+          <li>
+            <%= link_to "Профайл", user_url(current_user) %>
+          </li>
+          <li>
+            <%= link_to "Изменить данные".html_safe, edit_user_url(current_user) %>
+          </li>
+          <li>
+            <% if current_user.status == "promo" %>
+              <%= link_to "Вами заинтересовались", followers_user_path(current_user) %>
+            <% else %>
+              <%= link_to "Отобранные промоутеры", following_user_path(current_user) %>
+            <% end %>
+          </li>
+          <li class="active">
+            <%= link_to "Выйти", "/users/sign_out" %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="divider"></div>
+</section>
+
+<% end %>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="keywords" content="промоутер, база промоутеров, поиск промоутеров, вакансии промоутер, работа промоутером, работа летом промоутером, промоутер оплата, промоутер в Москве, btl агенства, промо акции, promo, promotion, промоутер с 14, требуются промоутеры, ищем промоутеров, Самара, Челябинск, Новосибирск, Нижний Новгород, Ярославль, Владимир, Киев, Харьков, раздача листовок" />
+  <meta name="description" content="Работа промоутером. Мы ищем для вас промоутеров по всей России. Самая большая база промоутеров для временной работы на btl акциях." />
+
+</head>
+<body>
+
+	<%= render 'static_pages/header' %>
+	<%= yield %>
+	<%= render 'static_pages/footer' %>
+
+</body>
+</html>

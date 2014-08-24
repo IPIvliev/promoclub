@@ -1,0 +1,23 @@
+ <div id="wrapper">
+            <!-- PAGE TITLE -->
+    <%= render "/shared/bread" %>
+
+    <%= render '/shared/moremenu' %>
+
+<% if current_user.status? %>
+    <% if current_user.status == "promo" %>
+        <%= render 'editpromo' %>
+    <% elsif "agent" %>
+        <%= render 'editagent' %>
+    <% end %>
+<% elsif params[:status] %>
+    <% if params[:status] == "promo" %>
+        <%= render 'editpromo' %>
+    <% elsif "agent" %>
+        <%= render 'editagent' %>
+    <% end %>
+
+<% elsif params[:status].blank? %>
+    <%= render 'selectstatus' %>
+<% end %>
+</div>

@@ -1,0 +1,41 @@
+<div class="col-md-3">
+
+
+              <!-- blog search -->
+              <div class="widget">
+
+                <h3>Поиск по блогу</h3>
+
+                <form method="get" action="#" class="input-group">
+                  <input type="text" class="form-control" name="s" id="s" value="" placeholder="поиск..." />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                  </span>
+                </form>
+              </div>
+
+              <!-- recent work -->
+              <div class="widget">
+
+                <h4>Новые сайты в магазине</h4>
+
+
+
+                <div class="clearfix"></div>
+              </div>
+
+
+              <!-- recent posts -->
+              <div class="widget">
+
+                <h4>Последние сообщения</h4>
+
+                <ul>
+                  <% Article.all.each do |article| %>
+                    <li><%= link_to "<i class='fa fa-sign-out'></i> #{article.name}".html_safe, article_path(article) %> <small> <%= Russian::strftime(article.created_at, "%d %B %Y / %H:%M") %></small></li>
+                  <% end %>
+                </ul>
+
+              </div>
+
+            </div>

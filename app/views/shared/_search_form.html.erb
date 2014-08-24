@@ -1,0 +1,63 @@
+    <%= search_form_for @search do |f| %>
+
+  <div class="form-group">
+    <label><strong>Укажите пол:</strong></label><br>
+     <%= f.radio_button :gender_eq, "" %>
+     <label>Не важно</label><br>
+     <%= f.radio_button :gender_eq, "Женский" %> 
+     <label>Женский</label><br>
+     <%= f.radio_button :gender_eq, "Мужской" %>
+     <label id="Label" for="CheckBox" class="CheckBoxLabelClass">Мужской</label>
+  </div>
+
+
+  <div class="form-group">
+    <label><strong>Укажите возраст:</strong></label>
+    <%= f.text_field :age_lteq, :class => "form-control", :placeholder => "С" %><br>
+    <%= f.text_field :age_gteq, :class => "form-control", :placeholder => "По" %>
+
+  </div>
+
+  <div class="form-group">
+       
+                    <label><strong>Страна:</strong></label><br>
+<%= f.collection_select :country_id_eq,  Country.all,  :id, :name, {:prompt   => "Выберите страну"}, {:id => 'countries_select'} %>
+<br>
+
+<label><strong>Регион:</strong></label><br>
+<%= f.collection_select :state_id_eq, State.all, :id, :name, {:prompt   => "Выберите регион"}, {:id => 'states_select'} %>
+<br>
+
+
+<label><strong>Город:</strong></label><br>
+<%= f.collection_select :city_id_eq, City.all, :id, :name, {:prompt   => "Выберите город"}, {:id => 'cities_select'} %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#countries_select').change(function() {
+      $.ajax({
+        url: "<%= update_states_path %>",
+        data: {
+          country_id : $('#countries_select').val()
+        },
+        dataType: "script"
+      });
+    });
+    $('#states_select').change(function() {
+      $.ajax({
+        url: "<%= update_cities_path %>",
+        data: {
+          state_id : $('#states_select').val()
+        },
+        dataType: "script"
+      });
+    });
+  });
+</script>
+
+                  </div>
+
+
+  <div class="actions"><%= f.submit "Найти", :class => "btn btn-primary" %></div>
+<% end %>

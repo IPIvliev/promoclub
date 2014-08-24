@@ -1,0 +1,17 @@
+<% if current_user %>
+
+<div class="col-md-12">
+	<a class="btn btn-info btn-lg col-md-12" href="/baza-promouterov.html">Посмотреть всю базу промоутеров</a>
+</div>
+
+<% else %>
+
+<div class="col-md-6">
+	<a class="btn btn-success btn-lg col-md-12" href="/users/sign_up?status=promo">Регистрация для промоутеров</a>
+</div>
+
+<div class="col-md-6">
+	<a class="btn btn-warning btn-lg col-md-12" href="/users/sign_up?status=agent">Регистрация для работодателей</a>
+</div>
+
+<% end %>
