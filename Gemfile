@@ -38,7 +38,7 @@ gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 
 group :production do
-#  gem 'mysql2'
+  gem 'mysql2'
 end
 
 group :assets do
