@@ -12,6 +12,7 @@ gem 'sqlite3'
 gem "breadcrumbs_on_rails"
 gem 'russian'
 gem 'thin'
+gem 'sitemap_generator'
 
 # Users
 gem 'devise'

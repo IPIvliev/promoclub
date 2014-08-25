@@ -18,6 +18,7 @@ Promoclub::Application.routes.draw do
 
 # Пользователи
   get "/baza-promouterov.html", to: "users#index"
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   get 'users/update_states', :as => 'update_states'
   get 'users/update_cities', :as => 'update_cities'

@@ -23,8 +23,16 @@
           </div>
 
           <div class="col-sm-7 col-md-5">
+            <% if @promoter == current_user %>
+              <%= link_to "Удалить анкету", admin_destroy_user_path(current_user), method: :delete, data: { confirm: "You sure?" }, :class => "btn btn-danger" %><br><br>
+            <% end %>
+
           <% if @promoter.status == "promo" %>
-            <h3>Вы можете нанять этого промоутера на работу</h3>
+            <% if @promoter == current_user %>
+              <h3>Так Ваша анкета выглядит у работодателей</h3>
+            <% else %>
+              <h3>Вы можете нанять этого промоутера на работу</h3>
+            <% end %>
           <% else %>
             <h3>Данные о работодателе</h3>
           <% end %>
