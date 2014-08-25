@@ -37,6 +37,9 @@ gem 'truncate_html'
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 
+group :production do
+  gem 'mysql2'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
