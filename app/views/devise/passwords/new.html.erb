@@ -1,12 +1,118 @@
-<h2>Forgot your password?</h2>
+		<!-- WRAPPER -->
+		<div id="wrapper">
 
+			<div id="shop">
+
+				<!-- PAGE TITLE -->
+				<header id="page-title">
+					<div class="container">
+						<h1>Войти на сайт</h1>
+
+						<ul class="breadcrumb">
+							<li><a href="/index.html">Главная</a></li>
+							<li class="active">Войти</li>
+						</ul>
+					</div>
+				</header>
+
+
+				<section class="container">
+
+					<div class="row">
+
+						<!-- LOGIN -->
+						<div class="col-md-6">
+
+							<h2>Войти <strong>На Сайт</strong></h2>
+
+							<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "white-row"}) do |f| %>
+
+								<!-- alert failed -->
+								<!-- alert failed -->
+								<%= devise_error_messages! %>
+								
+        <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
+
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Адресс электронной почты</label>
+											<%= f.text_field :email, :autofocus => true, :class => "form-control" %>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Пароль</label>
+											<%= f.password_field :password, :class => "form-control" %>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<span class="remember-box checkbox">
+											<label for="rememberme">
+												  <% if devise_mapping.rememberable? -%>  
+    <p><%= f.check_box :remember_me %> <%= f.label "запомнить меня" %></p>  
+  <% end -%> 
+											</label>
+										</span>
+									</div>
+									<div class="col-md-6">
+										<%= f.submit "Войти", :class => "btn btn-primary pull-right" %>
+									</div>
+								</div>
+								<br>
+<p>Вы также можете использовать Facebook и Вконтакте для входа на сайт</p>
+
+<%= link_to(image_tag("/images/facebook.jpg"), user_omniauth_authorize_path(:facebook)) %>
+<%= link_to(image_tag("/images/vk.png"), user_omniauth_authorize_path(:vkontakte)) %>
+							<% end %>
+
+						</div>
+						<!-- /LOGIN -->
+
+						<!-- PASSWORD -->
+						<div class="col-md-6">
+
+							<h2>Забыли <strong>Пароль</strong>?</h2>
+
+							<div class="white-row">
+
+								<p>
+									Вы всегда можете восстановить пароль через адрес электронной почты, указанный вами при регистрации.
+								</p>
+
+								<!-- password form -->
+			
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.submit "Send me reset password instructions" %></div>
+  <%= f.label "Укажите ваш email" %>
+  <%= f.email_field :email, autofocus: true, :class => "form-control" %><br>
+<span class="input-group-btn">
+  <%= f.submit "Отправить", :class => "btn btn-primary" %>
+</span>
 <% end %>
+							
 
-<%= render "devise/shared/links" %>
+							</div>
+
+						</div>
+						<!-- /PASSWORD -->
+
+					</div>
+
+
+					<p class="white-row">
+						Вы ещё не успели зарегистрироваться? <a href="/users/sign_up">Нажмите здесь для регистрации</a>, это абсолютно бесплатно!
+					</p>
+
+				</section>
+
+			</div>
+		</div>
+		<!-- /WRAPPER -->

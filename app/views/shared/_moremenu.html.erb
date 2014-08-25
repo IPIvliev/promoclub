@@ -10,7 +10,7 @@
             <%= link_to "Профайл", user_url(current_user) %>
           </li>
           <li>
-            <%= link_to "Изменить данные".html_safe, edit_user_url(current_user) %>
+            <%= link_to "Изменить данные", edit_user_url(current_user) %>
           </li>
           <li>
             <% if current_user.status == "promo" %>
@@ -19,6 +19,13 @@
               <%= link_to "Отобранные промоутеры", following_user_path(current_user) %>
             <% end %>
           </li>
+
+          <% if current_user.status == "admin" %>
+            <li>
+              <%= link_to "Статистика", "/statistika.html" %>
+            </li>
+          <% end %>
+
           <li class="active">
             <%= link_to "Выйти", "/users/sign_out" %>
           </li>

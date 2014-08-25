@@ -1,0 +1,39 @@
+
+    <!-- WRAPPER -->
+    <div id="wrapper">
+
+      <div id="shop">
+
+        <!-- PAGE TITLE -->
+      <%= render "/shared/bread" %>
+
+      <%= render "/shared/moremenu" %>
+
+        <section class="container">
+
+          <div class="row">
+
+            <div class="col-md-9">
+
+              <% if current_user.status == "admin" %>
+
+                <ul>
+                  <li><strong>Количество промоутеров:</strong> <%= User.where(:status => "promo").count %></li>
+                  <li><strong>Из них с фотографиями:</strong> <%= User.where("avatar IS NOT NULL AND status = ?", "promo").count %></li>
+                  <li><strong>Количество работодателей:</strong> <%= User.where(:status => "agent").count %></li>
+
+              <% else %>
+                <p>У вас нет прав доступа в этот раздел.</p>
+              <% end %>
+
+            </div><!-- /col-md-9 -->
+
+
+
+          </div><!-- /row -->
+
+        </section>
+
+      </div>
+    </div>
+    <!-- /WRAPPER -->

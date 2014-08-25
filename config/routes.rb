@@ -11,6 +11,7 @@ Promoclub::Application.routes.draw do
   get "/o-proekte.html", to: "static_pages#about"
   get "/kontakti.html", to: "static_pages#contacts"
   get "/promouteri.html", to: "static_pages#promoters"
+  get "/statistika.html", to: "static_pages#statistika"
   get "/blog.html", to: "articles#index"
   get "/uslugi.html", to: "static_pages#services"
   get "/uslugi/poisk-promouterov.html", to: "static_pages#find"

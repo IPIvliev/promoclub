@@ -6,11 +6,11 @@
 				<!-- PAGE TITLE -->
 				<header id="page-title">
 					<div class="container">
-						<h1>Sign UP</h1>
+						<h1>Регистрация</h1>
 
 						<ul class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li class="active">Sign UP</li>
+							<li><a href="index.html">Главная</a></li>
+							<li class="active">Регистрация</li>
 						</ul>
 					</div>
 				</header>
@@ -23,7 +23,7 @@
 						<!-- REGISTER -->
 						<div class="col-md-6">
 
-							<h2>Create <strong>Account</strong></h2>
+							<h2>Создать <strong>Аккаунт</strong></h2>
 
 							<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "white-row"}) do |f| %>
 
@@ -37,7 +37,7 @@
 								<div class="row">
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>E-mail Address</label>
+											<label>Ваш E-mail</label>
 											<%= f.email_field :email, autofocus: true, :class => "form-control" %>
 										</div>
 									</div>
@@ -45,11 +45,11 @@
 								<div class="row">
 									<div class="form-group">
 										<div class="col-md-6">
-											<label>Password</label>
+											<label>Пароль</label>
 											<%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
 										</div>
 										<div class="col-md-6">
-											<label>Re-enter Password</label>
+											<label>Повторите пароль</label>
 											<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
 										</div>
 									</div>
@@ -72,7 +72,7 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12">
-										<input type="submit" value="Sign Up" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+										<input type="submit" value="Зарегистрироваться" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
 									</div>
 								</div>
 								<br>
@@ -88,33 +88,32 @@
 						<!-- WHY? -->
 						<div class="col-md-6">
 
-							<h2>Why to register?</h2>
+							<h2>Зачем нужно регистрироваться?</h2>
 
 							<div class="white-row">
 
-								<h4>Registration is fast, easy, and free.</h4>
+								<h4>Регистрация быстрая, простая и бесплатная :)</h4>
 
-								<p>Once you're registered, you can:</p>
+								<p>Зарегистрировавшись вы сможете:</p>
 								<ul class="list-icon check">
-									<li>Buy, sell, and interact with other members.</li>
-									<li>Save your favorite searches and get notified.</li>
-									<li>Watch the status of up to 200 items.</li>
-									<li>View your Atropos information from any computer in the world.</li>
-									<li>Connect with the Atropos community.</li>
+									<li>Заполнить анкету.</li>
+									<li>Разместить ваши данные в базе промоутеров.</li>
+									<li>Просматривать телефоны промоутеров.</li>
+									<li>Использовать базу вакансий.</li>
 								</ul>
 
 								<hr class="half-margins" />
 
 								<p>
-									Already have an account?
-									<a href="page-signin.html">Click to Sign In</a>
+									У вас уже есть аккаунт?
+									<a href="/users/sign_in.html">Войдите на сайт</a>
 								</p>
 							</div>
 
 							<div class="white-row">
-								<h4>Contact Customer Support</h4>
+								<h4>У вас есть вопросы?</h4>
 								<p>
-									If you're looking for more help or have a question to ask, please <a href="contact-us.html">contact us</a>.
+									Если у вас имеются вопросы относительно использования нашего сервиса <a href="#" data-toggle="modal" data-target="#letter">свяжитесь с нами</a>.
 								</p>
 							</div>
 
