@@ -48,11 +48,8 @@ RailsAdmin.config do |config|
         field :name do
           label "Название"
         end
-        field :text, :rich_editor do
+        field :text do
           label "Текст"
-          config({
-            :insert_many => true
-          })
         end
         exclude_fields :created_at, :updated_at, :user_id
       end
@@ -120,11 +117,8 @@ RailsAdmin.config do |config|
         field :email do
           label "Email"
         end
-        field :text, :rich_editor do
-                  label "Текст"
-        config({
-          :insert_many => true
-        })
+        field :text do
+          label "Текст"
         end
       end
     end
