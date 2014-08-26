@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  amount: 1
+  city_id: 1
+  term: MyString
+  med: false
+  start_date: 2014-08-26 01:58:45
+  finish_date: 2014-08-26 01:58:45
+  description: MyText
+  price: 1
+
+two:
+  amount: 1
+  city_id: 1
+  term: MyString
+  med: false
+  start_date: 2014-08-26 01:58:45
+  finish_date: 2014-08-26 01:58:45
+  description: MyText
+  price: 1

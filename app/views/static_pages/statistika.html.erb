@@ -19,7 +19,7 @@
 
                 <ul>
                   <li><strong>Количество промоутеров:</strong> <%= User.where(:status => "promo").count %></li>
-                  <li><strong>Из них с фотографиями:</strong> <%= User.where("avatar IS NOT NULL AND status = ?", "promo").count %></li>
+                  <li><strong>Из них полностью заполненно:</strong> <%= User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").count %></li>
                   <li><strong>Количество работодателей:</strong> <%= User.where(:status => "agent").count %></li>
 
               <% else %>

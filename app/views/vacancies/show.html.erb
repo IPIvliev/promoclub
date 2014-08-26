@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Amount:</b>
+  <%= @vacancy.amount %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @vacancy.city_id %>
+</p>
+
+<p>
+  <b>Term:</b>
+  <%= @vacancy.term %>
+</p>
+
+<p>
+  <b>Med:</b>
+  <%= @vacancy.med %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @vacancy.start_date %>
+</p>
+
+<p>
+  <b>Finish date:</b>
+  <%= @vacancy.finish_date %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @vacancy.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @vacancy.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_vacancy_path(@vacancy) %> |
+<%= link_to 'Back', vacancies_path %>

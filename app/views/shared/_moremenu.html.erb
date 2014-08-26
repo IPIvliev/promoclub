@@ -7,7 +7,7 @@
       <nav class="nav-main mega-menu">
         <ul class="nav nav-pills nav-main scroll-menu" id="topMain">
           <li>
-            <%= link_to "Профайл", user_url(current_user) %>
+            <%= link_to "Профайл", user_url(current_user) if current_user.city != nil %>
           </li>
           <li>
             <%= link_to "Изменить данные", edit_user_url(current_user) %>

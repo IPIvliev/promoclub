@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+            <div class="alert alert-info">
+              <i class="fa fa-check-circle"></i> 
+              <strong>Внимание!</strong> В данный момент наш сервис работает в тестовом режиме. На время проведения тестирования доступ к нашей базе является бесплатным. Последнюю информацию об изменениях работы нашего сервиса вы можете найти в <a href="/blog.html">Блоге</a>.
+            </div>
+
 
               <div class="col-md-3">
                 <%= image_tag @user.avatar.thumb.url if @user.avatar? %> <%= f.file_field :avatar, :class => "form-control" %>
@@ -27,17 +32,17 @@
                 <div class="form-group">
                   <div class="col-md-4">
                     <label><strong>Страна:</strong></label><br>
-<%= f.collection_select :country_id,  @countries,  :id, :name, {:prompt   => "Выберите страну"}, {:id => 'countries_select'} %>
+<%= f.collection_select :country_id,  @countries,  :id, :name, {:prompt   => "Выберите страну"}, {:id => 'countries_select', :required => "required"} %>
 </div>
 
 <div class="col-md-4">
 <label><strong>Регион:</strong></label><br>
-<%= f.collection_select :state_id, @states, :id, :name, {:prompt   => "Выберите регион"}, {:id => 'states_select'} %>
+<%= f.collection_select :state_id, @states, :id, :name, {:prompt   => "Выберите регион"}, {:id => 'states_select', :required => "required"} %>
 </div>
 
 <div class="col-md-4">
 <label><strong>Город:</strong></label><br>
-<%= f.collection_select :city_id, @cities, :id, :name, {:prompt   => "Выберите город"}, {:id => 'cities_select'} %>
+<%= f.collection_select :city_id, @cities, :id, :name, {:prompt   => "Выберите город"}, {:id => 'cities_select', :required => "required"} %>
 </div>
 
 <script type="text/javascript">

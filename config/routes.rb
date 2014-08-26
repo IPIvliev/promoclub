@@ -1,4 +1,7 @@
 Promoclub::Application.routes.draw do
+  resources :vacancies
+
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   get "omniauth_callbacks/facebook"
