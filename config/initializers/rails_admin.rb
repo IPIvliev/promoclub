@@ -136,9 +136,6 @@ RailsAdmin.config do |config|
         field :name do
           label "Название"
         end
-        field :created_at do
-          label "Дата создания"
-        end
       end
 
       edit do
@@ -157,9 +154,6 @@ RailsAdmin.config do |config|
       list do
         field :name do
           label "Название"
-        end
-        field :created_at do
-          label "Дата создания"
         end
       end
 
@@ -183,9 +177,6 @@ RailsAdmin.config do |config|
       list do
         field :name do
           label "Название"
-        end
-        field :created_at do
-          label "Дата создания"
         end
       end
 
