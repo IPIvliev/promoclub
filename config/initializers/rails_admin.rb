@@ -44,16 +44,16 @@ RailsAdmin.config do |config|
       end
 
       edit do
+        include_all_fields
         field :name do
           label "Название"
         end
-        field :text do
-          label "Текст"
-          ckeditor true
-        end
-        field :picture, :carrierwave do
-          label "Изображение"
-        end
+        field :text, :rich_editor do
+                  label "Текст"
+        config({
+          :insert_many => true
+        })
+        exclude_fields :created_at, :updated_at, :user_id
       end
     end
 
@@ -119,9 +119,11 @@ RailsAdmin.config do |config|
         field :email do
           label "Email"
         end
-        field :text do
-          label "Текст"
-          ckeditor true
+        field :text, :rich_editor do
+                  label "Текст"
+        config({
+          :insert_many => true
+        })
         end
       end
     end

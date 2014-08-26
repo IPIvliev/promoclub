@@ -30,7 +30,7 @@ gem 'acts-as-taggable-on'
 gem 'rails_admin_tag_list'
 
 # Blog
-gem 'ckeditor'
+gem 'rich'
 gem 'truncate_html'
 
 # Images
