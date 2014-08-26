@@ -9,6 +9,8 @@
       <!-- PAGE TITLE -->
       <%= render "/shared/bread" %>
 
+      <%= render '/shared/moremenu' %>
+
         <section class="container">
 
           <% flash.each do |key, value| %>
@@ -35,7 +37,7 @@
 
                   <!-- blog short preview  -->
                   <p>
-                    <%= truncate( raw( sanitize(article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 800, :omission => "...") %>
+                    <%= truncate( raw( sanitize(article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 80, :omission => "...") %>
 
                   </p>
 

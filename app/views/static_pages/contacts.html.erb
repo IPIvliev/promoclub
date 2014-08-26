@@ -8,8 +8,9 @@
 				<div id="gmap"><!-- google map --></div>
 			</header>
 
-		
 			<section id="contact" class="container">
+
+			<%= render '/shared/moremenu' %>
 
 				<% flash.each do |key, value| %>
 		            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
