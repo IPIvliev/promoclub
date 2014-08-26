@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20140825215844) do
     t.string   "name"
     t.string   "surname"
     t.string   "patronymic"
+    t.boolean  "med"
     t.text     "description"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

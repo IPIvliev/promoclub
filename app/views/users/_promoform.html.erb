@@ -86,18 +86,26 @@
                         :order => [:day, :month, :year],
                         :prompt => {:month => 'Месяц', :day => 'День', :year => 'Год'}},
                         {:class => 'year',
-                        :id => 'user_birthday'}
+                        :id => 'user_birthday', :required => "required"}
                       %>
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <div class="col-md-6">
+                   
+                    <%= f.check_box :med %>  <label><strong>Наличие медицинской книжки</strong></label>
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <div class="col-md-6">
                     <label><strong>Номер телефона:</strong></label>
-                    <%= f.text_field :phone, :placeholder => @user.phone, :class => "form-control", :required => "required", :id => "phone", :class => "form-control" %>
+                    <%= f.text_field :phone, :placeholder => @user.phone, :required => "required", :id => "phone", :class => "form-control" %>
                   </div>
                   <div class="col-md-6">
                     <label><strong>Пол:</strong></label><br>
-                    <%= f.select :gender, options_for_select([ "Мужской", "Женский" ], @user.gender), :class => "form-control" %>
+                    <%= f.select :gender, options_for_select([ "Мужской", "Женский" ], @user.gender), :class => "form-control", :required => "required" %>
 
                   </div>
                 </div>

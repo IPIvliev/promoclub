@@ -48,10 +48,11 @@
                 <br>
                 <li><i class='fa fa-male'></i> Пол: <%= @promoter.gender %></li> 
                 <li><i class='fa fa-clock-o'></i> Возраст: <%= calculate_age(@promoter.birth) if @promoter.birth? %> лет </li>
+                <br>
+                <li><i class='fa fa-medkit'></i> Наличие медицинской книжки: <%= medkniga(@promoter.med) %></li>
               <% else %>
                 <li><i class='fa fa-flag'></i> Страна: <%= @promoter.country.name %></li>
-                <li><i class='fa fa-bookmark-o'></i> Город: <%= @promoter.city.name %> </a>
-                </li>
+                <li><i class='fa fa-bookmark-o'></i> Город: <%= @promoter.city.name %> </a></li>
               <% end %>
             </ul>
 

@@ -9,6 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :surname
       t.string :patronymic
+      t.boolean :med
       t.text :description
 
       ## Recoverable
