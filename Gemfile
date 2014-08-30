@@ -31,6 +31,7 @@ gem 'rails_admin_tag_list'
 
 # Blog
 gem 'rich'
+gem 'ckeditor'
 gem 'truncate_html'
 
 # Images

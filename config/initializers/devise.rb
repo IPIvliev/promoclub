@@ -256,6 +256,6 @@ Devise.setup do |config|
 
    OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? 
     config.omniauth :facebook, "1107831335971099", "114ac92c0a2c341b68c6b34dc9e26346"
-    config.omniauth :vkontakte, '4233347', 'Xs9zsF1lzGvuSDQyAbqC'
+    config.omniauth :vkontakte, '4523833', '9FjNqbN80kwMUGy9K0Bv'
 
 end
