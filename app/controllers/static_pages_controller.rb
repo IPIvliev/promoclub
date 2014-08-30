@@ -36,12 +36,12 @@ class StaticPagesController < ApplicationController
     @message = Message.new
   end
 
-  def promoters
-    @title = "База промоутеров"
+  def rabotodateli
+    @title = "Работодатели"
     add_breadcrumb @title
 
-    @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").search(params[:q])
-    @promoters = @search.result
+    @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "agent").search(params[:q])
+    @agents = @search.result
 
   end
 

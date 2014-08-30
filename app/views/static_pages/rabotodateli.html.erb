@@ -17,49 +17,42 @@
 
 						<div class="col-md-9">
 
-							<div class="row top-shop-option">
-								<div class="col-sm-6 col-md-6">
-									<p>Showing 1-12 of 38 results.</p>
-								</div>
-								<div class=" col-sm-6 col-md-6">
-									<select class="pointer fsize13 pull-right" name="orderby">
-										<option value="menu_order" selected='selected'>Default sorting</option>
-										<option value="popularity" >Sort by popularity</option>
-										<option value="rating" >Sort by average rating</option>
-										<option value="date" >Sort by newness</option>
-										<option value="price" >Sort by price: low to high</option>
-										<option value="price-desc" >Sort by price: high to low</option>
-									</select>
-								</div>
-							</div>
-
-						
+					
 							<div class="row">
 							
 
-								<% @promoters.each do |promoter| %>
+								<% @agents.each do |agent| %>
 								<!-- items -->
-								<div class="col-sm-6 col-md-4"><!-- item -->
-									<div class="item-box">
-										<figure>
-											<a class="item-hover" href="<%= user_path(promoter) %>">
-												<span class="overlay color2"></span>
-												<span class="inner">
-													<span class="block fa fa-plus fsize20"></span>
-													<strong>ПОДРОБНАЯ</strong> ИНФОРМАЦИЯ
-												</span>
-											</a>
 
-											
+									<!-- article summary -->
+						<div class="row">
+							<div class="col-md-4 text-center">
+								<%= link_to image_tag(agent.avatar.thumb.url, :class => "img-responsive", :alt => agent.name, :title => agent.name), user_path(agent) %>
+								<!-- Здесь будет рейтинг работодатели -->
+							</div>
+							<div class="col-md-8">
+								<h4><%= link_to agent.name, user_path(agent), :class => "styleColor" %></h4>
+								<p>
+									<% if agent.description.blank? %>
+										Данный работодатель не полностью заполнил профиль аккаунта и не указал никакой дополнительной информации о себе. Если вы имеете отношение к данной организации, порекомендуйте администратору изменить информацию в меню "Изменить профайл".
+									<% else %>
+										<%= agent.description %>
+									<% end %>
+									
+									<br><br>
+									<strong>Дата регистрации: </strong><small class="styleSecondColor"><%= Russian::strftime(agent.created_at, "%d %B %Y") %></small><br>
+									<strong>Номер телефона: </strong><small class="styleSecondColor"><%= agent.phone %></small><br>
+									<strong>Местоположение: </strong><span class="styleColor"><a href="#"><%= agent.city.name %> <i class="fa fa-external-link"></i></a>
+									
+								</p>
+							</div>
+						</div>
+
+						<div class="divider"><!-- divider -->
+							<i class="fa fa-star"></i>
+						</div>
+
 					
-											<img class="img-responsive" src="<%= promoter.avatar.thumb.url %>" width="260" height="260" alt="">
-										</figure>
-										<div class="item-box-desc">
-											<h4><%= "#{promoter.name} #{promoter.surname}" %></h4>
-											<small class="styleColor"><%= promoter.city %></small>
-										</div>
-									</div>
-								</div>
 
 								<% end %>
 
@@ -67,40 +60,11 @@
 							
 							</div>
 
-							<!-- PAGINATION -->
-							<div class="row">
-
-								<div class="col-md-6 text-left">
-									<p class="hidden-xs pull-left nomargin padding20">Showing 1-10 of 38 results.</p>
-								</div>
-
-								<div class="col-md-6 responsive-text-center text-right">
-									<ul class="pagination">
-										<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-									</ul>
-								</div>
-
-							</div>
-							<!-- /PAGINATION -->
-
 						</div><!-- /col-md-9 -->
 
 						<aside class="col-md-3">
 
 	
-<%= search_form_for @search do |f| %>
-  <div class="field">
-    <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont %>
-  </div>
-  <div class="actions"><%= f.submit "Search" %></div>
-<% end %>
 
 						</aside>
 

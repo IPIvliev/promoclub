@@ -60,6 +60,8 @@
 
             <% if current_user and current_user.status == "agent" %>
               <%= @promoter.phone %>
+            <% elsif current_user and current_user.status == "admin" %>
+              <%= @promoter.phone %>
             <% elsif current_user and current_user.status == "promo"  %>
               <p>Только пользователи в статусе "Работодатель" имеют доступ к базе телефонов.</p>
             <% elsif @promoter.status == "agent" %>

@@ -6,15 +6,15 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
 
 
   def index
+    @title = "Блог"
+    add_breadcrumb @title
+
     @articles = Article.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }
     end
-
-    @title = "Контакты"
-    add_breadcrumb @title
   end
 
   # GET /articles/1
