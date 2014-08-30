@@ -72,7 +72,15 @@
             <!-- FOOTER LATEST POSTS -->
             <div class="column col-md-4 text-right">
               <h3>ПОСЛЕДНИЕ НОВОСТИ</h3>
-          
+              <% Article.limit(3).each do |article| %>
+                <div class="post-item">
+                  <small><%= Russian::strftime(article.created_at, "%B %d, %Y") %></small>
+                  <h3><%= link_to article.name, article %></h3>
+                </div>
+              <% end %>
+
+              <%= link_to "Все Новости <i class='fa fa-arrow-right'></i>".html_safe, "/blog.html", :class => "view-more pull-right" %>
+
             </div>
             <!-- /FOOTER LATEST POSTS -->
 

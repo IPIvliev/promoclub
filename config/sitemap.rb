@@ -12,7 +12,7 @@ SitemapGenerator::Sitemap.create do
   add '/uslugi/naiti-rabotu-promouterom.html', :changefreq => 'monthly', :priority => 1.0  
   add '/baza-promouterov.html', :priority => 1.0, :changefreq => 'daily', :priority => 1.0
 
-   User.find_each do |user|
+   User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").find_each do |user|
        add user_path(user), :lastmod => user.updated_at, :changefreq => 'monthly', :priority => 0.7
    end
 
