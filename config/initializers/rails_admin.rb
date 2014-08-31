@@ -9,7 +9,7 @@ RailsAdmin.config do |config|
   # or for a more dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
-  config.included_models = ['Article', 'User', 'Message', 'Country', 'State', 'City']
+  config.included_models = ['Article', 'User', 'Message', 'Opinion', 'Country', 'State', 'City']
 
   # RailsAdmin may need a way to know who the current user is]
   config.current_user_method { current_user } # auto-generated
@@ -124,10 +124,19 @@ RailsAdmin.config do |config|
     end
 
       # Edit Country model
+    config.model Opinion do
+
+      label_plural "Отзывы"
+      weight 4
+
+    end
+
+      # Edit Country model
     config.model Country do
 
+      navigation_label "Местоположение"
       label_plural "Страны"
-      weight 4
+      weight 5
 
       list do
         field :name do
@@ -145,8 +154,9 @@ RailsAdmin.config do |config|
       # Edit State model
     config.model State do
 
+      navigation_label "Местоположение"
       label_plural "Субъекты"
-      weight 5
+      weight 6
 
       list do
         field :name do
@@ -168,8 +178,9 @@ RailsAdmin.config do |config|
       # Edit City model
     config.model City do
 
+      navigation_label "Местоположение"
       label_plural "Города"
-      weight 6
+      weight 7
 
       list do
         field :name do
