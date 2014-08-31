@@ -16,4 +16,14 @@ module UsersHelper
   	end
   end
 
+# Цветной рейтинг возле имени пользователя
+  def color_rate(rate)
+    if rate < 0
+        return "<span class='red'>#{rate}</span>".html_safe
+    elsif rate > 0
+        return "<span class='green'>+#{rate}</span>".html_safe
+    else
+        return 0
+    end
+  end
 end

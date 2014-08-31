@@ -1,7 +1,10 @@
 class OpinionsController < ApplicationController
   include OpinionsHelper
-  # GET /vacancies/new
-  # GET /vacancies/new.json
+
+  def index
+    @my_opinions = current_user.opinions
+  end
+
   def new
     @opinion = current_user.opinions.build(params[:opinion])
 

@@ -12,9 +12,11 @@
 										</span>
 
 										<div class="media-body">
+										<% if current_user %>
 											<%= link_to "Удалить отзыв", opinion_path(opinion), method: :delete, data: { confirm: "You sure?" }, :class => "scrollTo replyBtn" if opinion.user == current_user || current_user.status == "admin" %>
+										<% end %>
 
-											<h4 class="media-heading bold"><%= link_to opinion.user.name, opinion.user %></h4>
+											<h4 class="media-heading bold"><%= link_to opinion.user.name_with_rate, opinion.user %></h4>
 											<small class="block"><%= Russian::strftime(opinion.created_at, "%d %B %Y") %> <%= opinion_rate(opinion.rate) %></small>
 											<%= opinion.text %>
 										</div>

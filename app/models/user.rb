@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include UsersHelper
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -28,7 +30,7 @@ class User < ActiveRecord::Base
   belongs_to :country
 
   has_many :opinions
-  has_many :opinions_to_me, foreign_key: "user_to", class_name: "Opinion"
+  has_many :opinions_to_me, foreign_key: "user_to_id", class_name: "Opinion"
 
  def self.find_for_facebook_oauth(access_token)
     if user = User.where(:facebook_url => access_token.info.urls.Facebook).first
@@ -75,5 +77,10 @@ class User < ActiveRecord::Base
 ransacker :age, :formatter => proc {|v| Date.today - v.to_i.year} do |parent|
   parent.table[:birth]
 end
+
+# Имя пользователя с рейтингом определённого цвета
+  def name_with_rate
+    "#{name} #{surname} (#{color_rate(rate)})".html_safe
+  end
 
 end

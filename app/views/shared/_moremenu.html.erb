@@ -20,6 +20,10 @@
             <% end %>
           </li>
 
+          <li>
+            <%= link_to "Ваши отзывы", opinions_path %>
+          </li>
+
           <% if current_user.status == "admin" %>
             <li>
               <%= link_to "Статистика", "/statistika.html" %>
