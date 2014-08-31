@@ -27,6 +27,9 @@ class User < ActiveRecord::Base
   belongs_to :state
   belongs_to :country
 
+  has_many :opinions
+  has_many :opinions_to_me, foreign_key: "user_to", class_name: "Opinion"
+
  def self.find_for_facebook_oauth(access_token)
     if user = User.where(:facebook_url => access_token.info.urls.Facebook).first
       user

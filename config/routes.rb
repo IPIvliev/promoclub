@@ -26,6 +26,10 @@ Promoclub::Application.routes.draw do
   get "/baza-promouterov.html", to: "users#index"
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
+  # Отзывы о пользователе
+    match "newopinion", :to => 'opinions#new'
+    resources :opinions
+
   get 'users/update_states', :as => 'update_states'
   get 'users/update_cities', :as => 'update_cities'
 

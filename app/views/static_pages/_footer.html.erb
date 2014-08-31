@@ -61,7 +61,7 @@
             <!-- FOOTER LOGO -->
             <div class="column logo col-md-4 text-center">
               <div class="logo-content">
-                <img class="animate_fade_in" src="logo.png" width="200" alt="" />
+                <img class="animate_fade_in" src="/logo.png" width="200" alt="" />
                 <br><br>
                 <h4>ООО "Инфоком-НН"</h4>
               </div>                      
@@ -72,7 +72,7 @@
             <!-- FOOTER LATEST POSTS -->
             <div class="column col-md-4 text-right">
               <h3>ПОСЛЕДНИЕ НОВОСТИ</h3>
-              <% Article.limit(3).each do |article| %>
+              <% Article.limit(3).order("created_at DESC").each do |article| %>
                 <div class="post-item">
                   <small><%= Russian::strftime(article.created_at, "%B %d, %Y") %></small>
                   <h3><%= link_to article.name, article %></h3>

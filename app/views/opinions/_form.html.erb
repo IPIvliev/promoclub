@@ -1,0 +1,32 @@
+<!-- COMMENT FORM -->
+<%= form_for @newopinion, :url => {:controller => "opinions" ,:action => "new"}, :html => { :class => "form-horizontal" } do |f| %>
+	<div class="row">
+
+		<!-- name -->
+		<div class="col-md-4">
+			<label>Характер отзыва</label>
+			<%= f.select :rate, options_for_select([['Позитивный','1'],['Негативный','2']]), :class => "form-control", :required => "required" %>
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<!-- comment -->
+		<div class="col-md-12">
+			<%= f.text_area :text, :class => "form-control input-lg", :rows => "5",  :placeholder => "Ваш отзыв", :required => "required" %>
+		</div><br />
+
+		<%= f.hidden_field :user_to, :value => @promoter.id %>
+	
+		<!-- btn -->
+		<div class="col-md-12">
+			<p>
+				<button class="btn btn-primary">Отправить отзыв</button>
+			</p>
+		</div>
+
+	</div>
+
+<% end %>
+<!-- /COMMENT FORM -->

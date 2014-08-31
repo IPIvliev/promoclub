@@ -1,0 +1,55 @@
+	<!-- COMMENTS -->
+							<div id="comments">
+								<h2><%= @promoter.opinions_to_me.count %> <%= Russian.pluralize(@promoter.opinions_to_me.count, "отзыв", "отзыва", "отзывов") %></h2>
+
+								<!-- comment item -->
+								<% @promoter.opinions_to_me.each do |opinion| %>
+									<div class="comment" style="background-color:<%= opinion_rate_bg(opinion.rate) %>; padding: 10px;">
+
+										<!-- user-avatar -->
+										<span class="user-avatar">
+											<%= image_tag opinion.user.avatar.thumb, :class => "pull-left media-object", :width => "64", :height => "64", :alt => opinion.user.name %>
+										</span>
+
+										<div class="media-body">
+											<%= link_to "Удалить отзыв", opinion_path(opinion), method: :delete, data: { confirm: "You sure?" }, :class => "scrollTo replyBtn" if opinion.user == current_user || current_user.status == "admin" %>
+
+											<h4 class="media-heading bold"><%= link_to opinion.user.name, opinion.user %></h4>
+											<small class="block"><%= Russian::strftime(opinion.created_at, "%d %B %Y") %> <%= opinion_rate(opinion.rate) %></small>
+											<%= opinion.text %>
+										</div>
+									</div>
+								<% end %>
+		
+
+								<hr />
+
+<% if current_user && current_user.status == "agent" && @promoter.status == "promo" %>
+								<h4>
+									Оставить отзыв
+									<small class="block fsize13 font300">Отзывы влияют на рейтинг промоутера.</small>
+								</h4>
+
+								<%= render "/opinions/form" %>
+
+<% elsif current_user && current_user.status == "promo" && @promoter.status == "agent" %>
+								<h4>
+									Оставить отзыв
+									<small class="block fsize13 font300">Отзывы влияют на рейтинг работодателя.</small>
+								</h4>
+
+								<%= render "/opinions/form" %>
+
+<% elsif current_user && current_user.status == "promo" && @promoter.status == "promo" %>
+	<p>Только зарегистрированный пользователь в статусе "Работодатель" может оставить отзыв в адрес промоутера.</p>
+
+<% elsif current_user && current_user.status == "agent" && @promoter.status == "agent" %>
+	<p>Только зарегистрированный пользователь в статусе "Промоутер" может оставить отзыв в адрес работодателя.</p>
+
+<% else %>
+	<p>Только зарегистрированный пользователь может оставить отзыв.</p>
+<% end %>
+
+							</div><!-- /COMMENTS -->
+
+						</div>

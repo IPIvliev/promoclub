@@ -38,9 +38,11 @@ class UsersController < ApplicationController
 
 	def show
 		@promoter = User.find(params[:id])
+    @newopinion = Opinion.new
+
 
 		@title = "База промоутеров: #{@promoter.name} #{@promoter.surname}"
-    	add_breadcrumb @title
+    add_breadcrumb @title
 	end
 
 	def edit
