@@ -9,7 +9,7 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
     @title = "Блог"
     add_breadcrumb @title
 
-    @articles = Article.order('created_at DESC')
+    @articles = Article.order('created_at DESC').page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,6 +21,9 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
+
+    @title = @article.name
+    add_breadcrumb @title
 
     respond_to do |format|
       format.html # show.html.erb

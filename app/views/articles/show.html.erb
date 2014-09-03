@@ -23,7 +23,7 @@
 									<span class="label label-default light"><%= @article.user_id %></span>
 								</small>
 							</header>
-									<%= image_tag @article.picture.url, :class => "img-responsive", :alt => @article.name %>
+									<%= image_tag @article.picture.url, :class => "img-responsive", :alt => @article.name, :title => @article.name %>
 									<br>
 							<!-- article content -->
 							<article>
@@ -34,11 +34,9 @@
 
 							<!-- SOCIAL -->
 							<p class="socials">
-								<a href="#" class="rounded-icon social fa fa-facebook"><!-- facebook --></a>
+								<a class="rounded-icon social fa fa-facebook" href="http://www.facebook.com/sharer.php?s=100&p[title]=<%= @article.name %>&p[summary]=<%= truncate( raw( sanitize(@article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 80, :omission => "...") %>&p[url]=http://allpromoters.ru<%= article_path(@article) %>&p[images][0]=http://allpromoters.ru<%= @article.picture.url %>" target="_blank"></a>
 								<a href="#" class="rounded-icon social fa fa-twitter"><!-- twitter --></a>
 								<a href="#" class="rounded-icon social fa fa-google-plus"><!-- google plus --></a>
-								<a href="#" class="rounded-icon social fa fa-pinterest"><!-- pinterest --></a>
-								<a href="#" class="rounded-icon social fa fa-linkedin"><!-- linkedin --></a>
 							</p>
 						
 						</div>

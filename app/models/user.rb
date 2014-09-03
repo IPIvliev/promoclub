@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
   has_many :opinions
   has_many :opinions_to_me, foreign_key: "user_to_id", class_name: "Opinion"
 
+    # Отправка письма после создания аккаунта
+  after_create :send_greeting_mail
+
+  paginates_per 12
+
  def self.find_for_facebook_oauth(access_token)
     if user = User.where(:facebook_url => access_token.info.urls.Facebook).first
       user
@@ -62,6 +67,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Додавить и удалить из избранного
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)
   end
@@ -81,6 +87,11 @@ end
 # Имя пользователя с рейтингом определённого цвета
   def name_with_rate
     "#{name} #{surname} (#{color_rate(rate)})".html_safe
+  end
+
+    private
+  def send_greeting_mail
+    InfoMailer.info_email(self).deliver
   end
 
 end

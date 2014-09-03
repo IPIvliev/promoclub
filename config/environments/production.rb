@@ -65,5 +65,13 @@ Promoclub::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'allpromoters.ru' }
+  config.action_mailer.default_url_options = {:host => 'allpromoters.ru'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.yandex.ru",
+    :port => 25,
+    :authentication => :login,
+    :user_name => "allpromoters@yandex.ru",
+    :password => "Huteras1"
+  }
 end

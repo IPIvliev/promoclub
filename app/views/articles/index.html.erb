@@ -37,7 +37,7 @@
 
                   <!-- blog short preview  -->
                   <p>
-                    <%= truncate( raw( sanitize(article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 80, :omission => "...") %>
+                    <%= truncate( raw( sanitize(article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 200, :omission => "...") %>
 
                   </p>
 
@@ -49,7 +49,7 @@
               <% end %>
 
               <div class="text-center">
-                
+                <%= paginate @articles %>
               </div>
 
 

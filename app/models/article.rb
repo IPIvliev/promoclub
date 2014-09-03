@@ -5,4 +5,6 @@ class Article < ActiveRecord::Base
   attr_accessible :picture, :picture_cache, :remove_picture
 
   validates_presence_of :picture
+
+  paginates_per 3
 end

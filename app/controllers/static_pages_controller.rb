@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
 
   def index
-    @promoters = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").order("created_at DESC")
+    @promoters = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").order("created_at DESC").limit(16)
   end
 
   def about
@@ -41,7 +41,7 @@ class StaticPagesController < ApplicationController
     add_breadcrumb @title
 
     @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "agent").search(params[:q])
-    @agents = @search.result
+    @agents = @search.result.page(params[:page])
 
   end
 
