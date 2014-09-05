@@ -32,12 +32,19 @@
 
 							<hr />
 
-							<!-- SOCIAL -->
-							<p class="socials">
-								<a class="rounded-icon social fa fa-facebook" href="http://www.facebook.com/sharer.php?s=100&p[title]=<%= @article.name %>&p[summary]=<%= truncate( raw( sanitize(@article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 80, :omission => "...") %>&p[url]=http://allpromoters.ru<%= article_path(@article) %>&p[images][0]=http://allpromoters.ru<%= @article.picture.url %>" target="_blank"></a>
-								<a href="#" class="rounded-icon social fa fa-twitter"><!-- twitter --></a>
-								<a href="#" class="rounded-icon social fa fa-google-plus"><!-- google plus --></a>
-							</p>
+							              <!-- SOCIAL -->
+              <p class="socials">
+                <script type="text/javascript">(function() {
+                if (window.pluso)if (typeof window.pluso.start == "function") return;
+                if (window.ifpluso==undefined) { window.ifpluso = 1;
+                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                var h=d[g]('body')[0];
+                h.appendChild(s);
+                }})();</script>
+                <div class="pluso" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
+              </p>
 						
 						</div>
 
