@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def index
     @title = "База промоутеров"
-    add_breadcrumb @title
 
     @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").search(params[:q])
     if params[:city]

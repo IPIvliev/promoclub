@@ -9,7 +9,7 @@ RailsAdmin.config do |config|
   # or for a more dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
-  config.included_models = ['Article', 'User', 'Message', 'Opinion', 'Country', 'State', 'City']
+  config.included_models = ['Article', 'User', 'Vacancy', 'Message', 'Opinion', 'Country', 'State', 'City']
 
   # RailsAdmin may need a way to know who the current user is]
   config.current_user_method { current_user } # auto-generated
@@ -89,11 +89,31 @@ RailsAdmin.config do |config|
 
     end    
 
+    # Edit User model
+    config.model Vacancy do
+      label_plural 'Вакансии'
+      weight 3
+
+      list do
+        include_all_fields
+        field :name do
+          label "Имя"
+        end
+        field :description do
+          label "Фамилие"
+        end
+        field :created_at do
+          label "Дата создания"
+        end
+      end
+
+    end 
+
     # Edit Message model
     config.model Message do
       
       label_plural 'Сообщения'
-      weight 3
+      weight 4
 
       list do
         field :name do
@@ -127,7 +147,7 @@ RailsAdmin.config do |config|
     config.model Opinion do
 
       label_plural "Отзывы"
-      weight 4
+      weight 5
 
     end
 
@@ -136,7 +156,7 @@ RailsAdmin.config do |config|
 
       navigation_label "Местоположение"
       label_plural "Страны"
-      weight 5
+      weight 6
 
       list do
         field :name do
@@ -156,7 +176,7 @@ RailsAdmin.config do |config|
 
       navigation_label "Местоположение"
       label_plural "Субъекты"
-      weight 6
+      weight 7
 
       list do
         field :name do
@@ -180,7 +200,7 @@ RailsAdmin.config do |config|
 
       navigation_label "Местоположение"
       label_plural "Города"
-      weight 7
+      weight 8
 
       list do
         field :name do

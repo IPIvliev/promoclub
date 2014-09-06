@@ -74,8 +74,12 @@
 									<%= image_tag promoter.avatar.thumb.url, :class => "img-responsive", :alt => "Промоутер: #{promoter.name} #{promoter.surname}", :title => "Промоутер: #{promoter.name} #{promoter.surname}" %>
 								</figure>
 								<div class="item-box-desc">
-									<h4><%= "#{promoter.name} #{promoter.surname}" %></h4>
+									<h4><%= promoter.name_with_rate %></h4>
 									<small class="styleColor"><a href="/users?utf8=%E2%9C%93&q%5Bgender_eq%5D=&q%5Bage_lteq%5D=&q%5Bage_gteq%5D=&q%5Bcountry_id_eq%5D=<%= promoter.country.id %>&q%5Bstate_id_eq%5D=<%= promoter.state.id %>&q%5Bcity_id_eq%5D=<%= promoter.city.id %>&commit=%D0%9D%D0%B0%D0%B9%D1%82%D0%B8"><%= promoter.city.name %></small>
+				                    <span class="fsize12 pull-right">
+					                    <%= "<i class='fa fa-medkit styleSecondColor' title='Имеется медицинская книжка'></i>".html_safe if promoter.med %>
+					                    <%= "<i class='fa fa-truck styleSecondColor' title='Имеется автомобиль'></i>".html_safe if promoter.car %>
+				                    </span>
 								</div>
 							</div>
 						</li>
@@ -101,10 +105,10 @@
             <div class="col-md-7 animation_fade_in">
               <h2><strong>Добро пожаловать!</strong></h2>
               <p class="lead">
-                Целья нашего проекта является помочь всем желающим найти работу промоутером. Промоутеры в Москве, промоутеры в Нижем Новгороде, промоутеры в Санкт-Петербурге - для всех гороов России btl-агентства ищут промоутеров именно у нас!
+                Целью нашего проекта является помочь всем желающим найти работу промоутером. Промоутеры в Москве, промоутеры в Нижем Новгороде, промоутеры в Санкт-Петербурге - для всех городов России btl-агентства ищут промоутеров именно у нас!
               </p>
               <p>
-                 Для работадателя поиск промоутеров является задачей долгой и весьма затратной. Посудите сами - для формирования хорошей базы промоутеров нужны месяцы и сотни часов работы специалиста по кадрам. А ведь именно от качества промоутеров, от их готовности выйти на работу, зависит успех промо-акции.
+                 Для работодателя поиск промоутеров является задачей долгой и весьма затратной. Посудите сами - для формирования хорошей базы промоутеров нужны месяцы и сотни часов работы специалиста по кадрам. А ведь именно от качества промоутеров, от их готовности выйти на работу, зависит успех промо-акции.
               </p>
 
               <a class="btn btn-primary btn-lg" href="/uslugi.html">Узнать больше</a>

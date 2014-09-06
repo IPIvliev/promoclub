@@ -20,6 +20,12 @@
             <% end %>
           </li>
 
+          <% if current_user.status == "admin" || current_user.status == "agent" %>
+            <li>
+              <%= link_to "Создать вакансию", new_vacancy_path %>
+            </li>
+          <% end %>
+
           <li>
             <%= link_to "Ваши отзывы", opinions_path %>
           </li>

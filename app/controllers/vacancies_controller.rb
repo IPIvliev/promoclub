@@ -1,8 +1,13 @@
+# encoding: utf-8
+
 class VacanciesController < ApplicationController
-  # GET /vacancies
-  # GET /vacancies.json
+  add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
+  add_breadcrumb "Вакансии промоутеров", "/vakansii-promouterov.html", :title => "Вернуться в базу вакансий"
+
   def index
-    @vacancies = Vacancy.all
+    @title = "Вакансии промоутеров"
+
+    @vacancies = Vacancy.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +30,9 @@ class VacanciesController < ApplicationController
   # GET /vacancies/new.json
   def new
     @vacancy = Vacancy.new
+    @countries  = Country.all
+    @states = State.all
+    @cities   = City.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +43,15 @@ class VacanciesController < ApplicationController
   # GET /vacancies/1/edit
   def edit
     @vacancy = Vacancy.find(params[:id])
+    @countries  = Country.all
+    @states = State.all
+    @cities   = City.all
   end
 
   # POST /vacancies
   # POST /vacancies.json
   def create
-    @vacancy = Vacancy.new(params[:vacancy])
+    @vacancy = current_user.vacancies.build(params[:vacancy])
 
     respond_to do |format|
       if @vacancy.save

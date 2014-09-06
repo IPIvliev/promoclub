@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :facebook_url,
   :vk_url, :name, :uid, :gender, :description, :surname, :patronymic, :birth, :phone, :city_id,
-  :status, :country_id, :state_id, :med
+  :status, :country_id, :state_id, :med, :car
   # attr_accessible :title, :body
 
   mount_uploader :avatar, AvatarUploader
@@ -17,13 +17,13 @@ class User < ActiveRecord::Base
 
  # validates_presence_of :name, :phone
 
-
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  has_many :vacancies
 
   belongs_to :city
   belongs_to :state

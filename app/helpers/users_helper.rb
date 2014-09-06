@@ -8,8 +8,8 @@ module UsersHelper
   end	
 
 # Наличие медицинской книги
-  def medkniga(med)
-  	if med
+  def have_it(have)
+  	if have
   		return "<span class='green'>В наличии<span>".html_safe
   	else
   		return "<span class='red'>Отсутсвует<span>".html_safe
