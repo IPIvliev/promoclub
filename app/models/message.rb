@@ -6,6 +6,6 @@ class Message < ActiveRecord::Base
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :text, :presence => true, length: { minimum: 6, maximum: 1500 }
+  validates :text, :presence => true, length: { minimum: 10, maximum: 1500 }
 
 end
