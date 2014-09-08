@@ -21,14 +21,16 @@
 								<h1 itemprop="headline"><%= @article.name %></h1>
 								<meta itemprop="author" content="Клуб промоутеров">
 								<small class="fsize13">
-									<span class="label label-default light" itemprop="dateCreated"><%= Russian::strftime(@article.created_at, "%d %B %Y") %></span>
+									<meta itemprop="dateCreated" content="<%= @article.created_at %>">
+									 
+									<span class="label label-default light"><%= Russian::strftime(@article.created_at, "%d %B %Y") %></span>
 									<span class="label label-default light"><%= @article.user_id %></span>
 								</small>
 							</header>
 									<%= image_tag @article.picture.url, :class => "img-responsive", :alt => @article.name, :title => @article.name, :itemprop => "image" %>
 									<br>
 							<!-- article content -->
-							<article itemprop="text">
+							<article itemprop="description">
 								<%= @article.text.html_safe %>
 							</article>
 
