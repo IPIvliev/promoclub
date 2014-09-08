@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140831212140) do
+ActiveRecord::Schema.define(:version => 20140908060134) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -99,8 +99,8 @@ ActiveRecord::Schema.define(:version => 20140831212140) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.datetime "birth"
     t.string   "avatar"
     t.string   "name"
@@ -111,13 +111,13 @@ ActiveRecord::Schema.define(:version => 20140831212140) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.integer  "sign_in_count",          :default => 0,     :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "status"
     t.string   "facebook_url"
     t.string   "vk_url"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20140831212140) do
     t.integer  "country_id"
     t.integer  "state_id"
     t.integer  "rate",                   :default => 0
+    t.boolean  "car",                    :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -137,14 +138,19 @@ ActiveRecord::Schema.define(:version => 20140831212140) do
   create_table "vacancies", :force => true do |t|
     t.integer  "amount"
     t.integer  "city_id"
-    t.string   "term"
+    t.string   "name"
     t.boolean  "med"
     t.datetime "start_date"
     t.datetime "finish_date"
     t.text     "description"
     t.integer  "price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "user_id"
+    t.integer  "country_id"
+    t.integer  "state_id"
+    t.boolean  "car",         :default => false
+    t.string   "gender"
   end
 
 end

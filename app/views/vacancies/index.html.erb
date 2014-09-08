@@ -46,7 +46,7 @@
                                     <% if vacancy.description.blank? %>
                                         В данной вакансии отсутствует дополнительное описание. Мы рекомендуем рекламодателям полностью заполнять формы вакансий: это стимулирует потенциальных сотрудников к работе с вами.
                                     <% else %>
-                                        <%= truncate( raw( sanitize(vacancy.description, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 250) %>
+                                        <%= truncate_html(vacancy.description, length: 250, omission: '...') %>
                                     <% end %>
                                 </p>
                                 <p>

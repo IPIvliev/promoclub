@@ -67,7 +67,7 @@
 <% if @vacancy.description.blank? %>
   <p>Работодатель не указал дополнительной информации о вакансии.</p>
 <% else %>
-  <p><%= @vacancy.description %></p>
+  <p><%= @vacancy.description.html_safe %></p>
 <% end %>
 
 
