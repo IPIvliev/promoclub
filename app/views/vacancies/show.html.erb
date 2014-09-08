@@ -24,7 +24,8 @@
 
           <div class="col-sm-7 col-md-5">
             <% if @vacancy.user == current_user %>
-              <%= link_to "Удалить анкету", vacancy_path(@vacancy), method: :delete, data: { confirm: "You sure?" }, :class => "btn btn-danger" %><br><br>
+              <%= link_to "Изменить вакансию", edit_vacancy_path(@vacancy), :class => "btn btn-info" %>
+              <%= link_to "Удалить вакансию", vacancy_path(@vacancy), method: :delete, data: { confirm: "Вы уверены?" }, :class => "btn btn-danger" %><br><br>
             <% end %>
 
             <% if @vacancy.user == current_user %>
@@ -41,7 +42,8 @@
                 </li>
                 
                 <br>
-                <li><i class='fa fa-male'></i> Количество вакантных мест: <%= @vacancy.amount %></li> 
+                <li><i class='fa fa-male'></i> Количество вакантных мест: <%= @vacancy.amount %></li>
+                <li><i class='fa fa-female'></i> Требования к полу промоутеров: <%= @vacancy.gender %></li> 
                 <li><i class='fa fa-clock-o'></i> Зарплата: <%= @vacancy.price %> рублей в час</li>
                 <br>
                 <li><i class='fa fa-chevron-right'></i> Начало акции: <%= Russian::strftime(@vacancy.start_date, "%d %B %Y") %></li>

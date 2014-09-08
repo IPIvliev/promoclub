@@ -19,7 +19,7 @@
 
                     
                             <div class="row">
-<% if @promoters.blank? %>
+<% if @vacancies.blank? %>
   <strong>По вашему запросу не найдено ни одной вакансии.</strong>
 <% else %>                            
 
@@ -30,22 +30,29 @@
                         <div class="row">
                             <div class="col-md-4 text-center">
                                 <%= link_to image_tag(vacancy.user.avatar.thumb.url, :class => "img-responsive", :alt => vacancy.user.name, :title => vacancy.name), vacancy_path(vacancy) %>
+
                             </div>
                             <div class="col-md-8">
+
                                 <h4><%= link_to vacancy.name, vacancy_path(vacancy), :class => "styleColor" %></h4>
+
+                                <% if vacancy.user == current_user %>
+                                  <%= link_to "Изменить вакансию", edit_vacancy_path(vacancy), :class => "btn btn-xs btn-info" %>
+                                  <%= link_to "Удалить вакансию", vacancy_path(vacancy), method: :delete, data: { confirm: "Вы уверены?" }, :class => "btn btn-xs btn-danger" %><br><br>
+                                <% end %>
+
                                 <small><strong>Организатор: </strong><%= link_to vacancy.user.name_with_rate, user_path(vacancy.user) %></small>
                                 <p>
                                     <% if vacancy.description.blank? %>
                                         В данной вакансии отсутствует дополнительное описание. Мы рекомендуем рекламодателям полностью заполнять формы вакансий: это стимулирует потенциальных сотрудников к работе с вами.
                                     <% else %>
-                                        <%= vacancy.description %>
+                                        <%= truncate( raw( sanitize(vacancy.description, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 250) %>
                                     <% end %>
                                 </p>
                                 <p>
                                     <span class="fsize12 pull-right">
-                                        <strong><span class="styleSecondColor"><%= vacancy.price %></span> рублей в час</strong><br>
-                                        <strong><span class="styleSecondColor"><%= vacancy.price*8 %></span> рублей в день</strong><br>
-                                        <strong><span class="styleSecondColor"><%= vacancy.price*8*21 %></span> рублей в месяц</strong>
+                                        <strong><span class="styleSecondColor"><%= vacancy.price %></span> рублей в час</strong><br><br><br>
+                                        <%= link_to "Посмотреть вакансию", vacancy_path(vacancy), :class => "btn btn-success" %>
                                     </span>
 
                                     <strong>Дата начала акции: </strong><span class="styleSecondColor"><%= Russian::strftime(vacancy.start_date, "%d %B %Y") %></span><br>

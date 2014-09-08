@@ -15,6 +15,13 @@ class VacanciesController < ApplicationController
     end
   end
 
+  def my
+    @title = "Мои вакансии"
+
+    @vacancies = current_user.vacancies.page(params[:page])
+    render :template => "/vacancies/index"
+  end
+
   # GET /vacancies/1
   # GET /vacancies/1.json
   def show

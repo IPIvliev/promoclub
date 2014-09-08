@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20140905173729) do
     t.integer  "country_id"
     t.integer  "state_id"
     t.boolean  "car",         :default => false
+    t.string   "gender"
   end
 
 end
