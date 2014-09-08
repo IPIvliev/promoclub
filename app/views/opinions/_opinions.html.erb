@@ -4,7 +4,9 @@
 
 								<!-- comment item -->
 								<% @promoter.opinions_to_me.each do |opinion| %>
-									<div class="comment" style="background-color:<%= opinion_rate_bg(opinion.rate) %>; padding: 10px;">
+									<div class="comment" style="background-color:<%= opinion_rate_bg(opinion.rate) %>; padding: 10px;" itemscope itemtype="http://schema.org/Review">
+
+										<meta itemprop="itemReviewed" itemscope itemprop="name" content="<%= opinion.user_to.name %>" />
 
 										<!-- user-avatar -->
 										<span class="user-avatar">
@@ -16,9 +18,9 @@
 											<%= link_to "Удалить отзыв", opinion_path(opinion), method: :delete, data: { confirm: "You sure?" }, :class => "scrollTo replyBtn" if opinion.user == current_user || current_user.status == "admin" %>
 										<% end %>
 
-											<h4 class="media-heading bold"><%= link_to opinion.user.name_with_rate, opinion.user %></h4>
-											<small class="block"><%= Russian::strftime(opinion.created_at, "%d %B %Y") %> <%= opinion_rate(opinion.rate) %></small>
-											<%= opinion.text %>
+											<h4 class="media-heading bold" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><%= link_to opinion.user.name_with_rate, opinion.user, :itemprop => "url" %></span></h4>
+											<small class="block"><span itemprop="datePublished"><%= Russian::strftime(opinion.created_at, "%d %B %Y") %></span> <span itemprop="ratingValue"><%= opinion_rate(opinion.rate) %></span></small>
+											<span itemprop="reviewBody"><%= opinion.text %></span>
 										</div>
 									</div>
 								<% end %>
