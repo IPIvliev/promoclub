@@ -18,7 +18,7 @@ SitemapGenerator::Sitemap.create do
 
   add '/vakansii-promouterov.html', :priority => 1.0, :changefreq => 'weekly', :priority => 1.0
 
-   Vacancy.each do |vacancy|
+   Vacancy.find_each do |vacancy|
        add vacancy_path(vacancy), :lastmod => vacancy.updated_at, :changefreq => 'monthly', :priority => 1.0
    end
 
