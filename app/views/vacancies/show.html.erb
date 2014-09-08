@@ -35,7 +35,7 @@
             <% end %>
 
             <ul class="list-icon">
-                <li><i class='fa fa-certificate'></i> Наниматель: <%= @vacancy.user.name_with_rate %></li>
+                <li><i class='fa fa-certificate'></i> Наниматель: <%= link_to @vacancy.user.name_with_rate, user_path(@vacancy.user) %></li>
                 <br>
                 <li><i class='fa fa-flag'></i> Страна: <%= @vacancy.country.name %></li>
                 <li><i class='fa fa-bookmark-o'></i> Город: <%= @vacancy.city.name %></li>
