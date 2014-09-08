@@ -39,6 +39,10 @@
 
             <ul class="list-icon">
               <% if @promoter.status == "promo" %>
+
+                <li> <%= link_to "Аккаунт Вконтакте", @promoter.vk_url, :target => "_blank" if @promoter.vk_url%></li>
+                <li> <%= link_to "Аккаунт Facebook", @promoter.facebook_url, :target => "_blank" if @promoter.facebook_url %></li>
+                <br>
                 <li><i class='fa fa-certificate'></i> Рейтинг: <%= color_rate(@promoter.rate) %></li>
                 <br>
                 <li><i class='fa fa-flag'></i> Страна: <%= @promoter.country.name %></li>

@@ -98,4 +98,13 @@ class VacanciesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def send_invite
+
+  end
+
+  def send_invite_phone
+    
+  end
 end
