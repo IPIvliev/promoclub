@@ -18,6 +18,15 @@
               <div>
                 <%= image_tag @promoter.avatar.url, :class => "img-responsive" %>
               </div>
+              <br><br>
+              <% if @promoter.status == "agent" %>
+                <h3>Вакансии данного работодателя</h3>
+                <ul>
+                <% @promoter.vacancies.each do |vacancy| %>
+                  <li>Название: <%= link_to vacancy.name, vacancy_path(vacancy) %> | <%= Russian::strftime(vacancy.created_at, "%d %B %Y") %> | <%= link_to "Посмотреть вакансию", vacancy_path(vacancy) %></li>
+                <% end %>
+                </ul>
+              <% end %>
             </div>
 
           </div>
