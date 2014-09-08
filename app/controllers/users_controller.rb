@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if params[:city]
       @promoters = User.where(city_id: params[:city]).search(params[:q]).result.order('created_at DESC').page(params[:page])
     else
-      @promoters = @search.result.order('created_at DESC').page(params[:page])
+      @promoters = @search.result.order('rate DESC, created_at DESC').page(params[:page])
     end
   end
 
