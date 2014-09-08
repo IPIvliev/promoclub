@@ -23,13 +23,13 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
-  has_many :vacancies
+  has_many :vacancies, :dependent => :destroy
 
   belongs_to :city
   belongs_to :state
   belongs_to :country
 
-  has_many :opinions
+  has_many :opinions, :dependent => :destroy
   has_many :opinions_to_me, foreign_key: "user_to_id", class_name: "Opinion"
 
     # Отправка письма после создания аккаунта

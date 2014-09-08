@@ -7,7 +7,7 @@ class VacanciesController < ApplicationController
   def index
     @title = "Вакансии промоутеров"
 
-    @vacancies = Vacancy.page(params[:page])
+    @vacancies = Vacancy.order("created_at DESC").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +18,7 @@ class VacanciesController < ApplicationController
   def my
     @title = "Мои вакансии"
 
-    @vacancies = current_user.vacancies.page(params[:page])
+    @vacancies = current_user.vacancies.order("created_at DESC").page(params[:page])
     render :template => "/vacancies/index"
   end
 
