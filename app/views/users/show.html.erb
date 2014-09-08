@@ -81,7 +81,7 @@
 <% elsif @promoter.description.blank? && @promoter.status == "agent" %>
   <p>Работодатель не указал дополнительной информации о себе.</p>
 <% else %>
-  <p><%= @vacancy.description.html_safe %></p>
+  <p><%= @promoter.description.html_safe %></p>
 <% end %>
 
 
