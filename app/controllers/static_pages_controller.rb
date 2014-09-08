@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
 
   def index
     @promoters = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").order("created_at DESC").limit(16)
+    @vacancies = Vacancy.order("created_at DESC").limit(3)
   end
 
   def about

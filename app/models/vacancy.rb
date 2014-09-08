@@ -5,4 +5,6 @@ class Vacancy < ActiveRecord::Base
   belongs_to :user
   belongs_to :city
   belongs_to :country
+
+  paginates_per 7
 end
