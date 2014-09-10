@@ -7,7 +7,6 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
 
   def index
     @title = "Блог"
-    add_breadcrumb @title
 
     @articles = Article.order('created_at DESC').page(params[:page])
 

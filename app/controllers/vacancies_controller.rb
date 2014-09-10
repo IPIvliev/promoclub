@@ -27,6 +27,9 @@ class VacanciesController < ApplicationController
   def show
     @vacancy = Vacancy.find(params[:id])
 
+    @title = "#{@vacancy.name} от компании: #{@vacancy.user.name}"
+    add_breadcrumb @title
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @vacancy }

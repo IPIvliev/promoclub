@@ -6,7 +6,7 @@
 								<% @promoter.opinions_to_me.each do |opinion| %>
 									<div class="comment" style="background-color:<%= opinion_rate_bg(opinion.rate) %>; padding: 10px;" itemscope itemtype="http://schema.org/Review">
 
-										<meta itemprop="itemReviewed" itemscope itemprop="name" content="<%= opinion.user_to.name %>" />
+										<meta itemprop="itemReviewed" content="<%= opinion.user_to.name %>" />
 
 										<!-- user-avatar -->
 										<span class="user-avatar">
@@ -19,8 +19,9 @@
 										<% end %>
 
 											<h4 class="media-heading bold" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><%= link_to opinion.user.name_with_rate, opinion.user, :itemprop => "url" %></span></h4>
+											<meta itemprop="dateCreated" content="<%= opinion.created_at.to_time.iso8601 %>">
 											<small class="block"><span itemprop="datePublished"><%= Russian::strftime(opinion.created_at, "%d %B %Y") %></span> <span itemprop="ratingValue"><%= opinion_rate(opinion.rate) %></span></small>
-											<span itemprop="reviewBody"><%= opinion.text %></span>
+											<span itemprop="description"><%= opinion.text %></span>
 										</div>
 									</div>
 								<% end %>

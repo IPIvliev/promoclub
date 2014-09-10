@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     @newopinion = Opinion.new
 
 
-		@title = "База промоутеров: #{@promoter.name} #{@promoter.surname}"
+		@title = "#{@promoter.name} #{@promoter.surname}"
     add_breadcrumb @title
 	end
 
