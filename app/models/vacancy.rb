@@ -6,5 +6,7 @@ class Vacancy < ActiveRecord::Base
   belongs_to :city
   belongs_to :country
 
+  has_many :replies, :dependent => :destroy
+
   paginates_per 7
 end

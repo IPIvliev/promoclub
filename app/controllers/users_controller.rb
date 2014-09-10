@@ -34,6 +34,15 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def replies
+    @title = "Ваши отклики на вакансии"
+    add_breadcrumb @title
+
+
+    @promoter = User.find(params[:id])
+    @replies = initialize_grid(Reply, :conditions => ['user_id = ?', @promoter.id])
+    render '/replies/show_replies'
+  end
 
 	def show
 		@promoter = User.find(params[:id])

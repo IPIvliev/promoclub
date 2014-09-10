@@ -1,0 +1,5 @@
+  <%= form_for(current_user.replies.find_by_vacancy_id(@vacancy),
+             html: { method: :delete }) do |f| %>
+             <div><%= f.hidden_field :vacancy_id %></div>
+  <%= f.submit "ОТКАЗАТЬСЯ ОТ ВАКАНСИИ", class: "btn btn-danger" %>
+<% end %>

@@ -19,65 +19,32 @@
           <p id="notice"><%= notice %></p>
           <div class="col-md-12">
 
-<script type="text/javascript">
- $(document).ready( function () {
-    $('#users').dataTable();
-  } );
-</script>
-
-
-<h1>Products</h1>
-
-<table id="users">
-  <thead>
-    <tr>
-      <th>Product Name</th>
-      <th>Category</th>
-      <th>Release Date</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to(user.name, user) %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.created_at.strftime("%B %e, %Y") %></td>
-        <td><%= user.city.name %></td>
+<% if @users.blank? %>
+  <div class="alert alert-warning">
+    <strong>Пока ни один работодатель не поместил ваш аккаунт в список избранных промоутеров.</strong>
+  </div>
+<% else %>
+  <table  class="table-striped table-bordered table wice-grid">
+    <thead>
+      <tr  class="wice-grid-title-row">
+        <th>Наименование вакансии</th>
+        <th>Организатор акции</th>
+        <th>Телефон организатора</th>
+        <th>Дата отклика</th>
+        <th>Статус</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-            <table class="table table-striped">
-                <!-- table head -->
-                <thead>
-                    <tr>
-                        <th>Наименование</th>
-                        <th>Город</th>
-                        <th>Телефон</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <% @users.each do |agent| %>
-                    <tr>
-                      <td>
-                        <%= image_tag agent.avatar.thumb.url %>
-                      </td>
-                      <td>
-                        <%= agent.name %>
-                      </td>
-                      <td>
-                        <%= agent.city.name %>
-                      </td>
-                      <td>
-                        <%= agent.phone %>
-                      </td>
-                    </tr>
-                  <% end %>
-                </tbody>
-            </table>
+    </thead>
+    <tbody>
+      <tr  class="odd">
+        <% @users.each do |user| %>
+          <td><%= link_to user.name, user %></td>
+          <td><%= user.phone %></td>
+          <td><%= user.city %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
 
           </div>
 

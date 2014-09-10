@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
   has_many :opinions, :dependent => :destroy
   has_many :opinions_to_me, foreign_key: "user_to_id", class_name: "Opinion"
 
+  has_many :replies, :dependent => :destroy
+
     # Отправка письма после создания аккаунта
   after_create :send_greeting_mail
 
@@ -66,6 +68,20 @@ class User < ActiveRecord::Base
       :password => Devise.friendly_token[0,20]) 
     end
   end
+
+  # Додавить и удалить отклик на вакансию
+  def reply?(vacancy)
+    replies.find_by_vacancy_id(vacancy.id)
+  end
+
+  def reply!(vacancy)
+    replies.create!(vacancy_id: vacancy.id)
+  end
+
+  def unreply!(vacancy)
+    replies.find_by_vacancy_id(vacancy.id).destroy
+  end
+
 
   # Додавить и удалить из избранного
   def following?(other_user)

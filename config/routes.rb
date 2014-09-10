@@ -41,9 +41,11 @@ Promoclub::Application.routes.draw do
   resources :users, :only => [:index, :show, :edit, :update, :destroy] do
     member do
       get :following, :followers
+      get :replies
     end
   end
   resources :relationships, only: [:create, :destroy]
+  resources :replies, only: [:create, :destroy]
 
 # Панель администратора
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

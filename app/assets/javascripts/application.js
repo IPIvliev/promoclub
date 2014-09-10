@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require ckeditor/init
+//= require wice_grid
 //= require_tree .

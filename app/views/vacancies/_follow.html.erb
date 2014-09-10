@@ -1,0 +1,4 @@
+<%= form_for(current_user.replies.build(vacancy_id: @vacancy.id)) do |f| %>
+  <div><%= f.hidden_field :vacancy_id %></div>
+  <%= f.submit "ОКЛИКНУТЬСЯ НА ВАКАНСИЮ", class: "btn btn-success" %>
+<% end %>

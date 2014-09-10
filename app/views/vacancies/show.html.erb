@@ -61,6 +61,19 @@
               <p>Только зарегистрированные пользователи могут видеть номер телефона. <a href="/users/sign_up">Зарегистрироваться</a></p>
             <% end %>
 
+<% if current_user && current_user.status == "promo" %>
+  <br><br>
+  <div id="follow_form">
+  <% if current_user.reply?(@vacancy) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>
+<% elsif !current_user %>
+    <br>
+    <a href="/users/sign_up" class="btn btn-success">Откликнуться на вакансию</a>
+<% end %>
             
 <br><br>
 <h3><strong>Дополнительная информация</strong></h3>
@@ -69,6 +82,7 @@
 <% else %>
   <p><%= @vacancy.description.html_safe %></p>
 <% end %>
+
 
 
               <!-- SOCIAL -->

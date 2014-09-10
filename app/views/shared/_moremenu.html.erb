@@ -17,9 +17,16 @@
               </li>
             </ul>
           </li>
+
           <li>
             <% if current_user.status == "promo" %>
-              <%= link_to "Вами заинтересовались", followers_user_path(current_user) %>
+              <%= link_to "Мои отклики (#{current_user.replies.count})", replies_user_path(current_user) %>
+            <% end %>
+          </li>
+
+          <li>
+            <% if current_user.status == "promo" %>
+              <%= link_to "Вами заинтересовались (#{current_user.followers.count})", followers_user_path(current_user) %>
             <% else %>
               <%= link_to "Отобранные промоутеры", following_user_path(current_user) %>
             <% end %>
