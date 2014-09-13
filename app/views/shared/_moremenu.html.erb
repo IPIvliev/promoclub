@@ -26,9 +26,9 @@
 
           <li>
             <% if current_user.status == "promo" %>
-              <%= link_to "Вами заинтересовались (#{current_user.followers.count})", followers_user_path(current_user) %>
+              <%= link_to "Мной заинтересовались (#{current_user.followers.count})", followers_user_path(current_user) %>
             <% else %>
-              <%= link_to "Отобранные промоутеры", following_user_path(current_user) %>
+              <%= link_to "Отобранные промоутеры (#{current_user.followed_users.count})", following_user_path(current_user) %>
             <% end %>
           </li>
 
@@ -50,7 +50,7 @@
           <% end %>
 
           <li>
-            <%= link_to "Ваши отзывы", opinions_path %>
+            <%= link_to "Мои отзывы", opinions_path %>
           </li>
 
           <% if current_user.status == "admin" %>

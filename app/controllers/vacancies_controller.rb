@@ -2,7 +2,7 @@
 
 class VacanciesController < ApplicationController
   add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
-  add_breadcrumb "Вакансии промоутеров", "/vakansii-promouterov.html", :title => "Вернуться в базу вакансий"
+  add_breadcrumb "Вакансии", "/vakansii-promouterov.html", :title => "Вернуться в базу вакансий"
 
   def index
     @title = "Вакансии промоутеров"
@@ -15,11 +15,29 @@ class VacanciesController < ApplicationController
     end
   end
 
-  def my
+  def my_vacancies
     @title = "Мои вакансии"
 
-    @vacancies = current_user.vacancies.order("created_at DESC").page(params[:page])
-    render :template => "/vacancies/index"
+    add_breadcrumb @title
+
+    @vacancies = initialize_grid(Vacancy, :conditions => ['user_id = ?', current_user.id])
+
+  end
+
+  def replies
+    @vacancy = Vacancy.find(params[:id])
+    add_breadcrumb "Мои вакансии", "/my-vacancies.html", :title => "Вернуться в мои вакансии"
+
+    @title = "Отклики на вашу вакансию #{@vacancy.name}"
+    add_breadcrumb @title
+
+    #поставить отметку о прочтении
+    @vacancy.replies.where(:see => false).each do |reply|
+      reply.update_attribute(:see, 1)
+    end
+
+    @replies = initialize_grid(Reply, :conditions => ['vacancy_id = ?', @vacancy.id])
+    render '/replies/show_replies_to'
   end
 
   # GET /vacancies/1
@@ -50,6 +68,8 @@ class VacanciesController < ApplicationController
     end
   end
 
+
+
   # GET /vacancies/1/edit
   def edit
     @vacancy = Vacancy.find(params[:id])
@@ -65,6 +85,7 @@ class VacanciesController < ApplicationController
 
     respond_to do |format|
       if @vacancy.save
+        
         format.html { redirect_to @vacancy, notice: 'Vacancy was successfully created.' }
         format.json { render json: @vacancy, status: :created, location: @vacancy }
       else

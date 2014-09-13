@@ -1,0 +1,50 @@
+<!-- WRAPPER -->
+    <div id="wrapper">
+
+      <!-- PAGE TITLE -->
+      <%= render "/shared/bread" %>
+
+      <%= render '/shared/moremenu' %>
+
+      <section class="container">
+        <h2>Список <strong>ваших вакансий</strong></h2>
+        <p>Здесь представлен список вакансий, которые были созданы вашей компанией.</p>
+   
+
+        <div class="row">
+          <p id="notice"><%= notice %></p>
+          <div class="col-md-12">
+
+<%= grid(@vacancies) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "  <strong>Вы пока не оставили ни одного отклика. Исправьте ситуацию и сообщите работодателям о своём желании работать в <a href='#''>списке ваканий</a> прямо сейчас.</strong>".html_safe, class: 'alert alert-warning'
+  end
+
+  g.column name: 'Наименование вакансии' do |vacancy|
+    link_to vacancy.name, vacancy
+  end
+
+  g.column  name: 'Дата размещения' do |vacancy|
+    vacancy.created_at.strftime("%B %e, %Y")
+  end
+
+  g.column  name: 'Отклики' do |vacancy|
+    link_to vacancy.replies.count, replies_vacancy_path(vacancy)
+  end
+
+  g.column name: 'Корректировки' do |task|
+    link_to('Изменить', edit_vacancy_path(task))
+  end
+
+end -%>
+
+
+
+
+          </div>
+
+      </section>
+
+    </div>
+    <!-- /WRAPPER -->

@@ -23,8 +23,6 @@ gem 'omniauth-vkontakte'
 gem 'cancan'
 gem 'ransack'
 
-gem "wice_grid", '3.4.2'
-
 # Admin panel
 gem 'rails_admin'
 gem 'acts-as-taggable-on'

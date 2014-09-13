@@ -112,7 +112,7 @@
 
 
 				<ul class="nav nav-pills isotope-filter isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
-					<p>Последние <i>16 зарегистрировавшихся промоутеров</i>. Для просмотра полного списка зайдите в базу промоутеров.</p>
+					<p>Последние <i>16 зарегистрировавшихся промоутеров</i>. Для просмотра полного списка зайдите в базу.</p>
 				</ul>
 
 
@@ -131,7 +131,7 @@
 											<strong>ПОДРОБНАЯ</strong> ИНФОРМАЦИЯ
 										</span>
 									</a>
-									<%= image_tag promoter.avatar.thumb.url, :class => "img-responsive", :alt => "Промоутер: #{promoter.name} #{promoter.surname}", :title => "Промоутер: #{promoter.name} #{promoter.surname}" %>
+									<%= image_tag promoter.avatar.thumb.url, :class => "img-responsive", :alt => "#{promoter.name} #{promoter.surname}", :title => "Промоутер: #{promoter.name} #{promoter.surname}" %>
 								</figure>
 								<div class="item-box-desc">
 									<h4><%= promoter.name_with_rate %></h4>
@@ -178,7 +178,7 @@
 
             <!-- right image -->
             <div class="col-md-5 animation_fade_in">
-              <img class="visible-md visible-lg img-responsive pull-right" src="/images/desktop_slider.png" alt="Услуги по созданию, продвижению и сопровождению сайтов" />
+              
             </div>
           </div>
         </div>

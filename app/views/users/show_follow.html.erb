@@ -27,19 +27,17 @@
   <table  class="table-striped table-bordered table wice-grid">
     <thead>
       <tr  class="wice-grid-title-row">
-        <th>Наименование вакансии</th>
-        <th>Организатор акции</th>
+        <th>ФИО</th>
         <th>Телефон организатора</th>
-        <th>Дата отклика</th>
-        <th>Статус</th>
+        <th>Город</th>
       </tr>
     </thead>
     <tbody>
       <tr  class="odd">
         <% @users.each do |user| %>
-          <td><%= link_to user.name, user %></td>
+          <td><%= link_to "#{user.name} #{user.surname}", user %></td>
           <td><%= user.phone %></td>
-          <td><%= user.city %></td>
+          <td><%= user.city.name %></td>
         <% end %>
       </tr>
     </tbody>

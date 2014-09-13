@@ -1,8 +1,13 @@
 Promoclub::Application.routes.draw do
   mount Rich::Engine => '/rich', :as => 'rich'
 
-  resources :vacancies
-  get "/my-vacancies.html", to: "vacancies#my"
+  resources :vacancies do
+    member do
+      get :replies
+    end
+  end
+
+  get "/my-vacancies.html", to: "vacancies#my_vacancies"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

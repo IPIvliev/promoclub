@@ -1,0 +1,51 @@
+<!-- WRAPPER -->
+    <div id="wrapper">
+
+      <!-- PAGE TITLE -->
+      <%= render "/shared/bread" %>
+
+      <%= render '/shared/moremenu' %>
+
+      <section class="container">
+
+        <h2>Список откликов на вакансию <strong><%= link_to @vacancy.name, "/my-vacancies.html" %></strong></h2>
+        <p>Здесь представлен список промоутеров, которые откликнулись на вашу вакансию. Всего <strong><%= @vacancy.replies.count %> <%= Russian.pluralize(@vacancy.replies.count, "промоутер", "промоутера", "промоутеров") %></strong>.</p>
+     
+
+        <div class="row">
+          <p id="notice"><%= notice %></p>
+          <div class="col-md-12">
+
+<%= grid(@replies) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "  <strong>Вы пока не оставили ни одного отклика. Исправьте ситуацию и сообщите работодателям о своём желании работать в <a href='#''>списке ваканий</a> прямо сейчас.</strong>".html_safe, class: 'alert alert-warning'
+  end
+
+  g.column name: 'ФИО промоутера' do |task|
+    link_to "#{task.user.name} #{task.user.surname}", task.user
+  end
+
+  g.column name: 'Город' do |task|
+    task.user.city.name
+  end
+
+  g.column name: 'Телефон промоутера' do |task|
+    task.user.phone
+  end
+
+  g.column  name: 'Дата отклика' do |task|
+    task.created_at.strftime("%B %e, %Y")
+  end
+
+end -%>
+
+
+
+
+          </div>
+
+      </section>
+
+    </div>
+    <!-- /WRAPPER -->
