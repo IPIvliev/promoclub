@@ -25,7 +25,7 @@ class StaticPagesController < ApplicationController
   end
 
   def job
-    @title = "Найти работу промоутером"
+    @title = "Найти работу"
     add_breadcrumb "Услуги", "/uslugi.html"
     add_breadcrumb @title
   end
@@ -38,7 +38,7 @@ class StaticPagesController < ApplicationController
   end
 
   def rabotodateli
-    @title = "Работодатели"
+    @title = "Работодатели - btl-агентства"
     add_breadcrumb @title
 
     @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "agent").search(params[:q])

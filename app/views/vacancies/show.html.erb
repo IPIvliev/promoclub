@@ -75,6 +75,8 @@
     <a href="/users/sign_up" class="btn btn-success">Откликнуться на вакансию</a>
 <% end %>
             
+
+          </div>
 <br><br>
 <h3><strong>Дополнительная информация</strong></h3>
 <% if @vacancy.description.blank? %>
@@ -82,8 +84,6 @@
 <% else %>
   <p><%= @vacancy.description.html_safe %></p>
 <% end %>
-
-
 
               <!-- SOCIAL -->
               <p class="socials">
@@ -96,12 +96,10 @@
                 var h=d[g]('body')[0];
                 h.appendChild(s);
                 }})();</script>
-                <div class="pluso" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
+                <div class="pluso pull-right" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
               </p>
-  
-<br><br>
 
-          </div>
+
             <div class="divider"><!-- divider -->
               <i class="fa fa-star"></i>
             </div>
