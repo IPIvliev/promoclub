@@ -38,7 +38,7 @@
   end
 
   g.column  name: 'Дата отклика' do |task|
-    task.created_at.strftime("%B %e, %Y")
+    Russian::strftime(task.created_at, "%d %B %Y")
   end
 
   g.column name: 'Статус' do |task|

@@ -1,4 +1,5 @@
-<%= form_for(current_user.replies.build(vacancy_id: @vacancy.id)) do |f| %>
+<%= form_for(current_user.replies.build(vacancy_id: @vacancy.id, user_to_id: @vacancy.user.id)) do |f| %>
   <div><%= f.hidden_field :vacancy_id %></div>
+<div><%= f.hidden_field :user_to_id %></div>
   <%= f.submit "ОКЛИКНУТЬСЯ НА ВАКАНСИЮ", class: "btn btn-success" %>
 <% end %>

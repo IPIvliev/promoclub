@@ -47,6 +47,14 @@
             </ul>
           </li>
 
+          <% if current_user.replies_to_me.where(:see => false).count > 0 %>
+
+            <li class="active">
+              <%= link_to "Новые отклики (#{current_user.replies_to_me.count})", "/my-vacancies.html" %>
+            </li>
+
+          <% end %>
+
           <% end %>
 
           <li>

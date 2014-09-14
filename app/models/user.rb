@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_many :opinions_to_me, foreign_key: "user_to_id", class_name: "Opinion"
 
   has_many :replies, :dependent => :destroy
+  has_many :replies_to_me, foreign_key: "user_to_id", class_name: "Reply"
 
     # Отправка письма после создания аккаунта
   after_create :send_greeting_mail
@@ -75,7 +76,7 @@ class User < ActiveRecord::Base
   end
 
   def reply!(vacancy)
-    replies.create!(vacancy_id: vacancy.id)
+    replies.create!(vacancy_id: vacancy.id, user_to_id: vacancy.user.id)
   end
 
   def unreply!(vacancy)
