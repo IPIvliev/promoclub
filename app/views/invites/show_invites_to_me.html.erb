@@ -42,7 +42,7 @@
     Russian::strftime(invite.created_at, "%d %B %Y")
   end
 
-  g.column  name: 'Дата приглашения' do |invite|
+  g.column  name: 'Действия' do |invite|
     if current_user.reply?(invite.vacancy)
       @vacancy = invite.vacancy
        render '/vacancies/unfollow'
@@ -50,6 +50,10 @@
       @vacancy = invite.vacancy
       render '/vacancies/follow'
     end
+  end
+
+  g.column  name: 'Действия' do |invite|
+    link_to "Удалить", invite_path(invite), method: :delete, data: { confirm: "Вы уверены?" }
   end
 
 end -%>

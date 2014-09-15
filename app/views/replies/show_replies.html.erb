@@ -7,14 +7,9 @@
       <%= render '/shared/moremenu' %>
 
       <section class="container">
-      <% if current_user.status == "promo" %>
         <h2>Список <strong>откликов на вакансии </strong></h2>
         <p>Здесь представлен список ваших откликов на вакансии работодатлей.</p>
-      <% elsif current_user.status == "agent" %>
-        <h2>Список <strong>отобранных промоутеров</strong></h2>
-        <p>Данные промоутеры были добавленны вами в список избранных контактов.</p>
-      <% end %>      
-
+    
         <div class="row">
           <p id="notice"><%= notice %></p>
           <div class="col-md-12">
@@ -43,6 +38,11 @@
 
   g.column name: 'Статус' do |task|
     task.see? ? 'Просмотрен' : 'Не просмотрен'
+  end
+
+  g.column  name: 'Действия' do |task|
+      @vacancy = task.vacancy
+       render '/vacancies/unfollow'
   end
 
 end -%>

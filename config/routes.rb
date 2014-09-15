@@ -52,6 +52,7 @@ Promoclub::Application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :replies, only: [:create, :destroy]
+  resources :invites
 
 # Панель администратора
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
