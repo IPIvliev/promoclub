@@ -38,10 +38,24 @@ class UsersController < ApplicationController
     @title = "Ваши отклики на вакансии"
     add_breadcrumb @title
 
-
     @promoter = User.find(params[:id])
     @replies = initialize_grid(Reply, :conditions => ['user_id = ?', @promoter.id])
     render '/replies/show_replies'
+  end
+
+  def invites
+    @title = "Отправленные вам приглашения"
+    add_breadcrumb @title
+
+    @promoter = User.find(params[:id])
+    @invites = initialize_grid(Invite, :conditions => ['user_to_id = ?', @promoter.id])
+
+    #поставить отметку о прочтении
+    @promoter.invites_to_me.where(:see => false).each do |invite|
+      invite.update_attribute(:see, true)
+    end
+
+    render '/invites/show_invites_to_me'
   end
 
 	def show

@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class VacanciesController < ApplicationController
+  include InvitesHelper
+
   add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
   add_breadcrumb "Вакансии", "/vakansii-promouterov.html", :title => "Вернуться в базу вакансий"
 
@@ -34,6 +36,22 @@ class VacanciesController < ApplicationController
     #поставить отметку о прочтении
     @vacancy.replies.where(:see => false).each do |reply|
       reply.update_attribute(:see, 1)
+    end
+
+    @replies = initialize_grid(Reply, :conditions => ['vacancy_id = ?', @vacancy.id])
+    render '/replies/show_replies_to'
+  end
+
+  def invites
+    @vacancy = Vacancy.find(params[:id])
+    add_breadcrumb "Мои вакансии", "/my-vacancies.html", :title => "Вернуться в мои вакансии"
+
+    @title = "Отклики на вашу вакансию #{@vacancy.name}"
+    add_breadcrumb @title
+
+    #поставить отметку о прочтении
+    @vacancy.replies.where(:see => false).each do |reply|
+      reply.update_attribute(:see, true)
     end
 
     @replies = initialize_grid(Reply, :conditions => ['vacancy_id = ?', @vacancy.id])
@@ -85,6 +103,7 @@ class VacanciesController < ApplicationController
 
     respond_to do |format|
       if @vacancy.save
+        invite_promos(@vacancy)
         
         format.html { redirect_to @vacancy, notice: 'Vacancy was successfully created.' }
         format.json { render json: @vacancy, status: :created, location: @vacancy }

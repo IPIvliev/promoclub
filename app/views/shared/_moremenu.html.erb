@@ -18,6 +18,19 @@
             </ul>
           </li>
 
+          <% if current_user.status == "promo" %>
+            <% if current_user.invites_to_me.where(:see => false).count > 0 %>
+
+              <li class="active">
+                <%= link_to "Новые приглашения (#{current_user.invites_to_me.where(:see => false).count})", invites_user_path(current_user) %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "Приглашения (#{current_user.invites_to_me.count})", invites_user_path(current_user) %>
+              </li>
+            <% end %>
+          <% end %>
+
           <li>
             <% if current_user.status == "promo" %>
               <%= link_to "Мои отклики (#{current_user.replies.count})", replies_user_path(current_user) %>
@@ -26,7 +39,7 @@
 
           <li>
             <% if current_user.status == "promo" %>
-              <%= link_to "Мной заинтересовались (#{current_user.followers.count})", followers_user_path(current_user) %>
+              <%= link_to "Работодатели (#{current_user.followers.count})", followers_user_path(current_user) %>
             <% else %>
               <%= link_to "Отобранные промоутеры (#{current_user.followed_users.count})", following_user_path(current_user) %>
             <% end %>
@@ -39,7 +52,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li>
-                <%= link_to "Мои вакансии", "/my-vacancies.html" %>
+                <%= link_to "Мои вакансии (#{current_user.vacancies.count})", "/my-vacancies.html" %>
               </li>
               <li>
                 <%= link_to "Создать вакансию", new_vacancy_path %>
@@ -50,7 +63,7 @@
           <% if current_user.replies_to_me.where(:see => false).count > 0 %>
 
             <li class="active">
-              <%= link_to "Новые отклики (#{current_user.replies_to_me.count})", "/my-vacancies.html" %>
+              <%= link_to "Новые отклики (#{current_user.replies_to_me.where(:see => false).count})", "/my-vacancies.html" %>
             </li>
 
           <% end %>
@@ -58,7 +71,7 @@
           <% end %>
 
           <li>
-            <%= link_to "Мои отзывы", opinions_path %>
+            <%= link_to "Мои отзывы (#{current_user.opinions.count})", opinions_path %>
           </li>
 
           <% if current_user.status == "admin" %>

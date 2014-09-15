@@ -33,6 +33,10 @@
     link_to "#{vacancy.replies.count} из них новых: #{vacancy.replies.where(:see => false).count}", replies_vacancy_path(vacancy)
   end
 
+  g.column  name: 'Приглашения <br>(отправлены автоматически)'.html_safe do |vacancy|
+    "#{vacancy.invites.count} #{Russian.pluralize(vacancy.invites.count, "приглашение", "приглашения", "приглашений")}"
+  end
+
   g.column name: 'Корректировки' do |task|
     link_to('Изменить', edit_vacancy_path(task))
   end

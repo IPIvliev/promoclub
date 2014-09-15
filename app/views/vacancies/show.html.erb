@@ -26,6 +26,7 @@
             <% if @vacancy.user == current_user %>
               <%= link_to "Изменить вакансию", edit_vacancy_path(@vacancy), :class => "btn btn-info" %>
               <%= link_to "Удалить вакансию", vacancy_path(@vacancy), method: :delete, data: { confirm: "Вы уверены?" }, :class => "btn btn-danger" %><br><br>
+              <p><strong>Количество отправленных приглашений:</strong> <%= @vacancy.invites.count %></p>
             <% end %>
 
             <% if @vacancy.user == current_user %>

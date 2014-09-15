@@ -4,6 +4,7 @@ Promoclub::Application.routes.draw do
   resources :vacancies do
     member do
       get :replies
+      get :invites
     end
   end
 

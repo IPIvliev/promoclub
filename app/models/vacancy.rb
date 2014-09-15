@@ -7,6 +7,7 @@ class Vacancy < ActiveRecord::Base
   belongs_to :country
 
   has_many :replies, :dependent => :destroy
+  has_many :invites, :dependent => :destroy
 
   paginates_per 7
 end
