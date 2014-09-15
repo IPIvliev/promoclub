@@ -18,7 +18,7 @@
 <%= grid(@vacancies) do |g|
 
   g.blank_slate  do
-    content_tag :div, "  <strong>Вы пока не оставили ни одного отклика. Исправьте ситуацию и сообщите работодателям о своём желании работать в <a href='#''>списке ваканий</a> прямо сейчас.</strong>".html_safe, class: 'alert alert-warning'
+    content_tag :div, "  <strong>Вы пока не создали ни одной вакансии. Создаь вакансию вы можете в меню <a href='/vacancies/new'>новая вакансия</a> прямо сейчас.</strong>".html_safe, class: 'alert alert-warning'
   end
 
   g.column name: 'Наименование вакансии' do |vacancy|
