@@ -19,16 +19,16 @@
 
                 <ul>
                   <li><strong>Количество промоутеров:</strong> <%= User.where(:status => "promo").count %></li>
-                  <li><strong>Из них полностью заполненно:</strong> <%= User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").count %></li>
+                  <li><strong>Из них полностью заполнено:</strong> <%= User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").count %></li>
                   <br>
                   <li><strong>Количество работодателей:</strong> <%= User.where(:status => "agent").count %></li>
                   <li><strong>Количество вакансий:</strong> <%= Vacancy.all.count %></li>
                   <hr>
                   <li><strong>Количество приглашений:</strong> <%= Invite.all.count %></li>
-                  <li><strong>Из них прочитаны:</strong> <%= Invite.where(:see => true).count %></li>
+                  <li><strong>Из них прочитано:</strong> <%= Invite.where(:see => true).count %></li>
                   <br>
                   <li><strong>Количество откликов:</strong> <%= Reply.all.count %></li>
-                  <li><strong>Из них прочитаны:</strong> <%= Reply.where(:see => true).count %></li>
+                  <li><strong>Из них прочитано:</strong> <%= Reply.where(:see => true).count %></li>
 
               <% else %>
                 <p>У вас нет прав доступа в этот раздел.</p>

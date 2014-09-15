@@ -26,7 +26,7 @@
               </li>
             <% else %>
               <li>
-                <%= link_to "Приглашения (#{current_user.invites_to_me.count})", invites_user_path(current_user) %>
+                <%= link_to "Приглашения (#{current_user.invites_to_me.count})", invites_user_path(current_user) if !current_user.invites_to_me.blank? %>
               </li>
             <% end %>
           <% end %>

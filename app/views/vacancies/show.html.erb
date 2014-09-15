@@ -53,13 +53,11 @@
                 <li><i class='fa fa-medkit'></i> Необходимость медицинской книжки: <%= have_it(@vacancy.med) %></li>
                 <li><i class='fa fa-truck'></i> Необходимость автомобиля: <%= have_it(@vacancy.car) %></li>
             </ul>
-
-            <i class='fa fa-phone'></i> Номер телефона: 
-
+            <br>
             <% if current_user %>
-              <%= @vacancy.user.phone %>
+              <strong class="alert alert-success"><i class='fa fa-phone'></i> Номер телефона: <%= @vacancy.user.phone %></strong>
             <% else %>
-              <p>Только зарегистрированные пользователи могут видеть номер телефона. <a href="/users/sign_up">Зарегистрироваться</a></p>
+              <p class="alert alert-warning">Только зарегистрированные пользователи могут видеть номер телефона. <a href="/users/sign_up">Зарегистрироваться</a></p>
             <% end %>
 
 <% if current_user && current_user.status == "promo" %>
@@ -78,35 +76,35 @@
             
 
           </div>
-<br><br><br>
-<h3><strong>Дополнительная информация</strong></h3>
-<% if @vacancy.description.blank? %>
-  <p>Работодатель не указал дополнительной информации о вакансии.</p>
-<% else %>
-  <p><%= @vacancy.description.html_safe %></p>
-<% end %>
+<div class="row">
+  <h3><strong>Дополнительная информация</strong></h3>
+  <% if @vacancy.description.blank? %>
+    <p>Работодатель не указал дополнительной информации о вакансии.</p>
+  <% else %>
+    <p><%= @vacancy.description.html_safe %></p>
+  <% end %>
 
-              <!-- SOCIAL -->
-              <p class="socials">
-                <script type="text/javascript">(function() {
-                if (window.pluso)if (typeof window.pluso.start == "function") return;
-                if (window.ifpluso==undefined) { window.ifpluso = 1;
-                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-                var h=d[g]('body')[0];
-                h.appendChild(s);
-                }})();</script>
-                <div class="pluso pull-right" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
-              </p>
+                <!-- SOCIAL -->
+                <p class="socials">
+                  <script type="text/javascript">(function() {
+                  if (window.pluso)if (typeof window.pluso.start == "function") return;
+                  if (window.ifpluso==undefined) { window.ifpluso = 1;
+                  var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                  s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                  s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                  var h=d[g]('body')[0];
+                  h.appendChild(s);
+                  }})();</script>
+                  <div class="pluso pull-right" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
+                </p>
 
 
-            <div class="divider"><!-- divider -->
-              <i class="fa fa-star"></i>
-            </div>
-            
-            <%= render "/shared/important" %>
-
+              <div class="divider"><!-- divider -->
+                <i class="fa fa-star"></i>
+              </div>
+              
+              <%= render "/shared/important" %>
+  </div>
       </section>
 
     </div>

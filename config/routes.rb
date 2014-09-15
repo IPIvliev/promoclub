@@ -4,7 +4,6 @@ Promoclub::Application.routes.draw do
   resources :vacancies do
     member do
       get :replies
-      get :invites
     end
   end
 
@@ -48,6 +47,7 @@ Promoclub::Application.routes.draw do
     member do
       get :following, :followers
       get :replies
+      get :invites
     end
   end
   resources :relationships, only: [:create, :destroy]
