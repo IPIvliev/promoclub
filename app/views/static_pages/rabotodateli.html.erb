@@ -70,7 +70,7 @@
 								<h4>Список городов</h4>
 								<ul>
 								<% @cities.each do |city| %>
-									<% if User.where(:city_id => city.id).count > 0 %>
+									<% if User.where(:city_id => city.id, :status => "agent").count > 0 %>
 										<li><%= link_to "#{city.name} (#{city.users.where(:status => 'agent').count})", city_path(city) %></li>
 									<% end %>
 								<% end %>
