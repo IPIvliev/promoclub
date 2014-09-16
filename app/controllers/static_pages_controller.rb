@@ -2,8 +2,6 @@
 
 class StaticPagesController < ApplicationController
   add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
-    caches_page :rabotodateli_cities
-    caches_page :rabotodateli
 
   def index
     @promoters = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").order("created_at DESC").limit(16)
@@ -42,6 +40,12 @@ class StaticPagesController < ApplicationController
   def rabotodateli
     @title = "Работодатели - btl-агентства"
     add_breadcrumb @title
+
+    @cities = City.all
+
+  expire_fragment 'cities_list', 7.days.from_now do 
+    @cities = City.all
+  end    
    
     @agents = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND
      phone IS NOT NULL AND status = ?", "agent").order("created_at DESC").page(params[:page])
@@ -51,6 +55,12 @@ class StaticPagesController < ApplicationController
   def rabotodateli_cities
     add_breadcrumb "Работодатели - btl-агентства", "/rabotodateli.html", :title => "Вернуться к общему списку работодателей"    
     city = City.find(params[:city])
+
+    @cities = City.all
+
+  expire_fragment 'cities_list', 7.days.from_now do 
+    @cities = City.all
+  end     
 
     @title = "Город: #{city.name}. Работодатели"
     add_breadcrumb @title
