@@ -2,6 +2,8 @@
 
 class StaticPagesController < ApplicationController
   add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
+    caches_page :rabotodateli_cities
+    caches_page :rabotodateli
 
   def index
     @promoters = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").order("created_at DESC").limit(16)
@@ -54,7 +56,7 @@ class StaticPagesController < ApplicationController
     add_breadcrumb @title
 
     @agents = User.where("avatar IS NOT NULL AND city_id = ? AND name IS NOT NULL AND
-     phone IS NOT NULL AND status = ?", 1, "agent").order("created_at DESC").page(params[:page])
+     phone IS NOT NULL AND status = ?", city.id, "agent").order("created_at DESC").page(params[:page])
 
     render 'rabotodateli'
   end
