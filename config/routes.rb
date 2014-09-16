@@ -39,7 +39,7 @@ Promoclub::Application.routes.draw do
   get 'users/update_states', :as => 'update_states'
   get 'users/update_cities', :as => 'update_cities'
 
-  get 'cities/:city', to: 'users#index', as: :city
+  get '/rabotodateli/cities/:city', to: 'static_pages#rabotodateli_cities', as: :city
 
 	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

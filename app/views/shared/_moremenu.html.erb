@@ -37,14 +37,6 @@
             <% end %>
           </li>
 
-          <li>
-            <% if current_user.status == "promo" %>
-              <%= link_to "Работодатели (#{current_user.followers.count})", followers_user_path(current_user) %>
-            <% else %>
-              <%= link_to "Отобранные промоутеры (#{current_user.followed_users.count})", following_user_path(current_user) %>
-            <% end %>
-          </li>
-
           <% if current_user.status == "admin" || current_user.status == "agent" %>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -68,7 +60,16 @@
 
           <% end %>
 
-          <% end %>
+          <% end %>          
+
+          <li>
+            <% if current_user.status == "promo" %>
+              <%= link_to "Работодатели (#{current_user.followers.count})", followers_user_path(current_user) %>
+            <% else %>
+              <%= link_to "Отобранные промоутеры (#{current_user.followed_users.count})", following_user_path(current_user) %>
+            <% end %>
+          </li>
+
 
           <li>
             <%= link_to "Мои отзывы (#{current_user.opinions.count})", opinions_path %>

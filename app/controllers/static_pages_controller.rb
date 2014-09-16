@@ -40,10 +40,23 @@ class StaticPagesController < ApplicationController
   def rabotodateli
     @title = "Работодатели - btl-агентства"
     add_breadcrumb @title
+   
+    @agents = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND
+     phone IS NOT NULL AND status = ?", "agent").order("created_at DESC").page(params[:page])
 
-    @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "agent").search(params[:q])
-    @agents = @search.result.order("created_at DESC").page(params[:page])
+  end
 
+  def rabotodateli_cities
+    add_breadcrumb "Работодатели - btl-агентства", "/rabotodateli.html", :title => "Вернуться к общему списку работодателей"    
+    city = City.find(params[:city])
+
+    @title = "Город: #{city.name}. Работодатели"
+    add_breadcrumb @title
+
+    @agents = User.where("avatar IS NOT NULL AND city_id = ? AND name IS NOT NULL AND
+     phone IS NOT NULL AND status = ?", 1, "agent").order("created_at DESC").page(params[:page])
+
+    render 'rabotodateli'
   end
 
 end
