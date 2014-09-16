@@ -65,13 +65,18 @@
 
 						<div class="col-md-3">
 							<div class="widget">
+							<% cache 'cities_list' do %>
 
 								<h4>Список городов</h4>
 								<ul>
-									<li>В разработке</li>
+								<% @cities.each do |city| %>
+									<% if User.where(:city_id => city.id) %>
+										<li><%= link_to "#{city.name} (#{city.users.where(:status => 'agent').count})", city_path(city) %></li>
+									<% end %>
+								<% end %>
 
 								</ul>
-
+							<% end %>
 
 							</div>
 

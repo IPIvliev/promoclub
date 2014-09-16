@@ -3,6 +3,8 @@
 class StaticPagesController < ApplicationController
   add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
 
+
+
   def index
     @promoters = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").order("created_at DESC").limit(16)
     @vacancies = Vacancy.order("created_at DESC").limit(3)
@@ -41,6 +43,8 @@ class StaticPagesController < ApplicationController
     @title = "Работодатели - btl-агентства"
     add_breadcrumb @title
 
+    @cities = City.all
+
     @agents = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND
      phone IS NOT NULL AND status = ?", "agent").order("created_at DESC").page(params[:page])
 
@@ -52,6 +56,8 @@ class StaticPagesController < ApplicationController
 
     @title = "Город: #{city.name}. Работодатели"
     add_breadcrumb @title
+
+    @cities = City.all
 
     @agents = User.where("avatar IS NOT NULL AND city_id = ? AND name IS NOT NULL AND
      phone IS NOT NULL AND status = ?", city.id, "agent").order("created_at DESC").page(params[:page])
