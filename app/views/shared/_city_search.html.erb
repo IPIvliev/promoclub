@@ -15,8 +15,8 @@
 
               <% cache 'promo_cities_list' do %>
                 <% City.all.each do |city| %>
-                  <% if User.where(:city_id => city.id, :status => "agent").count > 0 %>
-                    <li><%= link_to "#{city.name} (#{city.users.where(:status => 'agent').count})", promo_city_path(city) %></li>
+                  <% if User.where(:city_id => city.id, :status => "promo").count > 0 %>
+                    <li><%= link_to "#{city.name} (#{city.users.where(:status => 'promo').count})", promo_city_path(city) %></li>
                   <% end %>
                 <% end %>
               <% end %>
