@@ -1,63 +1,35 @@
-            <!-- modal dialog -->
-            <div class="modal fade" id="<%= specification %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
                   <div class="modal-header"><!-- modal header -->
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">ФОРМА ЗАКАЗА</h4>
+                    <h4 class="modal-title" id="myModalLabel">Выбор города</h4>
                   </div><!-- /modal header -->
 
                   <!-- modal body -->
                   <div class="modal-body">
-                              
-              <div class="row">
-                <div class="col-md-12">
-                  
-<%= search_form_for @search do |f| %>
-                                      <label><strong>Страна:</strong></label><br>
-<%= f.collection_select :country_id_eq,  Country.all,  :id, :name, {:prompt   => "Выберите страну"}, {:id => 'countries_select'} %>
-<br>
+                    <strong>Выберите город из списка</strong>
+                    <p>В данном списке представлены только те города, в которых имеются зарегистрированные промоутеры. В скобках указано количество зарегистрированных промоутеров.</p>
+                <ul>
 
-<label><strong>Регион:</strong></label><br>
-<%= f.collection_select :state_id_eq, State.all, :id, :name, {:prompt   => "Выберите регион"}, {:id => 'states_select'} %>
-<br>
+              <% cache 'promo_cities_list' do %>
+                <% City.all.each do |city| %>
+                  <% if User.where(:city_id => city.id, :status => "agent").count > 0 %>
+                    <li><%= link_to "#{city.name} (#{city.users.where(:status => 'agent').count})", promo_city_path(city) %></li>
+                  <% end %>
+                <% end %>
+              <% end %>
 
-
-<label><strong>Город:</strong></label><br>
-<%= f.collection_select :city_id_eq, City.all, :id, :name, {:prompt   => "Выберите город"}, {:id => 'cities_select'} %>
-
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#countries_select').change(function() {
-      $.ajax({
-        url: "<%= update_states_path %>",
-        data: {
-          country_id : $('#countries_select').val()
-        },
-        dataType: "script"
-      });
-    });
-    $('#states_select').change(function() {
-      $.ajax({
-        url: "<%= update_cities_path %>",
-        data: {
-          state_id : $('#states_select').val()
-        },
-        dataType: "script"
-      });
-    });
-  });
-</script>
-
-<% end %>
-                </div>
-              </div>
-</div>
+                </ul>
 
                   </div>
                   <!-- /modal body -->
 
+                  <div class="modal-footer"><!-- modal footer -->
+                    <p><a href="/baza-promouterov.html">Общий список промоутеров без указания города</a></p>
+                  </div><!-- /modal footer -->
+
                 </div>
               </div>
+            </div>

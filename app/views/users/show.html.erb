@@ -68,24 +68,27 @@
                 <li><i class='fa fa-certificate'></i> Рейтинг: <%= color_rate(@promoter.rate) %></li>
                 <br>
                 <li><i class='fa fa-flag'></i> Страна: <%= @promoter.country.name %></li>
-                <li><i class='fa fa-bookmark-o'></i> Город: <%= @promoter.city.name %> </a></li>
+                <li><i class='fa fa-bookmark-o'></i> Город: <%= link_to @promoter.city.name, agent_city_path(@promoter.city) %></a></li>
               <% end %>
             </ul>
-
-            <i class='fa fa-phone'></i> Номер телефона: 
+            <br>
 
             <% if current_user and current_user.status == "agent" %>
-              <%= @promoter.phone %>
+              <strong class="alert alert-success"><i class='fa fa-phone'></i> Номер телефона: <%= @promoter.phone %></strong>
             <% elsif current_user and current_user.status == "admin" %>
-              <%= @promoter.phone %>
+              <strong class="alert alert-success"><i class='fa fa-phone'></i> Номер телефона: <%= @promoter.phone %></strong>
             <% elsif current_user and current_user.status == "promo"  %>
-              <p>Только пользователи в статусе "Работодатель" имеют доступ к базе телефонов.</p>
+              <p class="alert alert-warning">Только пользователи в статусе "Работодатель" имеют доступ к базе телефонов.</p>
             <% elsif @promoter.status == "agent" %>
-              <%= @promoter.phone %>
+              <strong class="alert alert-success"><i class='fa fa-phone'></i> Номер телефона: <%= @promoter.phone %></strong>
             <% else  %>
-              <p>Только зарегистрированные пользователи в статусе "Работодатель" имеют доступ к базе телефонов. <a href="/users/sign_up?status=agent">Зарегистрироваться</a></p>
+              <p class="alert alert-warning">Только зарегистрированные пользователи в статусе "Работодатель" могут видеть номер телефона. <a href="/users/sign_up">Зарегистрироваться</a></p>
             <% end %>
+</div>
+</div>
 
+        <div class="row">
+          <div class="col-md-12">
             
 <br><br>
 <h3><strong>Дополнительная информация</strong></h3>
@@ -119,10 +122,9 @@
                 var h=d[g]('body')[0];
                 h.appendChild(s);
                 }})();</script>
-                <div class="pluso" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
+                <div class="pluso pull-right" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
               </p>
   
-<br><br>
 
           </div>
             <div class="divider"><!-- divider -->
@@ -137,5 +139,5 @@
 
       </section>
 
-    </div>
+    </div></div>
     <!-- /WRAPPER -->

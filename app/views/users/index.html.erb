@@ -47,14 +47,11 @@
             </div><!-- /col-md-9 -->
 
             <aside class="col-md-3">
+              <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-thumbs-o-up"></i>ВЫБОР ГОРОДА</a>
+              <br><br>
+              <%= render "/shared/city_search" %>
 
-
-  <% if params[:city] %>
-    <%= render "/shared/search_form_with_city" %>
-  <% else %>
-    <%= render "/shared/search_form" %>
-  <% end %>
-
+              <%= render "/shared/search_form" %>
 
             </aside>
 

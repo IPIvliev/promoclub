@@ -39,7 +39,7 @@
 									<br><br>
 									<strong>Дата регистрации: </strong><small class="styleSecondColor"><%= Russian::strftime(agent.created_at, "%d %B %Y") %></small><br>
 									<strong>Номер телефона: </strong><small class="styleSecondColor"><%= agent.phone %></small><br>
-									<strong>Местоположение: </strong><span class="styleColor"><a href="#"><%= agent.city.name %> <i class="fa fa-external-link"></i></a>
+									<strong>Местоположение: </strong><span class="styleColor"><a href="#"><%= link_to agent.city.name, agent_city_path(agent.city) %> <i class="fa fa-external-link"></i></a>
 									
 								</p>
 							</div>
@@ -71,7 +71,7 @@
 								<ul>
 								<% @cities.each do |city| %>
 									<% if User.where(:city_id => city.id, :status => "agent").count > 0 %>
-										<li><%= link_to "#{city.name} (#{city.users.where(:status => 'agent').count})", city_path(city) %></li>
+										<li><%= link_to "#{city.name} (#{city.users.where(:status => 'agent').count})", agent_city_path(city) %></li>
 									<% end %>
 								<% end %>
 
