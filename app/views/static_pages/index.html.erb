@@ -96,7 +96,7 @@
                                     <strong>Дата начала акции: </strong><span class="styleSecondColor"><%= Russian::strftime(vacancy.start_date, "%d %B %Y") %></span><br>
                                     <strong>Дата окончания акции: </strong><span class="styleSecondColor"><%= Russian::strftime(vacancy.finish_date, "%d %B %Y") %></span><br>
                                     <strong>Количество промоутеров: </strong><span class="styleSecondColor"><%= vacancy.amount %> <%= Russian.pluralize(vacancy.amount, "человек", "человека", "человек") %></span><br>
-                                    <strong>Местоположение: </strong><span class="styleColor"><a href="#"><%= vacancy.city.name %> <i class="fa fa-external-link"></i></a>
+                                    <strong>Местоположение: </strong><span class="styleColor"><%= link_to "#{vacancy.city.name} <i class='fa fa-external-link'></i>".html_safe, vacancy_city_path(vacancy.city) %>
                                 </p>
                             </div>
                         </div>

@@ -1,0 +1,40 @@
+<% if params[:city].blank? %>
+  <% @url = "" %>
+<% else %>
+  <% @url = vacancy_city_path(:city => params[:city]) %>
+<% end %>
+
+<%= search_form_for @search, :url => @url do |f| %>
+
+  <div class="form-group">
+    <label><strong>Укажите пол:</strong></label><br>
+     <%= f.radio_button :gender_eq, "" %>
+     <label>Не важно</label><br>
+     <%= f.radio_button :gender_eq, "Женский" %> 
+     <label>Женский</label><br>
+     <%= f.radio_button :gender_eq, "Мужской" %>
+     <label id="Label" for="CheckBox" class="CheckBoxLabelClass">Мужской</label>
+  </div>
+
+  <div class="form-group">
+    <label><strong>Наличие медицинской книжки:</strong></label><br>
+     <%= f.radio_button :med_eq, "" %>
+     <label>Не важно</label><br>
+     <%= f.radio_button :med_eq, true %> 
+     <label>В наличии</label><br>
+  </div>
+
+  <div class="form-group">
+    <label><strong>Укажите возраст:</strong></label>
+    <%= f.text_field :start_age_gteq, :class => "form-control", :placeholder => "Минимальный" %><br>
+    <%= f.text_field :finish_age_lteq, :class => "form-control", :placeholder => "Максимальный" %>
+
+  </div>
+
+  <div class="form-group">
+    <label><strong>Желаемая зарплата:</strong></label>
+    <%= f.text_field :price_gteq, :class => "form-control", :placeholder => "Не менее" %>
+  </div>
+
+  <div class="actions"><%= f.submit "Найти", :class => "btn btn-primary" %></div>
+<% end %>

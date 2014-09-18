@@ -7,9 +7,14 @@ class VacanciesController < ApplicationController
   add_breadcrumb "Вакансии", "/vakansii-promouterov.html", :title => "Вернуться в базу вакансий"
 
   def index
-    @title = "Вакансии промоутеров"
+    @title = "Вакансии для промоутеров"
 
-    @vacancies = Vacancy.order("created_at DESC").page(params[:page])
+    @search = Vacancy.order("price DESC, created_at DESC").search(params[:q])
+    if params[:city]
+      @vacancies = Vacancy.where(city_id: params[:city]).search(params[:q]).result.order('price DESC, created_at DESC').page(params[:page])
+    else
+      @vacancies = @search.result.page(params[:page])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -90,6 +95,11 @@ class VacanciesController < ApplicationController
 
   # GET /vacancies/1/edit
   def edit
+    add_breadcrumb "Мои вакансии", "/my-vacancies.html", :title => "Вернуться в мои вакансии"
+
+    @title = "Изменить вакансию"
+    add_breadcrumb @title
+
     @vacancy = Vacancy.find(params[:id])
     @countries  = Country.all
     @states = State.all

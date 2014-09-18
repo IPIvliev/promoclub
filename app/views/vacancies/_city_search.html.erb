@@ -1,0 +1,35 @@
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                  <div class="modal-header"><!-- modal header -->
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Выбор города</h4>
+                  </div><!-- /modal header -->
+
+                  <!-- modal body -->
+                  <div class="modal-body">
+                    <strong>Выберите город из списка</strong>
+                    <p>В данном списке представлены только те города, в которых имеются зарегистрированные вакансии. В скобках указано количество зарегистрированных вакансий.</p>
+                <ul>
+
+              <% cache 'vacancy_cities_list' do %>
+                <% City.all.each do |city| %>
+                  <% if Vacancy.where(:city_id => city.id).count > 0 %>
+                    <li><%= link_to "#{city.name} (#{city.vacancies.count})", vacancy_city_path(city) %></li>
+                  <% end %>
+                <% end %>
+              <% end %>
+
+                </ul>
+
+                  </div>
+                  <!-- /modal body -->
+
+                  <div class="modal-footer"><!-- modal footer -->
+                    <p><a href="/vacancii-promouterov.html">Общий список вакансий без указания города</a></p>
+                  </div><!-- /modal footer -->
+
+                </div>
+              </div>
+            </div>

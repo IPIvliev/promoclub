@@ -94,6 +94,20 @@
                   </div>
                 </div>
 
+                 <div class="form-group">
+                  <div class="col-md-6">
+                    <label><strong>Минимальный возраст:</strong></label>
+                      <%= f.select :start_age, (14..99).to_a, { :include_blank=>true }, :required => "required" %>
+                    
+                  </div>
+                 </div>
+                 <div class="form-group">
+                  <div class="col-md-6">
+                    <label><strong>Максимальный возраст:</strong></label>
+                      <%= f.select :finish_age, (14..99).to_a, { :include_blank=>true }, :required => "required" %>
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <div class="col-md-6">
                     <%= f.check_box :med %>  <label><strong>Требования к наличию медицинской книжки</strong></label>

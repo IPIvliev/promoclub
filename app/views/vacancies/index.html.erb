@@ -71,7 +71,7 @@
                                     <strong>Дата начала акции: </strong><span class="styleSecondColor"><%= Russian::strftime(vacancy.start_date, "%d %B %Y") %></span><br>
                                     <strong>Дата окончания акции: </strong><span class="styleSecondColor"><%= Russian::strftime(vacancy.finish_date, "%d %B %Y") %></span><br>
                                     <strong>Количество промоутеров: </strong><span class="styleSecondColor"><%= vacancy.amount %> <%= Russian.pluralize(vacancy.amount, "человек", "человека", "человек") %></span><br>
-                                    <strong>Местоположение: </strong><span class="styleColor"><a href="#"><%= vacancy.city.name %> <i class="fa fa-external-link"></i></a>
+                                    <strong>Местоположение: </strong><span class="styleColor"><%= link_to "#{vacancy.city.name} <i class='fa fa-external-link'></i>".html_safe, vacancy_city_path(vacancy.city) %>
                                 </p>
 
                             </div>
@@ -97,11 +97,14 @@
                         </div><!-- /col-md-9 -->
 
 
-                        <aside class="col-md-3">
+            <aside class="col-md-3">
+              <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-thumbs-o-up"></i>ВЫБОР ГОРОДА</a>
+              <br><br>
+              <%= render "/vacancies/city_search" %>
 
-                        
+              <%= render "/vacancies/search_form" %>
 
-                        </aside>
+            </aside>
 
                     </div><!-- /row -->
 

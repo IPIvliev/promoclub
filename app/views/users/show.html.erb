@@ -68,6 +68,11 @@
                 <br>
                 <li><i class='fa fa-flag'></i> Страна: <%= @promoter.country.name %></li>
                 <li><i class='fa fa-bookmark-o'></i> Город: <%= link_to @promoter.city.name, agent_city_path(@promoter.city) %></a></li>
+                
+                <% if !@promoter.site.blank? %>
+                  <br>
+                  <li><i class='fa fa-link'></i> Сайт: <%= link_to @promoter.site, @promoter.site, :target => "_blank" %></a></li>
+                <% end %>
               <% end %>
             </ul>
             <br>

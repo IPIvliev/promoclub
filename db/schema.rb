@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140915081228) do
+ActiveRecord::Schema.define(:version => 20140918091736) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20140915081228) do
     t.integer  "state_id"
     t.integer  "rate",                   :default => 0
     t.boolean  "car",                    :default => false
+    t.string   "site"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -169,6 +170,8 @@ ActiveRecord::Schema.define(:version => 20140915081228) do
     t.integer  "state_id"
     t.boolean  "car",         :default => false
     t.string   "gender"
+    t.integer  "start_age"
+    t.integer  "finish_age"
   end
 
 end

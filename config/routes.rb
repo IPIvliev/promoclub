@@ -41,6 +41,7 @@ Promoclub::Application.routes.draw do
 
   get '/rabotodateli/cities/:city', to: 'static_pages#rabotodateli_cities', as: :agent_city
   get '/promoters/cities/:city', to: 'users#index', as: :promo_city
+  get '/vacancies/cities/:city', to: 'vacancies#index', as: :vacancy_city
 
 	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
