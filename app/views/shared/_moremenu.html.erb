@@ -4,7 +4,7 @@
 
       <nav class="nav-main pull-right" role="navigation">
         <ul class="nav nav-pills">
-          <% if current_user.status == "promo" %>
+          <% if current_user.status == "promo" && !current_user.city.blank? %>
             <%= link_to "Найти работу", vacancy_city_path(current_user.city, :find_job => "true"), :class => "btn btn-success pull-left" %>
           <% end %>
           <li class="dropdown">
