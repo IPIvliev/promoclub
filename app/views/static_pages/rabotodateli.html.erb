@@ -39,7 +39,7 @@
 									<br><br>
 									<strong>Дата регистрации: </strong><small class="styleSecondColor"><%= Russian::strftime(agent.created_at, "%d %B %Y") %></small><br>
 									<strong>Номер телефона: </strong><small class="styleSecondColor"><%= agent.phone %></small><br>
-									<strong>Местоположение: </strong><span class="styleColor"><a href="#"><%= link_to agent.city.name, agent_city_path(agent.city) %> <i class="fa fa-external-link"></i></a>
+									<strong>Местоположение: </strong><span class="styleColor"><%= link_to "#{agent.city.name} <i class='fa fa-external-link'></i>".html_safe, agent_city_path(agent.city) %>
 									
 								</p>
 							</div>

@@ -4,6 +4,9 @@
 
       <nav class="nav-main pull-right" role="navigation">
         <ul class="nav nav-pills">
+          <% if current_user.status == "promo" %>
+            <%= link_to "Найти работу", vacancy_city_path(current_user.city, :find_job => "true"), :class => "btn btn-success pull-left" %>
+          <% end %>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
              Профайл <span class="caret"></span>
