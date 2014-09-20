@@ -146,9 +146,9 @@
               <i class="fa fa-star"></i>
             </div>
 
-            <% if !@promoters.nil? && @promoter.status == "promo" %>
+            <% if @promoters.count > 0 && @promoter.status == "promo" %>
               <%= render "/shared/related_promos" %>
-            <% elsif !@agents.nil? && @promoter.status == "agent" %>
+            <% elsif @agents.count > 0 && @promoter.status == "agent" %>
               <%= render "/shared/related_agents" %>
             <% end %>
       </section>

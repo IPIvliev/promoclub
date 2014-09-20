@@ -113,7 +113,7 @@
     </div>
    </div>
 
-            <% if !@vacancies.nil? %>
+            <% if @vacancies.count > 0 %>
               <%= render "/shared/related_vacancies" %>
             <% end %>
       </section>

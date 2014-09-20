@@ -10,12 +10,12 @@ class VacanciesController < ApplicationController
   def index
     @title = "Вакансии для промоутеров"
 
-    @search = Vacancy.order("price DESC, created_at DESC").search(params[:q])
+    @search = Vacancy.order("created_at DESC, price DESC").search(params[:q])
     if params[:find_job] == "true"
       @vacancies = Vacancy.where("city_id = ? AND (med = ? OR med = ?) AND (gender = ? OR gender = ?) AND start_age <= ? AND finish_age >= ?",
         params[:city], current_user.med, false, current_user.gender, "Не важно", calculate_age(current_user.birth), calculate_age(current_user.birth)).page(params[:page])
     elsif params[:city]
-      @vacancies = Vacancy.where(city_id: params[:city]).search(params[:q]).result.order('price DESC, created_at DESC').page(params[:page])
+      @vacancies = Vacancy.where(city_id: params[:city]).search(params[:q]).result.order('created_at DESC, price DESC').page(params[:page])
 
     else
       @vacancies = @search.result.page(params[:page])
