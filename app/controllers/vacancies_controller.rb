@@ -76,7 +76,7 @@ class VacanciesController < ApplicationController
     @title = "#{@vacancy.name} от компании: #{@vacancy.user.name}"
     add_breadcrumb @title
 
-    @vacancies = Vacancy.where(:city_id => @vacancy.city.id).limit(4).order("created_at DESC")
+    @vacancies = Vacancy.where("id != ? AND city_id = ?", @vacancy.id, @vacancy.city.id).limit(4).order("created_at DESC")
 
     respond_to do |format|
       format.html # show.html.erb
