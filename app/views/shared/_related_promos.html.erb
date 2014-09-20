@@ -1,0 +1,47 @@
+<!-- RELATED -->
+						<div class="hidden-xs">
+
+							<h3 class="page-header">
+									<strong class="styleColor">Другие Промоутеры</strong> (<%= @promoter.city.name %>)
+							</h3>
+
+							<div class="row">
+
+                <% @promoters.each do |promoter| %>
+                <!-- items -->
+                <% if promoter != @promoter %>
+                <div class="col-sm-12 col-md-3"><!-- item -->
+                  <div class="item-box">
+                    <figure>
+                      <a class="item-hover" href="<%= user_path(promoter) %>">
+                        <span class="overlay color2"></span>
+                        <span class="inner">
+                          <span class="block fa fa-plus fsize20"></span>
+                          <strong>ПОДРОБНАЯ</strong> ИНФОРМАЦИЯ
+                        </span>
+                      </a>
+                      <%= image_tag promoter.avatar.thumb.url, :class => "img-responsive", :alt => "Промоутер: #{promoter.name} #{promoter.surname}", :title => "Промоутер: #{promoter.name} #{promoter.surname}" %>
+                    </figure>
+                    <div class="item-box-desc">
+                      <h4><%= promoter.name_with_rate %></h4>
+                      <small class="styleColor"><%= link_to promoter.city.name, promo_city_path(promoter.city) %></small>
+                      <strong><%= calculate_age(promoter.birth) %> <%= Russian.pluralize(calculate_age(promoter.birth), "год", "года", "лет") %></strong>
+
+                      <span class="fsize12 pull-right">
+                        <%= "<i class='fa fa-medkit styleSecondColor' title='Имеется медицинская книжка'></i>".html_safe if promoter.med %>
+                        <%= "<i class='fa fa-truck styleSecondColor' title='Имеется автомобиль'></i>".html_safe if promoter.car %>
+                        <%= " <i class='fa fa-vk styleSecondColor' title='Аккаунт Вконтакте'></i>".html_safe if promoter.vk_url %>
+                        <%= " <i class='fa fa-facebook styleSecondColor' title='Аккаунт Facebook'></i>".html_safe if promoter.facebook_url %>
+                      </span>
+                    </div>
+
+                    
+                  </div>
+                </div>
+                <% end %>
+                <% end %>
+
+							</div>
+
+						</div>
+						<!-- /RELATED -->

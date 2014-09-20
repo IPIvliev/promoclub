@@ -1,0 +1,39 @@
+<!-- RELATED -->
+						<div class="hidden-xs">
+
+							<h3 class="page-header">
+									<strong class="styleColor">Другие Работодатели</strong> (<%= @promoter.city.name %>)
+							</h3>
+
+							<div class="row">
+
+                <% @agents.each do |agent| %>
+                <!-- items -->
+                <% if agent != @promoter %>
+                <div class="col-sm-12 col-md-3"><!-- item -->
+                  <div class="item-box">
+                    <figure>
+                      <a class="item-hover" href="<%= user_path(agent) %>">
+                        <span class="overlay color2"></span>
+                        <span class="inner">
+                          <span class="block fa fa-plus fsize20"></span>
+                          <strong>ПОДРОБНАЯ</strong> ИНФОРМАЦИЯ
+                        </span>
+                      </a>
+                      <%= image_tag agent.avatar.thumb.url, :class => "img-responsive", :alt => "#{agent.name}", :title => "Работодатель: #{agent.name}" %>
+                    </figure>
+                    <div class="item-box-desc">
+                      <h4><%= agent.name_with_rate %></h4>
+                      <small class="styleColor"><%= link_to agent.city.name, agent_city_path(agent.city) %></small>
+                      <strong>Количество вакансий:</strong> <%= link_to agent.vacancies.count, user_path(agent) %>
+                    </div>
+                   
+                  </div>
+                </div>
+                <% end %>
+                <% end %>
+
+							</div>
+
+						</div>
+						<!-- /RELATED -->

@@ -62,7 +62,7 @@
                 
                 <% if !@promoter.site.blank? %>
                   <br>
-                  <li><i class='fa fa-link'></i> Сайт: <%= link_to @promoter.site, @promoter.site, :target => "_blank" %></a></li>
+                  <li><i class='fa fa-link'></i> Сайт: <%= link_to @promoter.site, "http://#{@promoter.site}", :target => "_blank" %></a></li>
                 <% end %>
               <% end %>
             </ul>
@@ -142,7 +142,15 @@
 
             <%= render "/opinions/opinions" %>
 
+            <div class="divider"><!-- divider -->
+              <i class="fa fa-star"></i>
+            </div>
 
+            <% if !@promoters.nil? && @promoter.status == "promo" %>
+              <%= render "/shared/related_promos" %>
+            <% elsif !@agents.nil? && @promoter.status == "agent" %>
+              <%= render "/shared/related_agents" %>
+            <% end %>
       </section>
 
     </div></div>

@@ -62,6 +62,8 @@ class UsersController < ApplicationController
 		@promoter = User.find(params[:id])
     @newopinion = Opinion.new
 
+    @promoters = User.where("avatar IS NOT NULL AND city_id = ? AND status = ?", @promoter.city.id, "promo").limit(4).order('rate DESC, created_at DESC')
+    @agents = User.where("avatar IS NOT NULL AND city_id = ? AND status = ?", @promoter.city.id, "agent").limit(4).order('rate DESC, created_at DESC')
 
 		@title = "#{@promoter.name} #{@promoter.surname}"
     add_breadcrumb @title

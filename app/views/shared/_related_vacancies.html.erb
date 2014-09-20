@@ -1,0 +1,39 @@
+<!-- RELATED -->
+						<div class="hidden-xs">
+
+							<h3 class="page-header">
+									<strong class="styleColor">Другие Работодатели</strong> (<%= @vacancy.city.name %>)
+							</h3>
+
+							<div class="row">
+
+                <% @vacancies.each do |vacancy| %>
+                <!-- items -->
+                <% if vacancy != @vacancy %>
+                <div class="col-sm-12 col-md-3"><!-- item -->
+                  <div class="item-box">
+                    <figure>
+                      <a class="item-hover" href="<%= vacancy_path(vacancy) %>">
+                        <span class="overlay color2"></span>
+                        <span class="inner">
+                          <span class="block fa fa-plus fsize20"></span>
+                          <strong>ПОДРОБНАЯ</strong> ИНФОРМАЦИЯ
+                        </span>
+                      </a>
+                      <%= image_tag vacancy.user.avatar.thumb.url, :class => "img-responsive", :alt => "#{vacancy.user.name}", :title => "Работодатель: #{vacancy.user.name}" %>
+                    </figure>
+                    <div class="item-box-desc">
+                      <h4><%= vacancy.name %></h4>
+                      <small class="styleColor"><%= link_to vacancy.city.name, vacancy_city_path(vacancy.city) %></small>
+                      <strong>Оплата:</strong> <%= link_to "#{vacancy.price} руб. в час", vacancy_path(vacancy) %>
+                    </div>
+                   
+                  </div>
+                </div>
+                <% end %>
+                <% end %>
+
+							</div>
+
+						</div>
+						<!-- /RELATED -->

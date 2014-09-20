@@ -112,6 +112,10 @@
               <%= render "/shared/important" %>
     </div>
    </div>
+
+            <% if !@vacancies.nil? %>
+              <%= render "/shared/related_vacancies" %>
+            <% end %>
       </section>
 
 </div>
