@@ -35,5 +35,5 @@ SitemapGenerator::Sitemap.create do
    end
 
   add '/kontakti.html', :priority => 0.7, :changefreq => 'yearly', :priority => 0.5 
-
+  add '/help.html', :priority => 0.7, :changefreq => 'monthly', :priority => 0.5 
 end
