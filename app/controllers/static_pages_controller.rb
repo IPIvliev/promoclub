@@ -65,4 +65,9 @@ class StaticPagesController < ApplicationController
     render 'rabotodateli'
   end
 
+  def help
+    @title = "Помощь"
+    add_breadcrumb @title
+  end
+
 end

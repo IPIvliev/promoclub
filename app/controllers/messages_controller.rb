@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     if @message.save(params[:message])
-      flash[:success] = "Ваше сообщение отправленно. Наш менеджер свяжется с Вами в ближайшее время."
+      flash[:success] = "Ваше сообщение отправленно. Наш менеджер свяжется с Вами через почту <strong>#{@message.email}</strong> в ближайшее время.".html_safe
     else
       flash[:danger] = "Сообщение не отправленно. Вы не заполнили, либо не правильно заполнили одно из обязательных полей."
     end

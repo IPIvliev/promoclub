@@ -27,6 +27,7 @@ Promoclub::Application.routes.draw do
   get "/uslugi.html", to: "static_pages#services"
   get "/uslugi/poisk-promouterov.html", to: "static_pages#find"
   get "/uslugi/naiti-rabotu-promouterom.html", to: "static_pages#job"
+  get "/help.html", to: "static_pages#help"
 
 # Пользователи
   get "/baza-promouterov.html", to: "users#index"

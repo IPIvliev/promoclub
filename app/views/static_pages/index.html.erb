@@ -39,6 +39,15 @@
 
 			</section>
 			<!-- /FILTER BOX -->
+        <% flash.each do |key, value| %>
+	        <section class="container">
+		        <div class="col-md-12">
+		            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+		        </div>
+	    	</section>
+        <% end %>
+
+
 <%= render '/shared/moremenu' %>
 
 

@@ -23,6 +23,11 @@
     </div>
   <% end %>
         <div class="form-group">
+
+          <% if current_user %>
+            <%= f.hidden_field :name, :value => current_user.name %>
+            <%= f.hidden_field :email, :value => current_user.email %>
+          <% else %>
           <div class="row">
             <div class="col-md-12">
               <label><strong>Как к вам обращаться:</strong></label>
@@ -35,6 +40,7 @@
               <%= f.text_field :email, :placeholder => "allpromoters@yandex.ru", :class => "form-control", :required => "required" %>
             </div>
           </div>
+          <% end %>
 
           <div class="row">
             <div class="col-md-12">

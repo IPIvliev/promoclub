@@ -25,6 +25,10 @@
 
 						<%= form_for @message, :url => {:controller => "messages", :action => "messagecreate" }, :class => "white-row" do |f| %>
 
+					        <% if current_user %>
+					          <%= f.hidden_field :name, :value => current_user.name %>
+					          <%= f.hidden_field :email, :value => current_user.email %>
+					        <% else %>
 							<div class="row">
 								<div class="form-group">
 									<div class="col-md-6">
@@ -45,7 +49,7 @@
 									</div>
 								</div>
 							</div>
-
+							<% end %>
 
 							<div class="row">
 								<div class="form-group">
