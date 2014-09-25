@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140918091736) do
+ActiveRecord::Schema.define(:version => 20140925115742) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -107,6 +107,14 @@ ActiveRecord::Schema.define(:version => 20140918091736) do
     t.integer  "owner_id"
     t.text     "uri_cache"
     t.string   "simplified_type",        :default => "file"
+  end
+
+  create_table "sms_invites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "user_to_id"
+    t.integer  "vacancy_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "states", :force => true do |t|

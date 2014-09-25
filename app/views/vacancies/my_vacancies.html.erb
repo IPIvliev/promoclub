@@ -37,6 +37,14 @@
     "#{vacancy.invites.count} #{Russian.pluralize(vacancy.invites.count, "приглашение", "приглашения", "приглашений")}"
   end
 
+  g.column  name: 'SMS отправлено'.html_safe do |vacancy|
+    "#{vacancy.sms_invites.count} SMS #{vacancy.sms_invites.count}"
+  end  
+
+  g.column  name: 'Отправить SMS'.html_safe do |vacancy|
+    link_to "Отправить #{new_sms_count(vacancy)} SMS", vacancy_sms_invite_path(vacancy), :class => "btn btn-primary" if vacancy.sms_invites.blank? && new_sms_count(vacancy) != 0
+  end  
+
   g.column name: 'Корректировки' do |task|
     link_to('Изменить', edit_vacancy_path(task))
   end

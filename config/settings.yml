@@ -1,0 +1,6 @@
+
+# Статус приложение: test, production
+status: "test"
+
+# Плата за отправку смс: true, false
+sms_cost: "false"

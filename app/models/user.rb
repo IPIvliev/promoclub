@@ -38,6 +38,9 @@ class User < ActiveRecord::Base
   has_many :invites, :dependent => :destroy
   has_many :invites_to_me, foreign_key: "user_to_id", class_name: "Invite"
 
+  has_many :sms_invites, :dependent => :destroy
+  has_many :sms_invites_to_me, foreign_key: "user_to_id", class_name: "SmsInvite"
+
     # Отправка письма после создания аккаунта
   after_create :send_greeting_mail
 

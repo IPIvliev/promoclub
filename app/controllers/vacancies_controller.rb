@@ -68,6 +68,12 @@ class VacanciesController < ApplicationController
     render '/replies/show_replies_to'
   end
 
+  def sms_invites
+    @vacancy = Vacancy.find(params[:id])
+    sms_invite_promos(@vacancy)
+    redirect_to '/my-vacancies.html'
+  end
+
   # GET /vacancies/1
   # GET /vacancies/1.json
   def show

@@ -8,6 +8,7 @@ class Vacancy < ActiveRecord::Base
 
   has_many :replies, :dependent => :destroy
   has_many :invites, :dependent => :destroy
-
+  has_many :sms_invites
+  
   paginates_per 7
 end

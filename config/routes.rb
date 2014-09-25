@@ -63,6 +63,9 @@ Promoclub::Application.routes.draw do
 # Отправка сообщений
   match "messages/messagecreate", :to => 'messages#messagecreate'
 
+# Отправка sms-приглашений
+  match "/vacancy/:id/sms_invite", :to => 'vacancies#sms_invites', as: :vacancy_sms_invite
+
   root :to => 'static_pages#index'
 
 end

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'kaminari'
 gem "wice_grid", '3.4.2'
+gem "rails_config"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,6 +23,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'cancan'
 gem 'ransack'
+
+# Work with SMS
+gem  'rest-client'
 
 # Admin panel
 gem 'rails_admin'
