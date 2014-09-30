@@ -32,7 +32,10 @@ class VacanciesController < ApplicationController
 
     add_breadcrumb @title
 
-    @vacancies = initialize_grid(Vacancy, :conditions => ['user_id = ?', current_user.id])
+    @vacancies = initialize_grid(Vacancy, :conditions => ['user_id = ?', current_user.id],
+                  order: 'created_at',
+                  order_direction: 'desc',
+                  per_page: 10)
 
   end
 
@@ -70,8 +73,31 @@ class VacanciesController < ApplicationController
 
   def sms_invites
     @vacancy = Vacancy.find(params[:id])
-    sms_invite_promos(@vacancy)
-    redirect_to '/my-vacancies.html'
+    @count = new_sms_count(@vacancy)
+
+    if Settings.sms_cost == "true" && Settings.status == "production"
+      @cost = new_sms_cost(@vacancy)
+      if @cost <= current_user.pocket
+        if sms_invite_promos(@vacancy)
+          pay(@cost)
+          flash[:success] = "Вы успешно отправили #{@count} sms на общую сумму #{@cost} руб."
+          redirect_to '/my-vacancies.html'
+        else
+          flash[:danger] = "Произошла непредвиденна ошибка в отправке sms.
+           <a href='#'' data-toggle='modal' data-target='#letter'>Свяжитесь с администратором сервиса</a>".html_safe
+          redirect_to '/my-vacancies.html'
+        end
+      else
+        flash[:danger] = "На вашем счёте недостаточно средств для отправки sms уведомления всем подходящим
+          промоутерам. Рекомендуем Вам <strong><a href='/users/#{current_user.id}/payments' class='red'>пополнить счёт</a></strong>.".html_safe
+        redirect_to '/my-vacancies.html'
+      end
+    else
+      sms_invite_promos(@vacancy)
+      flash[:success] = "Вы успешно отправили #{@count} sms."
+      redirect_to '/my-vacancies.html'
+    end
+
   end
 
   # GET /vacancies/1
@@ -122,19 +148,37 @@ class VacanciesController < ApplicationController
   # POST /vacancies
   # POST /vacancies.json
   def create
-    @vacancy = current_user.vacancies.build(params[:vacancy])
-
-    respond_to do |format|
-      if @vacancy.save
-        invite_promos(@vacancy)
-        
-        format.html { redirect_to @vacancy, notice: 'Vacancy was successfully created.' }
-        format.json { render json: @vacancy, status: :created, location: @vacancy }
+    if Settings.vacancy_cost == "true" && Settings.status == "production"
+      if Settings.vacancy_price.to_i <= current_user.pocket.to_i
+        @vacancy = current_user.vacancies.build(params[:vacancy])
       else
-        format.html { render action: "new" }
-        format.json { render json: @vacancy.errors, status: :unprocessable_entity }
+        flash[:danger] = "На вашем счёте недостаточно средств для создания вакансии.
+          Рекомендуем Вам <strong>пополнить счёт</strong>.".html_safe
+        return redirect_to payments_user_path(current_user)
       end
+    else 
+      @vacancy = current_user.vacancies.build(params[:vacancy])
     end
+
+
+    if @vacancy.save
+      if Settings.vacancy_cost == "true" && Settings.status == "production"
+        pay(Settings.vacancy_price.to_i)
+        invite_promos(@vacancy)
+        flash[:success] = "Вы успешно создали вакансию. Стоимость услуги составила #{Settings.vacancy_price} руб."
+        redirect_to @vacancy
+      else
+        invite_promos(@vacancy)
+        flash[:success] = "Вы успешно создали вакансию."
+        redirect_to @vacancy
+      end
+
+    else
+      flash[:danger] = "Произошла ошибка при создании вакансии. Если у вас не получается исправить ошибку, то 
+           <a href='#'' data-toggle='modal' data-target='#letter'>свяжитесь с администратором сервиса</a>".html_safe
+      render action: "new"
+    end
+
   end
 
   # PUT /vacancies/1

@@ -1,0 +1,157 @@
+<!-- WRAPPER -->
+    <div id="wrapper">
+
+      <!-- PAGE TITLE -->
+      <%= render "/shared/bread" %>
+
+      <%= render '/shared/moremenu' %>
+
+      <section id="portfolio" class="container">
+
+<% if current_user == @user && current_user.status == "agent" && Settings.status == "production" %>
+
+        <h2><strong>Финансы</strong></h2>
+
+        <div class="row">
+          <p id="notice"><%= notice %></p>
+          <div class="col-sm-5 col-md-7">
+            <div class="controlls-over product-image">
+              <div>
+                <%= image_tag @user.avatar.url, :class => "img-responsive" %>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-sm-7 col-md-5">
+
+            <ul class="list-icon">
+                <li><strong><i class='fa fa-certificate'></i> Средства на счёте:</strong> <%= money(current_user.pocket) %></li>
+            </ul>
+            <br>
+            <% if params[:amount] %>
+              <h3><strong>Проверьте реквизиты платежа</strong></h3>
+            <% else %>
+              <h3><strong>Пополнить счёт</strong></h3>
+            <% end %>
+
+
+<% if Settings.status == "production" %>
+
+  <% if params[:amount] %>
+    <strong>Ваш аккаунт:</strong> <%= current_user.name %><br>
+    <strong>Оператор платежа:</strong> Робокасса<br>
+    <strong>Сумма платёжа:</strong> <%= money(params[:amount]) %><br><br>
+
+    <%= payment_service_for current_user.id, "promoclub",
+                          :amount => params[:amount],
+                          :service => :robokassa,
+                          :secret => "AllpromotersINFOCOM1" do |s| %>
+      <div class="col-md-6">
+        <%= submit_tag "Внести взнос", :class => "btn btn-success" %>
+      </div>
+      <div class="col-md-6">
+        <%= link_to "Изменить сумму", destroy_payment_path(params[:payment]), method: :delete, :class => "btn btn-warning" %>
+      </div>
+    <% end %>
+
+  <% else %>
+
+    <%= form_for @payment, :url => {:controller => "payments", :action => "create" }, :class => "white-row" do |f| %>
+              <div class="row">
+                <div class="form-group has-success has-feedback">
+                  <div class="input-group">
+                    <%= f.number_field :amount, :value => 1000, :class => "form-control", :id =>"inputSuccess2" %>
+                    <div class="input-group-addon"><strong>рублей</strong></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.submit :value => "Пополнить", :class => "btn btn-primary" %>
+                </div>
+              </div>
+    <% end %>
+
+  <% end %>
+
+<% else %>
+  <p>В настоящее время приложение работает в тестовом режиме. Приём платежей недоступен.</p>
+<% end %>
+
+
+<% if Settings.status == "production" && Settings.period_cost == "true" %>
+  <br><br>
+  <h3><strong>Купить доступ к базе контактов</strong></h3>
+  <p>В ознакомительном режиме вы можете просматривать информацию о промоутерах без номеров телефонов. <strong>Для просмотра номеров вам необходимо купить платный доступ.</strong><br><br> Стоимость доступа на месяц составляет <%= money(Settings.period_price.to_i) %></p>
+    <% if !current_user.periods.blank? %>
+      <% if current_user.periods.last.finish_date < Date.today %>
+        <strong>Ваш доступ истёк:</strong> <%= Russian::strftime(current_user.periods.last.finish_date, "%d %B %Y года") %><br>
+      <% else %>
+        <strong>Ваш доступ истекает:</strong> <%= Russian::strftime(current_user.periods.last.finish_date, "%d %B %Y года") %><br>
+      <% end %>
+    <% end %>
+
+    <%= form_for @period, :url => {:controller => "payments", :action => "new_period" }, :class => "white-row" do |f| %>
+              <div class="row">
+                <div class="form-group has-warning has-feedback col-md-6">
+                  <br><strong>Продлить доступ:</strong>
+                  <div class="input-group col-md-6">
+                     <%= f.select :finish_date, options_for_select([ 1, 2, 3, 4, 5, 6]), :class => "form-control col-md-12", :required => "required" %>
+                    <div class="input-group-addon"><strong>месяцы</strong></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.submit :value => "Продлить", :class => "btn btn-primary" %>
+                </div>
+              </div>
+    <% end %>
+
+<% end %>
+
+            <br>
+
+</div>
+</div>
+
+        <div class="row">
+          <div class="col-md-12">
+            
+<br><br>
+<h3><strong>История платежей</strong></h3>
+
+
+<%= grid(@payments) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "  <strong>Пока вы не произвели ни одного платежа.</strong>".html_safe, class: 'alert alert-warning'
+  end
+
+  g.column name: 'Дата платежа' do |payment|
+    Russian::strftime(payment.created_at, "%k:%M %d %B %Y")
+  end
+
+  g.column name: 'Сумма платежа' do |payment|
+    money(payment.amount)
+  end
+
+  g.column name: 'Статус платежа' do |payment|
+    payment_status(payment)
+  end
+
+end -%>
+
+
+ 
+
+          </div></div>
+<% else %>
+  <p>Вы не можете просмотреть данную страницу.</p>
+  <%= link_to "Вернуться на предыдущую", :back %>
+<% end %>
+      </section>
+
+    </div></div>
+    <!-- /WRAPPER -->

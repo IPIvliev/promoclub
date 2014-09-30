@@ -69,4 +69,10 @@ module InvitesHelper
     end
   end
 
+
+  def new_sms_cost(vacancy)
+    @price = new_sms_count(vacancy) * Settings.sms_price.to_i
+    return @price
+  end
+
 end

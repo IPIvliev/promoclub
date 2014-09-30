@@ -9,7 +9,6 @@
       <section class="container">
         <h2>Список <strong>ваших вакансий</strong></h2>
         <p>Здесь представлен список вакансий, которые были созданы вашей компанией.</p>
-   
 
         <div class="row">
           <p id="notice"><%= notice %></p>
@@ -37,13 +36,15 @@
     "#{vacancy.invites.count} #{Russian.pluralize(vacancy.invites.count, "приглашение", "приглашения", "приглашений")}"
   end
 
+if Settings.sms_can == "true"
   g.column  name: 'SMS отправлено'.html_safe do |vacancy|
-    "#{vacancy.sms_invites.count} SMS #{vacancy.sms_invites.count}"
+    "#{vacancy.sms_invites.count} SMS"
   end  
 
   g.column  name: 'Отправить SMS'.html_safe do |vacancy|
     link_to "Отправить #{new_sms_count(vacancy)} SMS", vacancy_sms_invite_path(vacancy), :class => "btn btn-primary" if vacancy.sms_invites.blank? && new_sms_count(vacancy) != 0
   end  
+end
 
   g.column name: 'Корректировки' do |task|
     link_to('Изменить', edit_vacancy_path(task))

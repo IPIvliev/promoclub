@@ -44,6 +44,19 @@ Promoclub::Application.routes.draw do
   get '/promoters/cities/:city', to: 'users#index', as: :promo_city
   get '/vacancies/cities/:city', to: 'vacancies#index', as: :vacancy_city
 
+# Финансы пользователя
+  match '/users/:id/payments', to: 'payments#index', as: :payments_user
+  match '/payments/:id/destroy', to: 'payments#destroy', as: :destroy_payment
+  match '/payments/create', to: 'payments#create'
+  match '/payments/new_period', to: 'payments#new_period'
+# Проплата
+  scope 'robokassa' do
+    match 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request
+
+    match 'success' => 'robokassa#success', :as => :robokassa_success # to handle Robokassa success redirect
+    match 'fail'    => 'robokassa#fail',    :as => :robokassa_fail # to handle Robokassa fail redirect
+  end  
+
 	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, :only => [:index, :show, :edit, :update, :destroy] do

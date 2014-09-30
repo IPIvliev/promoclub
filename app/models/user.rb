@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
   belongs_to :state
   belongs_to :country
 
+  has_many :payments
+  has_many :periods
+
   has_many :opinions, :dependent => :destroy
   has_many :opinions_to_me, foreign_key: "user_to_id", class_name: "Opinion"
 

@@ -26,4 +26,21 @@ module UsersHelper
         return 0
     end
   end
+
+# Сколько денег
+  def money(summa)
+    number_to_currency( summa, unit: "руб.", separator: ",", delimiter: " ", format: "%n %u")
+  end
+
+  def pay(cost)
+    @new_pocket = current_user.pocket - cost
+    current_user.update_attribute(:pocket, @new_pocket)
+    return true
+  end  
+   
+  def balance
+      hash = RestClient.get("http://sms.ru/my/balance?api_id=9d3359eb-9224-2384-5d06-1118975a2cd2")
+      hash[4..-1]
+  end
+
 end

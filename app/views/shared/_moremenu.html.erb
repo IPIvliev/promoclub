@@ -1,4 +1,13 @@
 <% if current_user %>
+        <% flash.each do |key, value| %>
+          <section class="container">
+            <div class="col-md-12">
+                <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+            </div>
+        </section>
+        <% end %>
+        <br><br>
+
 
 <section class="container text-center">
 
@@ -7,6 +16,11 @@
           <% if current_user.status == "promo" && !current_user.city.blank? %>
             <%= link_to "Найти работу", vacancy_city_path(current_user.city, :find_job => "true"), :class => "btn btn-success pull-left" %>
           <% end %>
+
+          <% if current_user.status == "agent" && Settings.status == "production" && !current_user.avatar.blank? %>
+            <%= link_to "Счёт: #{money(current_user.pocket)}", payments_user_path(current_user), :class => "btn btn-success pull-left" %>
+          <% end %>
+
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
              Профайл <span class="caret"></span>
@@ -27,7 +41,7 @@
               <li class="active">
                 <%= link_to "Новые приглашения (#{current_user.invites_to_me.where(:see => false).count})", invites_user_path(current_user) %>
               </li>
-            <% else %>
+            <% elsif !current_user.city.blank? %>
               <li>
                 <%= link_to "Приглашения (#{current_user.invites_to_me.count})", invites_user_path(current_user) %>
               </li>
@@ -35,25 +49,31 @@
           <% end %>
 
           <li>
-            <% if current_user.status == "promo" %>
+            <% if current_user.status == "promo" && !current_user.city.blank?%>
               <%= link_to "Мои отклики (#{current_user.replies.count})", replies_user_path(current_user) %>
             <% end %>
           </li>
 
-          <% if current_user.status == "admin" || current_user.status == "agent" %>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-             Вакансии <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <%= link_to "Мои вакансии (#{current_user.vacancies.count})", "/my-vacancies.html" %>
+          <% if current_user.status == "admin" || current_user.status == "agent" && !current_user.city.blank? %>
+            <% if !current_user.vacancies.blank? %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                 Вакансии <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <%= link_to "Мои вакансии (#{current_user.vacancies.count})", "/my-vacancies.html" %>
+                  </li>
+                  <li>
+                    <%= link_to "Создать вакансию", new_vacancy_path %>
+                  </li>
+                </ul>
               </li>
-              <li>
+            <% else %>
+              <li class="active">
                 <%= link_to "Создать вакансию", new_vacancy_path %>
               </li>
-            </ul>
-          </li>
+            <% end %>
 
           <% if current_user.replies_to_me.where(:see => false).count > 0 %>
 
@@ -66,16 +86,16 @@
           <% end %>          
 
           <li>
-            <% if current_user.status == "promo" %>
+            <% if current_user.status == "promo" && !current_user.city.blank?%>
               <%= link_to "Работодатели (#{current_user.followers.count})", followers_user_path(current_user) %>
-            <% else %>
+            <% elsif !current_user.city.blank? %>
               <%= link_to "Отобранные промоутеры (#{current_user.followed_users.count})", following_user_path(current_user) %>
             <% end %>
           </li>
 
 
           <li>
-            <%= link_to "Мои отзывы (#{current_user.opinions.count})", opinions_path %>
+            <%= link_to "Мои отзывы (#{current_user.opinions.count})", opinions_path if !current_user.city.blank?%>
           </li>
 
           <% if current_user.status == "admin" %>

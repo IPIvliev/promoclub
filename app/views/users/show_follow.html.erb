@@ -28,7 +28,7 @@
     <thead>
       <tr  class="wice-grid-title-row">
         <th>ФИО</th>
-        <th>Телефон организатора</th>
+        <th>Телефон промоутера</th>
         <th>Город</th>
       </tr>
     </thead>
@@ -36,7 +36,13 @@
       <tr  class="odd">
         <% @users.each do |user| %>
           <td><%= link_to "#{user.name} #{user.surname}", user %></td>
-          <td><%= user.phone %></td>
+          <td>
+            <% if current_user && Settings.status == "production" && Settings.period_cost == "true" %>
+              <%= period_phone_reply(user) %>
+            <% else %>
+              <%= user.phone %>
+            <% end %>
+          </td>
           <td><%= user.city.name %></td>
         <% end %>
       </tr>

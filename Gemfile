@@ -24,6 +24,9 @@ gem 'omniauth-vkontakte'
 gem 'cancan'
 gem 'ransack'
 
+# Money
+gem 'activemerchant', :require => 'active_merchant'
+
 # Work with SMS
 gem  'rest-client'
 
