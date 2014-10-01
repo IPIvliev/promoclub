@@ -7,7 +7,7 @@ namespace :csv do
   desc "Import CSV Data"
   task :create_promos => :environment do
 
-    csv_file_path = 'db/promobaza-mini.csv'
+    csv_file_path = 'db/promobaza-0-100.csv'
 
     CSV.foreach(csv_file_path, :col_sep => ";", :row_sep => :auto, :headers => true) do |row|
       User.create!({
