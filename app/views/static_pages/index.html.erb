@@ -50,6 +50,23 @@
 
 <%= render '/shared/moremenu' %>
 
+<section class="paddings white-row container">
+								<div class="row text-center countTo">
+									<div class="col-md-4">
+										<strong data-to="<%= User.where(:status => "promo").count %>">0</strong>
+										<label><%= Russian.pluralize(User.where(:status => "promo").count, "Промоутер", "Промоутера", "Промоутеров") %></label>
+									</div>
+									<div class="col-md-4">
+										<strong data-to="<%= User.where(:status => "agent").count %>">0</strong>
+										<label><%= Russian.pluralize(User.where(:status => "agent").count, "Работодатель", "Работодателя", "Работодателей") %></label>
+									</div>
+									<div class="col-md-4">
+										<strong data-to="<%= Vacancy.all.count %>">0</strong>
+										<label><%= Russian.pluralize(Vacancy.all.count, "Вакансия", "Вакансии", "Вакансий") %></label>
+									</div>
+								</div>
+							</section>
+
 
 	<section id="portfolio" class="container">
 
@@ -59,9 +76,13 @@
 
 					Найти промоутера не так просто, как может показаться на первый взгляд. Команда разработчиков проекта allpromoters.ru принимала участие в организации btl-акций по всей России. Мы решили, что современные технологии могут помочь найти временную работу промоутером. Наш проект предлагает к вашим услугам сотни контактов людей, которые хотят работать промоутером. Спешите пользоваться!</p>
 
-				<ul class="nav nav-pills isotope-filter isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
+							<div class="divider styleColor"><!-- divider -->
+								<i class="fa fa-leaf"></i>
+							</div>
+
+
+					<h3>Новые вакансии</h3>
 					<p>Последние <i>3 открытых вакансии</i>. Для просмотра полного списка зайдите раздел "Вакансии".</p>
-				</ul>
 
                                 <% @vacancies.each do |vacancy| %>
                                 <!-- items -->
@@ -110,20 +131,16 @@
                             </div>
                         </div>
                         <!-- /article summary -->
-
-                        <div class="divider"><!-- divider -->
-                            <i class="fa fa-star"></i>
-                        </div>
-
-                    
-
+        					<hr>
                                 <% end %>
 
+                        <div class="divider styleColor"><!-- divider -->
+								<i class="fa fa-leaf"></i>
+						</div>
 
-				<ul class="nav nav-pills isotope-filter isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
+
+				<h3>Новые промоутеры</h3>
 					<p>Последние <i>16 зарегистрировавшихся промоутеров</i>. Для просмотра полного списка зайдите в базу.</p>
-				</ul>
-
 
 				<div class="row">
 
