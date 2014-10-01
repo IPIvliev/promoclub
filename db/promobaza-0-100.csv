@@ -1,24 +1,4 @@
 ﻿#;surname;name;gender;birth;country_id;city_id;description;phone;email;med;avatar;#
-108;Бадыгина;Айгуль;Женский;02.06.1994;3159;2194;Общительная, ответственная, пунктуальная;+7 (904) 663-91-05;www.aigul1994@mail.ru;false;http://promobaza.pro/upload/main/488/3TcgJC82DC0_thumb_600x.jpg;108
-109;Макушев;Денис;Мужской;16.05.1998;3159;2194;Ищу работу промоутером от 150;+7 (904) 664-81-01;wamka6870@mail.ru;true;http://promobaza.pro/upload/main/13e/P1040989_thumb_600x.JPG;109
-110;Никонова;Элина;Женский;21.01.1994;3159;2194;Я активная, улыбчивая и коммуникабельная. Ищу работу на лето промоутером, курьером или тайным покупателем. Опыт работы имеется. Действительная мед.книжка, наличие водительского удостоверения категории В.;+7 (904) 666-63-89;krisa112@mail.ru;true;http://promobaza.pro/upload/main/9e1/111_thumb_600x.jpg;110
-111;Мокеева;Анасатасия;Женский;12.10.1996;3159;2194;;+7 (904) 669-08-28;lanteeva1996@mail.ru;false;http://promobaza.pro/upload/main/2d3/SAM_3165_thumb_600x.jpg;111
-112;Насибуллин;Рафаэль;Мужской;29.08.1998;3159;2194;Довожу дело до конца.;+7 (904) 673-44-17;spidermanrafa159@mail.ru;false;http://promobaza.pro/upload/main/78c/cio6V0994QQ_thumb_600x.jpg;112
-113;Галиахметова;Миляуша;Женский;13.08.1996;3159;2194;Общительная,веселая. трудолюбива. вежливая;+7 (904) 675-08-27;m13v09@mail.ru;false;http://promobaza.pro/upload/main/543/1274_thumb_600x.jpg;113
-114;Аделя;Аделя;Женский;10.11.1995;3159;2194;очень ответственная девочка,активная,трудолюбивая и отзывчивая. Большой опыт работы в различных проектах.;+7 (904) 675-35-78;valkotin95@mail.ru;false;http://promobaza.pro/upload/main/6da/nJdsIBoXa9g_thumb_600x.jpg;114
-115;Щипко;Юлия;Женский;14.05.1994;3159;2194;;+7 (904) 677-83-82;kyuhyun8894@gmail.com;false;http://promobaza.pro/upload/main/8b6/1V_JQbxdZJ8_thumb_600x.jpg;115
-116;Галеева;Ильвира;Женский;16.04.1992;3159;2194;;+7 (904) 712-01-34;ildanlik@inbox.ru;false;http://promobaza.pro/upload/main/077/RUYN0Ha67Pk_thumb_600x.jpg;116
-117;Лизунов;Аркадий;Мужской;17.07.1998;3159;449;;+7 (904) 751-18-68;akrobatarka@mail.ru;false;http://promobaza.pro/upload/main/144/20120509_100459_thumb_600x.jpg;117
-118;Гайнуллина;Алина;Женский;31.07.1998;3159;2194;Закончила 8 класс хорошисткой.Веду активный образ жизни.Бегаю,играю в волейбол,а также до 7 класса посещала кружок гимнастики.Играю на гитаре.Опыта работы не имею;+7 (904) 760-48-38;gainullina.2014@mail.ru;false;http://promobaza.pro/upload/main/57b/RtYY2Z4WyA_thumb_600x.jpg;118
-119;Кочнев;Роман;Мужской;16.08.1992;3159;2194;;+7 (904) 764-49-24;smil-romch@yandex.ru;true;http://promobaza.pro/upload/main/feb/QVvXl83vm4g_thumb_600x.jpg;119
-120;Салмин;Ранель;Мужской;16.02.1999;3159;2194;;+7 (904) 767-07-92;timati_21@mail.ru;false;http://promobaza.pro/upload/main/999/Image_thumb_600x.bmp;120
-121;Шайдуллина;Айгуль;Женский;04.11.1994;3159;2194;;+7 (904) 769-51-32;blondvdushe@mail.ru;false;http://promobaza.pro/upload/main/893/BOi4xBNhEqo_thumb_600x.jpg;121
-122;Калинина;Эллина;Женский;05.10.1992;3159;2194;;+7 (904) 769-64-96;ellina-kalinina@mail.ru;true;http://promobaza.pro/upload/main/a29/mDdC3dVkUKU_thumb_600x.jpeg;122
-123;Федоров;Антон;Мужской;15.01.1992;3159;449;;+7 (904) 771-34-31;sensestheater@gmail.com;false;http://promobaza.pro/upload/main/e13/x_e5c0639c_thumb_600x.jpg;123
-124;Артамонова;Полина;Женский;20.10.1996;3159;586;Я добрая, милая, отзывчивая, общительная, терпеливая);+7 (904) 788-64-81;polinka.artamonova@yandex.ru;false;http://promobaza.pro/upload/main/c3c/jg6RBmk2kMM_thumb_600x.jpg;124
-125;Сбитнева;Алёна;Женский;05.11.1997;3159;1526;;+7 (904) 821-66-41;alenochkasbutneva3000@mail.ru;false;http://promobaza.pro/upload/main/e29/DSCN2792_thumb_600x.jpg;125
-126;Лавринова;Алёна;Женский;02.12.1998;3159;1526;закончила 8 класс, есть сертификат об окончании кружка по теме аквариумное рыбоводство, есть ИНН, трудовая книжка, паспорт, пенсионное, справка из школы и справка от врача.;+7 (904) 821-81-07;alya0055@yandex.ru;false;http://promobaza.pro/upload/main/19d/IMG_0516_thumb_600x.JPG;126
-127;Ткачёва;Дарья;Женский;01.12.1997;3159;1526;;+7 (904) 825-16-97;maruska-t@mail.ru;false;http://promobaza.pro/upload/main/6b6/.jpg_thumb_600x.jpg;127
 128;Ильина;Марина;Женский;11.06.1996;3159;1526;;+7 (904) 828-14-80;ko4neva.ilina24@mail.ru;false;http://promobaza.pro/upload/main/151/getImage_thumb_600x.jpg;128
 129;Алекберов;Рахман;Мужской;05.09.1995;3159;1526;пунктуальный, ответственный, активный.;+7 (904) 828-18-18;10_krasavchik@mail.ru;false;http://promobaza.pro/upload/main/4a9/5fFI_qAVZ7I_thumb_600x.jpg;129
 130;Онцчина;Евгения;Женский;09.12.1994;3159;1526;Весёлая,общительная,пунктуальная,быстро учусь и легко нахожу общий язык с людьми.;+7 (904) 828-37-71;evgesha_00000@mail.ru;false;http://promobaza.pro/upload/main/d09/4WDV5baEqtE_thumb_600x.jpg;130
