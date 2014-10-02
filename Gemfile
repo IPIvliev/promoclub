@@ -32,8 +32,7 @@ gem  'rest-client'
 
 # Admin panel
 gem 'rails_admin'
-gem 'acts-as-taggable-on'
-gem 'rails_admin_tag_list'
+gem 'cancan'
 
 # Blog
 gem 'rich'
