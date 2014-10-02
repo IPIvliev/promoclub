@@ -10,7 +10,7 @@ namespace :csv do
     csv_file_path = 'db/promobaza-0-100.csv'
 
     CSV.foreach(csv_file_path, :col_sep => ";", :row_sep => :auto, :headers => true) do |row|
-      if row row["name"] != nil && row["surname"] != nil && row["birth"] != nil && row["gender"] != nil && row["country_id"] != nil && row["city_id"] != nil && row["description"] != nil && row["phone"] != nil && row["email"] != nil && row["med"] != nil && row["avatar"] != nil
+      if row["name"] != nil && row["surname"] != nil && row["birth"] != nil && row["gender"] != nil && row["country_id"] != nil && row["city_id"] != nil && row["description"] != nil && row["phone"] != nil && row["email"] != nil && row["med"] != nil && row["avatar"] != nil
         user = User.new({
         :name => row["name"],
         :surname => row["surname"],
