@@ -2,9 +2,9 @@
 
 class AvatarUploader < CarrierWave::Uploader::Base
 
-  include CarrierWave::RMagick
   CarrierWave::SanitizedFile.sanitize_regexp = /[^a-zA-Zа-яА-ЯёЁ0-9\.\_\-\+\s\:]/
-  
+  include CarrierWave::RMagick
+
   storage :file
 
   def store_dir
