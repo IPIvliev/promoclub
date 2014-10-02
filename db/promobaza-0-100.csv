@@ -1,13 +1,117 @@
 ﻿#;surname;name;gender;birth;country_id;city_id;description;phone;email;med;avatar;#
-188;Никонова;Анна;Женский;14.06.1996;3159;1526;;+7 (905) 943-42-75;a_nikonova1996@mail.ru;false;http://promobaza.pro/upload/main/fb2/z_8a753f61_thumb_600x.jpg;188
-190;Ващенко;Сергей;Мужской;10.08.1999;3159;1496;;+7 (905) 957-34-85;the_proi_99@inbox.ru;false;http://promobaza.pro/upload/main/320/P1010981_thumb_600x.JPG;190
-191;Прокопенко;Виктор;Мужской;18.10.1996;3159;1350;;+7 (906) 035-05-11;vp.25800852@mail.ru;false;http://promobaza.pro/upload/main/9b0/CzWF5jSfD8A_thumb_600x.jpg;191
-192;Цыбан;Вероника;Женский;28.01.1996;3159;1350;рост 167, общительная, опыт работы есть.;+7 (906) 051-21-40;vieronika.zi@mail.ru;false;http://promobaza.pro/upload/main/718/kEDIU5Ks4cs_thumb_600x.jpg;192
-193;Тормосина;Ангелина;Женский;29.07.1999;3159;1350;;+7 (906) 053-90-23;angelina.tormosina@mail.ru;false;http://promobaza.pro/upload/main/522/stOTDQClGMc_thumb_600x.jpg;193
-194;Сысойкина;Оля;Женский;26.04.1991;3159;1350;;+7 (906) 054-48-13;koshechka_e91@mail.ru;true;http://promobaza.pro/upload/main/7bc/1350244832252_thumb_600x.jpg;194
 195;Савельева;Полина;Женский;26.06.1998;3159;1350;Я увлекающаяся, интересная и дружелюбная, коммуникабельная, ответственная, трудолюбивая, находчивая и целеустремленная;+7 (906) 059-63-42;apolinariyasaw@yandex.ru;false;http://promobaza.pro/upload/main/30c/hYNE5i68dE4_thumb_600x.jpg;195
 196;Шевченко;Евгений;Мужской;24.04.1992;3159;1350;Предоставляем Промоутеров на раздачу листовок как на улице, так и в помещении.Доброжелательность и исполнительность в работе, аккуратный и опрятный внешний вид.Большой опыт работы промоутером. Высокое качество.Возможна одновременная работа нескольких промоутеровЗвоните и обговорим все условия!;+7 (906) 069-36-95;evgen199224@yandex.ru;false;http://promobaza.pro/upload/main/ff4/IMAG0522_thumb_600x.jpg;196
 197;Краскина;Наталья;Женский;21.12.1992;3159;1350;Работала промоутером на разных акциях,ответственная,трудолюбивая, легко обучаемая!Мед книжка есть,но ее нужно продлить.;+7 (906) 082-71-66;kraskina_natashk@mail.ru;true;http://promobaza.pro/upload/main/991/image_thumb_600x.jpg;197
 198;Макаренко;Ангелина;Женский;28.09.1997;3159;1350;;+7 (906) 083-53-29;geli4ka_97@mail.ru;false;http://promobaza.pro/upload/main/302/7_thumb_600x.jpg;198
 199;Демьянкова;Валерия;Женский;14.04.1996;3159;1854;Активная, веселая, трудолюбивая. Занимаюсь музыкой, пою, танцую.;+7 (906) 126-20-17;valeryanka96@mail.ru;false;http://promobaza.pro/upload/main/b0f/DSC_3355_thumb_600x.jpg;199
 200;Кожевникова;Арина;Женский;01.01.1999;3159;1856;;+7 (906) 128-85-53;romanov.art1999@yandex.ru;false;http://promobaza.pro/upload/main/232/sYqBiGWloS8_thumb_600x.jpg;200
+201;Выплова;Дарья;Женский;18.06.1998;3159;449;;+7 (906) 168-35-87;romanencova81@mail.ru;false;http://promobaza.pro/upload/main/a71/3llBxdzG0rs_thumb_600x.jpg;201
+202;Атапина;Анна;Женский;28.01.1998;3159;449;;+7 (906) 175-16-60;aaserene@gmail.com;false;http://promobaza.pro/upload/main/b00/SDC10032_thumb_600x.JPG;202
+203;Джануди;Жияна;Женский;01.09.1996;3159;1787;Работала в различных акциях, на дегустациях, промоутером. Продавцом-консультантом. Спортсменка;+7 (906) 186-89-53;zhi8327@yandex.ru;false;http://promobaza.pro/upload/main/0c8/R-ySCSDHhiA_thumb_600x.jpg;203
+204;Макарова;Елена;Женский;22.03.1991;3159;1897;;+7 (906) 225-23-02;retniap@bk.ru;false;http://promobaza.pro/upload/main/f15/GQdR-hiUAN4_thumb_600x.jpg;204
+205;Ор;Марина;Женский;24.08.1988;3159;1897;;+7 (906) 226-82-51;mari--5@ya.ru;true;http://promobaza.pro/upload/main/112/image_thumb_600x.jpg;205
+206;Житкова;Даша;Женский;01.04.1994;3159;1897;;+7 (906) 264-42-91;dasha-gitkova@mail.ru;true;http://promobaza.pro/upload/main/69c/.jpg_thumb_600x.jpg;206
+207;Татьяна;Татьяна;Женский;14.05.1990;3159;2194;Организатор;+7 (906) 325-37-81;tanya-santa@mail.ru;true;http://promobaza.pro/upload/main/1c5/y_da3b51c4_thumb_600x.jpg;207
+208;Пирогова;Вероника;Женский;17.05.1998;3159;327;срочно нужна  работа ,желательно на выходные!;+7 (906) 376-42-31;pirogoveronika2012@mail.ru;false;http://promobaza.pro/upload/main/857/V00ZBXrncH0_thumb_600x.jpg;208
+209;Сахнова;Ася;Женский;20.09.1998;3159;449;;+7 (906) 402-37-65;saa-98@yandex.ru;false;http://promobaza.pro/upload/main/46c/.jpg_thumb_600x.jpg;209
+210;Тарханова;Наталья;Женский;26.08.1998;3159;1350;;+7 (906) 709-69-88;natali.natali.2014@bk.ru;false;http://promobaza.pro/upload/main/416/a4vO8ZHZGjU_thumb_600x.jpg;210
+211;Чилибий;Нелли;Женский;01.11.1996;3159;1350;;+7 (906) 724-27-89;crazy_baby.08@mail.ru;false;http://promobaza.pro/upload/main/88d/image_thumb_600x.jpg;211
+212;Чугунова;Кристина;Женский;08.09.1995;3159;1350;Коммуникабельная,пунктуальная.ответственная,улыбчивая,активная,отзывчивая.;+7 (906) 736-45-24;cri12@bk.ru;true;http://promobaza.pro/upload/main/9a8/130828-IA_CC_10_thumb_600x.jpg;212
+213;Муравкина;Юлия;Женский;04.07.1999;3159;1350;;+7 (906) 737-44-08;yulka.svetlaya@mail.ru;false;http://promobaza.pro/upload/main/985/image_thumb_600x.jpg;213
+214;Егоров;Дмитрий;Мужской;15.06.1995;3159;1350;;+7 (906) 757-47-42;worms156@mail.ru;true;http://promobaza.pro/upload/main/aee/kia_rGpdRLo_thumb_600x.jpg;214
+215;Джагаева;Ульяна;Женский;15.01.1997;3159;1350;;+7 (906) 764-20-76;ulyanadzh@mail.ru;false;http://promobaza.pro/upload/main/1d5/Zzba_F7NfaQ_thumb_600x.jpg;215
+216;Попова;Анастасия;Женский;23.04.1994;3159;1350;Графи работы несколько отличается.Прошла курсы аниматоров, но опыта работы в этой сфере не имею.;+7 (906) 764-63-92;anastasiyapro@mail.ru;true;http://promobaza.pro/upload/main/8ba/EG66H3UDwMo_thumb_600x.jpg;216
+217;Абатуров;Артём;Мужской;23.07.1995;3159;2036;увлекаюсь авто спортомхочу работать;+7 (906) 811-95-34;artemabaturov@mail.ru;true;http://promobaza.pro/upload/main/0ea/DSC01874_thumb_600x.JPG;217
+218;Глазрина;Надя;Женский;17.03.1999;3159;2334;Занимаюсь легкой атлетикой,успехи есть.Учусь в школе №87.Работала уже много раз,в агенстве недвижимости,в компаниях такси.;+7 (906) 818-37-69;glaz.nadya@mail.ru;false;http://promobaza.pro/upload/main/347/Xrw_v3TGwfA_thumb_600x.jpg;218
+219;Мушина;Анастасия;Женский;05.03.1999;3159;2334;;+7 (906) 819-68-14;nasty99@mail.ru;false;http://promobaza.pro/upload/main/610/.jpg_thumb_600x.jpg;219
+220;Мушина;Настя;Женский;05.06.1995;3159;2334;;+7 (906) 819-68-14;nastym99@mail.ru;false;http://promobaza.pro/upload/main/90f/.jpg_thumb_600x.jpg;220
+221;Белова;Светлана;Женский;10.07.1993;3159;2455;;+7 (906) 867-77-11;belova.svetlana.93@mail.ru;false;http://promobaza.pro/upload/main/d37/IMG_20140902_130711_thumb_600x.jpg;221
+222;Петряева;Вероника;Женский;13.02.1996;3159;2334;;+7 (906) 897-66-06;mikavss@mail.ru;false;http://promobaza.pro/upload/main/872/HxBJKC14TF8_thumb_600x.jpg;222
+223;Скворцова;Елена;Женский;26.02.1992;3159;1496;Имеется огромный опыт работы в различных РА, на различных акциях, все от листовок до аниматора, ищу интересные предложения с достойной ставкой;+7 (906) 908-42-42;lena.skvortsowa@yandex.ru;false;http://promobaza.pro/upload/main/4b9/_TUKu-oebGI_thumb_600x.jpg;223
+224;Романченко;Ирина;Женский;01.06.1996;3159;1526;Очень общительная девушка, работала вожатой, промоутером, преподавала танцы (спортивно-бальные), активная, занимаюсь спортом.;+7 (906) 990-01-31;romanc-tatyana@yandex.ru;false;http://promobaza.pro/upload/main/ed1/Ntvm_zlGlO0_thumb_600x.jpg;224
+225;Борховецкий;Александр;Мужской;26.07.1978;3159;1496;;+7 (906) 994-69-32;angel1998737@yandex.ru;true;http://promobaza.pro/upload/main/358/O6EHrkQ6Vjg_thumb_600x.jpg;225
+226;Ковкова;Марина;Женский;06.03.1995;3159;2455;;+7 (908) 043-30-71;miss.marusia2011@mail.ru;true;http://promobaza.pro/upload/main/c23/xjtuAn1SWZI_thumb_600x.jpg;226
+227;Венера;и;Женский;29.08.1995;3159;2455;;+7 (908) 046-64-25;sweet.a@inbox.ru;false;http://promobaza.pro/upload/main/f66/hEWsfhwPtYY_thumb_600x.jpg;227
+228;Гибадуллина;Настя;Женский;29.12.1998;3159;2455;Вежливая, добрая, весёлая);+7 (908) 062-59-86;onlain1998nastya@gmail.com;false;http://promobaza.pro/upload/main/183/DSC03546_thumb_600x.jpg;228
+229;Гибадуллина;Настя;Женский;29.12.1998;3159;2455;Вежливая, добрая, весёлая);+7 (908) 062-59-86;gibadullina_1998@mail.ru;false;http://promobaza.pro/upload/main/23a/DSC03546_thumb_600x.jpg;229
+230;Павличук;Дмитрий;Мужской;14.02.1997;3159;2455;;+7 (908) 067-59-47;1997dima174@mail.ru;false;http://promobaza.pro/upload/main/05f/joptY_Pp4hU_thumb_600x.jpg;230
+231;Проценко;Мария;Женский;17.06.1998;3159;1526;;+7 (908) 100-31-90;tigrenok_124@mail.ru;false;http://promobaza.pro/upload/main/e06/6VyOTuok0rw_thumb_600x.jpg;231
+232;Петрова;Вера;Женский;10.02.1998;3159;1526;http://vk.com/id220477843 если что пишите сюда..;+7 (908) 103-26-87;vera-petrova98@mail.ru;false;http://promobaza.pro/upload/main/31b/TTBH2BsGVOk_thumb_600x.jpg;232
+233;Корнилова;Анна;Женский;21.07.2000;3159;1526;в свои 13 лет,есть не большой опыт роботы промоутером.Выгляжу на 16 лет;+7 (908) 103-67-90;milavich@mail.ru;false;http://promobaza.pro/upload/main/0bb/.jpg_thumb_600x.jpg;233
+234;Могильникова;Анастасия;Женский;14.04.1995;3159;1526;люблю рисовать, хорошая память, легко запоминаются названия!;+7 (908) 104-97-75;mogilnikova98@yandex.ru;true;http://promobaza.pro/upload/main/738/8bkHJYNw4W8_thumb_600x.jpg;234
+235;Ащеулова;Елизавета;Женский;03.03.1997;3159;1526;"общительная, красивая, есть аттестат об окончании ""Театр мод""";+7 (908) 108-01-51;aln_07@mail.ru;false;http://promobaza.pro/upload/main/55e/P1030641_thumb_600x.JPG;235
+236;Гранатюк;Дарья;Женский;13.04.1998;3159;1526;;+7 (908) 113-00-73;dasha_granatuk1998@mail.ru;false;http://promobaza.pro/upload/main/fde/SAM_0210_thumb_600x.jpg;236
+237;старосадчева;Мария;Женский;26.01.2000;3159;1526;Хорошо рисую,хорошо учусь.Люблю маленьких детей.;+7 (908) 113-54-59;mstarosadcheva@mail.ru;false;http://promobaza.pro/upload/main/8f1/getImage_thumb_600x.jpg;237
+238;Корнеева;Екатерина;Женский;08.06.1991;3159;1526;Активная девушка,с приятной внешностью. Грамотная речь,люблю общаться с людьми!;+7 (908) 115-89-46;katena.91.08@mail.ru;false;http://promobaza.pro/upload/main/172/fGi2dL7-zig_thumb_600x.jpg;238
+239;атаманюк;ксения;Женский;06.11.1997;3159;1526;;+7 (908) 116-66-26;isgott.97@mail.ru;false;http://promobaza.pro/upload/main/243/P1010789_thumb_600x.JPG;239
+240;Буллер;Виктория;Женский;30.03.1998;3159;1526;Мне 16 лет, Певица, актриса. Работала промоутером, в парке на электромобилях, пела в летних кафе.;+7 (908) 117-01-38;buller.vikulenka@mail.ru;false;http://promobaza.pro/upload/main/ec5/qosg4Knp1IU_thumb_600x.jpg;240
+241;Попрушко;Анастасия;Женский;13.03.1997;3159;1526;;+7 (908) 117-12-54;poprushko97@mail.ru;false;http://promobaza.pro/upload/main/46d/4O3A3999_thumb_600x.jpg;241
+242;Бульс;Оля;Женский;13.01.1998;3159;1526;;+7 (908) 118-25-70;olyabuls13@mail.ru;false;http://promobaza.pro/upload/main/9e9/s3yxw6wocuU_thumb_600x.jpg;242
+243;Ксения;Щепак;Женский;08.09.1993;3159;1526;общительный,активный человек,люблю общаться с людьми,проводить время с пользой;+7 (908) 118-31-37;ksyunya_shepak@mail.ru;false;http://promobaza.pro/upload/main/cb7/DSCN2174_thumb_600x.JPG;243
+244;Гришин;Андрей;Мужской;17.02.1997;3159;1526;Мне 16 лет.  Я ответственный молодой человек. Занимаюсь спортом, учусь.;+7 (908) 119-70-10;andreygrish97@mail.ru;false;http://promobaza.pro/upload/main/fc5/SO4BLZTGwr0_thumb_600x.jpg;244
+245;Павинская;Светлана;Женский;25.12.1992;3159;586;Занимаюсь спортом. Выносливая,могу работать на длительных мероприятиях. Ответственная,пунктуальная.;+7 (908) 153-76-01;saimon_stevenson@mai.ru;false;http://promobaza.pro/upload/main/5ce/SDC11146_thumb_600x.jpg;245
+246;Булатова;Алена;Женский;12.06.1994;3159;586;;+7 (908) 161-14-12;ejik_1994@mail.ru;true;http://promobaza.pro/upload/main/10b/718TxujUPCw_thumb_600x.jpg;246
+247;Петренко;Марина;Женский;07.08.1996;3159;1350;;+7 (908) 184-91-99;pietrienko-1996@mail.ru;false;http://promobaza.pro/upload/main/cbf/DSCN2642_thumb_600x.jpg;247
+248;Юдин;Антон;Мужской;18.04.1996;3159;1787;;+7 (908) 188-84-32;zevs1284698@mail.ru;false;http://promobaza.pro/upload/main/3af/secondarytile_thumb_600x.png;248
+249;петелин;егор;Мужской;26.04.1993;3159;586;;+7 (908) 231-63-44;petelin.2013@inbox.ru;false;http://promobaza.pro/upload/main/699/EUtG7YBJh_I_thumb_600x.jpg;249
+250;Смирнова;Алина;Женский;27.01.1998;3159;586;Алина, мне 15, г. Нижний Новгород, автозаводский район. Ученица 136 гимназии. Очень активный и подвижный человек, занимаюсь танцами, спортом.;+7 (908) 233-99-59;vamp-77@bk.ru;false;http://promobaza.pro/upload/main/56d/SAM_4031_thumb_600x.jpg;250
+251;Логунова;Катя;Женский;22.06.1993;3159;586;Я студентка дневного отделения,живу в общежитии в центре города.В Нижнем Новгороде живу 3ий год,регулярно занимаюсь в тренажерном зале.Есть небольшой опыт работы в данной сфере.Коммуникабельна,серьезно отношусь к требованиям работодателя );+7 (908) 235-33-63;logunova243rus@mail.ru;false;http://promobaza.pro/upload/main/136/.jpg_thumb_600x.jpg;251
+252;Леготина;Аня;Женский;28.04.1989;3159;1662;;+7 (908) 244-52-68;chatkaa@ya.ru;true;http://promobaza.pro/upload/main/b66/IMG_0879_thumb_600x.jpg;252
+253;Абатурова;Екатерина;Женский;08.06.1991;3159;1662;;+7 (908) 264-23-09;katenka.a59@yandex.ru;true;http://promobaza.pro/upload/main/38a/DSCN2432_thumb_600x.JPG;253
+254;Бразас;Эдуард;Мужской;18.02.1996;3159;1526;;+7 (908) 310-61-15;edi_brazas@mail.ru;false;http://promobaza.pro/upload/main/5d8/getImage_thumb_600x.jpg;254
+255;Пристяжнюк;Олеся;Женский;13.11.1995;3159;1526;;+7 (908) 313-68-89;lesya_pristyazhn@mail.ru;false;http://promobaza.pro/upload/main/994/0440_thumb_600x.jpg;255
+256;Дьячков;Кирилл;Мужской;02.02.1998;3159;1526;Работал мерчендайзером, не понравилось.;+7 (908) 313-98-94;dj_pro98@mail.ru;false;http://promobaza.pro/upload/main/7b4/IMG_1079_thumb_600x.JPG;256
+257;Матвиенко;Инна;Женский;25.02.1997;3159;1526;;+7 (908) 315-95-19;inna_matvienko2013@mail.ru;false;http://promobaza.pro/upload/main/b10/DSCF3771_thumb_600x.JPG;257
+258;Андреева;Дина;Женский;12.01.1998;3159;1526;;+7 (908) 317-10-28;dinaka_andreeva@mail.ru;false;http://promobaza.pro/upload/main/a89/aK3JIEnh8W0_thumb_600x.jpg;258
+259;Дудикова;Мария;Женский;06.04.1997;3159;1526;;+7 (908) 318-02-89;mariyadudikova@mail.ru;false;http://promobaza.pro/upload/main/fb1/webcam-toy-photo7_thumb_600x.jpg;259
+260;Кудинов;Сергей;Мужской;03.01.1998;3159;1526;Футболист,спортсмен,занимаюсь 10 лет.Опрятный,чистый,без вредных привычек,негатив к курению.Полностью здоров.Среднее образование.;+7 (908) 318-32-95;sergo1998@mail.ru;false;http://promobaza.pro/upload/main/15c/IMG_20140717_095008_thumb_600x.JPG;260
+261;Шарафеева;Гузель;Женский;31.12.1987;3159;2194;Есть опыт работы промоутером, мерчендайзером, а также супервайзером на рекламных акциях.;+7 (908) 336-89-52;uzalias@gmail.com;true;http://promobaza.pro/upload/main/32a/SSA41293_thumb_600x.JPG;261
+262;Фхриев;Динар;Женский;14.10.1995;3159;327;;+7 (908) 351-91-04;fahriev@mail.ru;false;http://promobaza.pro/upload/main/f6a/DSC00742_thumb_600x.JPG;262
+263;Востриков;Сергей;Мужской;01.07.1996;3159;1856;;+7 (908) 409-70-50;gaara10996@mail.ru;false;http://promobaza.pro/upload/main/e22/a_8d674ae0_thumb_600x.jpg;263
+264;Мишина;Анастасия;Женский;08.03.1995;3159;2375;;+7 (908) 486-34-64;nasteno4ka1995@mail.ru;false;http://promobaza.pro/upload/main/4a7/20131014_145354_thumb_600x.jpg;264
+265;Абрамова;Виктория;Женский;11.11.1999;3159;2375;;+7 (908) 491-01-56;av1011@mail.ru;false;http://promobaza.pro/upload/main/7bf/0b0c1baa1aae4e127b1fd95002a37c30_thumb_600x.jpg;265
+266;Фомичева;Виктория;Женский;12.04.1994;3159;1787;;+7 (908) 514-12-68;fascinatinggirl-@mail.ru;false;http://promobaza.pro/upload/main/afc/IMG_20130625_061537_thumb_600x.jpg;266
+267;Паташников;Николай;Мужской;29.04.1998;3159;2455;Ищу временную работу, желательно разнорабочим. Буду рад если найду себе применение на лето.;+7 (908) 570-26-43;patashnikov@mail.ru;false;http://promobaza.pro/upload/main/5f6/never-back-down-movie-picture-5_thumb_600x.jpg;267
+268;Шаламова;Аня;Женский;31.03.1998;3159;2455;Срочно нужна работа;+7 (908) 572-20-99;fybvtiybwfehjl@mail.ru;false;http://promobaza.pro/upload/main/7af/E8d5GycTPNU_thumb_600x.jpg;268
+269;Шаламова;Анна;Женский;31.03.1998;3159;2455;Учусь пока что в школе, нужна работа на данный момент т.к. не хватает денег, которые дают родители.;+7 (908) 572-20-99;cpilberg1998@mail.ru;true;http://promobaza.pro/upload/main/da3/E8d5GycTPNU_thumb_600x.jpg;269
+270;Плешакова;Алиса;Женский;25.02.1998;3159;2455;Активная, ответственная и целеустремленная.;+7 (908) 575-04-63;aliceroyalrebel@yandex.ru;false;http://promobaza.pro/upload/main/0db/IftXTABy3DY_thumb_600x.jpg;270
+271;Пашкова;Анна;Женский;16.09.1998;3159;2455;Я общительная девушка, симпатичная,слежу за собой и не выгляжу на свои годы,выгляжу гораздо старше! К работе отношусь очень бережно!;+7 (908) 576-28-75;slovo_2010_98@mail.ru;true;http://promobaza.pro/upload/main/dff/0857_thumb_600x.jpg;271
+272;Немеш;Елизавета;Женский;26.04.1999;3159;2455;Хочу работать. Ответственная.;+7 (908) 577-40-05;lizanemesh82@mail.ru;false;http://promobaza.pro/upload/main/3fb/1399698602721_thumb_600x.jpg;272
+273;Зуева;Ксения;Женский;11.07.1997;3159;2455;Очень активная, ответственная, общительная;+7 (908) 578-12-40;umt-snab2012@yandex.ru;false;http://promobaza.pro/upload/main/671/djSizXKDEBc_thumb_600x.jpg;273
+274;Юнусова;Алина;Женский;03.04.1997;3159;2455;;+7 (908) 578-87-08;yunusova.97@mail.ru;false;http://promobaza.pro/upload/main/6d3/goLqIQKUbTk_thumb_600x.jpg;274
+275;Зобнин;Михаил;Мужской;08.10.1998;3159;2455;;+7 (908) 587-12-88;zobnin_misha98@mail.ru;false;http://promobaza.pro/upload/main/c4e/iOdEZ-CaXog_thumb_600x.jpg;275
+276;Толстикова;Татьяна;Женский;03.02.1999;3159;2036;;+7 (908) 630-01-51;tanya.tolstikowa@yandex.ru;false;http://promobaza.pro/upload/main/3d6/vqJMkUVwX6A_thumb_600x.jpg;276
+277;Моисеева;Алена;Женский;27.08.1996;3159;2036;трудолюбивая, честная, коммуникабельная, стрессоустойчивая.Быстро усваиваю что то новенькое :);+7 (908) 634-47-82;moiseevakaza00@mail.ru;false;http://promobaza.pro/upload/main/cb4/tTWCYINmgLE_thumb_600x.jpg;277
+278;Грабовенко;Алексей;Мужской;01.11.1996;3159;2036;Лучше писать мне в вк https://vk.com/idleshkagrabovenkoна майл я захожу редко.Веселый,активный с неьольшим опытом работы. работал промоутером,механика 4 часа на улице,- часа в помещении;+7 (908) 639-19-55;1337bla@mail.ru;false;http://promobaza.pro/upload/main/392/fK9LdOOIc8Q_thumb_600x.jpg;278
+279;Семенов;Антон;Мужской;15.06.1997;3159;2036;#ИМЯ?;+7 (908) 639-78-29;89043833371@mail.ru;false;http://promobaza.pro/upload/main/ce0/Snapshot_20130707_4_thumb_600x.JPG;279
+280;Кайнова;Наталья;Женский;19.05.1997;3159;586;Ответственность, желание работать;+7 (908) 722-97-06;natasha.caynova@yandex.ru;false;http://promobaza.pro/upload/main/6c1/IMG_20140825_101002_thumb_600x.jpg;280
+281;Козлова;Ольга;Женский;12.03.1999;3159;586;Общительный, коммуникабельный человек. Имею опыт работы на телефоне, промоутером.Желательная часть города - верхняя, оплата - почасовая:);+7 (908) 728-59-43;mail.box99@mail.ru;false;http://promobaza.pro/upload/main/816/PTkBWceh-m8_thumb_600x.jpg;281
+282;Гусев;Артем;Мужской;08.07.1999;3159;586;Веселый,камуникабельный,общительный,грамотный.;+7 (908) 748-53-22;volgin99@inbox.ru;false;http://promobaza.pro/upload/main/b45/g7p7Cx1cDeE_thumb_600x.jpg;282
+283;Горшкова;Виктория;Женский;16.05.1995;3159;1526;Студентка. Очная форма обучения. Имеется большой опыт работы в магазинах Бегемот, Lady Briliant, компании Такета и Ирлайн.;+7 (908) 794-62-39;vikysechka1695@mail.ru;false;http://promobaza.pro/upload/main/2ed/pqOs166JqSg_thumb_600x.jpg;283
+284;эркинали;элдияр;Мужской;14.06.1999;3159;1526;;+7 (908) 800-76-70;omsk_eldar@mail.ru;false;http://promobaza.pro/upload/main/f7f/-0430_thumb_600x.jpg;284
+285;Любич;Ирина;Женский;05.01.1995;3159;1526;Ответственная,добрая,коммуникабельная ,толерантная.;+7 (908) 806-88-39;rischa8839@mail.ru;false;http://promobaza.pro/upload/main/0e8/180220131060_thumb_600x.jpg;285
+286;Малышко;Кирилл;Мужской;14.10.1997;3159;1526;Я общительный с детства весёлый,коммуникабельный,позитивный);+7 (908) 807-32-98;malyshko.kiria@mail.ru;false;http://promobaza.pro/upload/main/670/X24FgGghAPg_thumb_600x.jpg;286
+287;Галимова;Анита;Женский;24.03.1999;3159;2036;;+7 (908) 907-43-99;galimova.anita@gmail.com;false;http://promobaza.pro/upload/main/8c4/DuRZSUsaGH8_thumb_600x.jpg;287
+288;Светлана;Репина;Женский;09.07.1998;3159;2036;;+7 (908) 911-33-51;zapad@olympus.ru;false;http://promobaza.pro/upload/main/259/.jpg_thumb_600x.jpg;288
+289;Калинина;Аня;Женский;13.04.1996;3159;2036;;+7 (908) 920-42-56;anna_0496@mail.ru;false;http://promobaza.pro/upload/main/b42/x_e97f8e0d_thumb_600x.jpg;289
+290;Батраханова;Екатерина;Женский;14.05.1998;3159;2036;;+7 (908) 923-04-74;katyuny2013@yandex.ru;false;http://promobaza.pro/upload/main/e99/WpI9HQ7Q7to_thumb_600x.png;290
+291;Ковкова;Ольга;Женский;08.09.1997;3159;2036;;+7 (909) 001-16-35;olyga.kovkova@yandex.ru;false;http://promobaza.pro/upload/main/1df/852_thumb_600x.JPG;291
+292;Егорова;Екатерина;Женский;02.03.1998;3159;2036;;+7 (909) 009-46-43;egorova-sterva@mail.ru;true;http://promobaza.pro/upload/main/183/IMG_20130828_131115_thumb_600x.jpg;292
+293;Кожерова;Алина;Женский;23.06.1998;3159;2036;Есть желание работать и зарабатывать- Легко обучаемая - Есть опыт работы промоутером.;+7 (909) 010-74-32;elinadish@gmail.com;false;http://promobaza.pro/upload/main/bb3/0pNAzBIXA_Q_thumb_600x.jpg;293
+294;калабин;максим;Мужской;01.02.1999;3159;2334;;+7 (909) 050-72-03;nataliya_kalabina@mail.ru;false;http://promobaza.pro/upload/main/73d/9_hxSWdUMb8_thumb_600x.jpg;294
+295;Завалина;Маша;Женский;09.10.1996;3159;2334;без в/п, ответственная. коммуникабельная.;+7 (909) 053-97-12;zawalina.mar96@mail.ru;false;http://promobaza.pro/upload/main/5e1/6EQJgftC4yw_thumb_600x.jpg;295
+296;Катаева;Аня;Женский;09.04.1997;3159;2334;;+7 (909) 055-27-72;anya.kataeva@list.ru;false;http://promobaza.pro/upload/main/3b4/pYvrtcgbFsw_thumb_600x.jpg;296
+297;Файзуллин;Закария;Женский;14.03.1997;3159;2334;;+7 (909) 060-36-17;4zaxar9@mail.ru;false;http://promobaza.pro/upload/main/b30/6oDYOyfR8Yk_thumb_600x.jpg;297
+298;Дурновцева;Елизавета;Женский;05.04.1995;3159;2334;;+7 (909) 063-82-26;a_kelle@mail.ru;false;http://promobaza.pro/upload/main/501/foRTrq6bтттaVI_thumb_600x.jpg;298
+299;Зараменских;Ирина;Женский;11.09.1998;3159;1662;Учусь в 9 классе, окончила музыкальную школу по классу фортепиано, сейчас буду ходить на барабаны.;+7 (909) 106-93-40;izaramenskih@bk.ru;false;http://promobaza.pro/upload/main/d07/IMGP0234_thumb_600x.JPG;299
+300;БОРИСОВ;рОМАН;Мужской;21.07.1997;3159;586;Просто хороший человек отзывчивый , добрый !   передвижение  только на велосипеде .;+7 (909) 282-85-00;von2000@bk.ru;false;http://promobaza.pro/upload/main/bdd/SDC10560_thumb_600x.JPG;300
+301;Гойда;Анастасия;Женский;06.10.1997;3159;2194;Активная девушка, желающая работать, ответственная, пунктуальная, доброжелательная;+7 (909) 306-31-25;a.goida@mail.ru;false;http://promobaza.pro/upload/main/c60/IMG_0314_thumb_600x.JPG;301
+302;Горбачева;София;Женский;08.11.1998;3159;1854;Изучаю английский с 1 класса,имею небольшой опыт работы,желание работать с людьми.Так же стараюсь все схватывать налету.Быстро заинтересовываюсь и окунаюсь с головой во все что интересует :);+7 (909) 323-28-91;candu8@gmail.com;true;http://promobaza.pro/upload/main/060/preview_thumb_600x.jpg;302
+303;Тольятти;Елена;Женский;16.05.1997;3159;1856;;+7 (909) 362-78-34;pisyaeva.lena@mail.ru;false;http://promobaza.pro/upload/main/3b2/SL730332_thumb_600x.jpg;303
+304;Спиридонова;Ульяна;Женский;08.04.1996;3159;1856;вежливая, устойчивая к стрессам, коммуникабельная;+7 (909) 365-19-50;spiridonova101@mail.ru;false;http://promobaza.pro/upload/main/c69/48Mie61qRnM_thumb_600x.jpg;304
+305;Гарипова;Элиза;Женский;24.01.1996;3159;2194;;+7 (909) 368-75-40;garipova-mail@yandex.ru;false;http://promobaza.pro/upload/main/da5/EBRQGtyYyXI_thumb_600x.jpg;305
+306;Дейниченко;Алина;Женский;16.11.1997;3159;586;позитивная, энергичная, готова работать;+7 (909) 382-33-27;deynichenko97@mail.ru;false;http://promobaza.pro/upload/main/8d5/Pul64VoK4zo_thumb_600x.jpg;306
+307;Лебедев;Алексей;Мужской;28.12.1995;3159;1787;;+7 (909) 409-43-43;u_lebedev@mail.ru;false;http://promobaza.pro/upload/main/cf8/2_thumb_600x.jpg;307
+308;Образцова;Елизавета;Женский;09.07.1999;3159;1787;;+7 (909) 422-98-10;obraztsova.elizaveta@yandex.ru;false;http://promobaza.pro/upload/main/0c5/image_thumb_600x.jpg;308
+309;Коваленко;Андрей;Мужской;26.06.1999;3159;1787;;+7 (909) 425-78-76;andreykovalenko1999@mai.ru;false;http://promobaza.pro/upload/main/d04/111_thumb_600x.jpg;309
+310;Блинова;Диана;Женский;11.03.1998;3159;1496;Активная, веселая и быстрообучаема. Люблю работать.;+7 (909) 531-13-05;diana.korshunova.98@bk.ru;false;http://promobaza.pro/upload/main/105/.jpg_thumb_600x.jpg;310

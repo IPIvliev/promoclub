@@ -10,7 +10,7 @@ namespace :csv do
     csv_file_path = 'db/promobaza-0-100.csv'
 
     CSV.foreach(csv_file_path, :col_sep => ";", :row_sep => :auto, :headers => true) do |row|
-      User.create!({
+      user = User.new({
         :name => row["name"],
         :surname => row["surname"],
         :birth => row["birth"],
@@ -25,7 +25,11 @@ namespace :csv do
         :password => "1qaz$RFV",
         :status => "promo"
       })
-      puts "Row added!"
+      if user.save
+        puts "Row added!"
+      else
+        puts "Row denied"
+      end
     end
   end
 end
