@@ -10,7 +10,10 @@ namespace :csv do
     csv_file_path = 'db/promobaza-0-100.csv'
 
     CSV.foreach(csv_file_path, :col_sep => ";", :row_sep => :auto, :headers => true) do |row|
-      user = User.new({
+      if row row["name"] != nil && row["surname"] != nil && row["birth"] != nil && row["gender"] != nil && row["country_id"] != nil
+       && row["city_id"] != nil && row["description"] != nil && row["phone"] != nil && row["email"] != nil && row["med"] != nil
+       && row["avatar"] != nil
+        user = User.new({
         :name => row["name"],
         :surname => row["surname"],
         :birth => row["birth"],
@@ -24,11 +27,14 @@ namespace :csv do
         :avatar => open(row["avatar"]),  
         :password => "1qaz$RFV",
         :status => "promo"
-      })
-      if user.save
-        puts "Row added!"
+       })
+        if user.save
+          puts "Row added!"
+        else
+          puts "Row denied"
+        end
       else
-        puts "Row denied"
+        puts "Row nil"
       end
     end
   end
