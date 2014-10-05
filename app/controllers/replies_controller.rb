@@ -1,7 +1,8 @@
 # encoding: UTF-8
 
 class RepliesController < ApplicationController
-
+  load_and_authorize_resource
+  
   def create
     @vacancy = Vacancy.find(params[:reply][:vacancy_id])
     current_user.reply!(@vacancy)

@@ -23,14 +23,15 @@ class RobokassaController < ApplicationController
   # Robokassa redirect user to this action if it’s all ok !@user.approved? &&
   def success
     if  @notification.acknowledge
+      flash[:success] = "Ваш счёт успешно пополнен"
       @payment.approve!
     end
-
-    redirect_to payments_user_path(@payment.user), :notice => "Ваш взнос успешно принят!"
+    redirect_to payments_user_path(@payment.user)
   end
   # Robokassa redirect user to this action if it’s not
   def fail
-    redirect_to payments_user_path(@payment.user), :notice => "Оплата не удалась!"
+    flash[:danger] = "Оплата не удалась. Свяжитесь с администрацией сайта! 8-905-191-6188"
+    redirect_to payments_user_path(@payment.user)
   end
 
   private

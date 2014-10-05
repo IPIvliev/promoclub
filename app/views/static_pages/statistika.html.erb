@@ -15,7 +15,7 @@
 
             <div class="col-md-9">
 
-              <% if current_user.status == "admin" %>
+              <% if current_user && current_user.status == "admin" %>
 
                 <ul>
                   <li><strong>Количество промоутеров:</strong> <%= User.where(:status => "promo").count %></li>
@@ -30,6 +30,7 @@
                   <li><strong>Количество откликов:</strong> <%= Reply.all.count %></li>
                   <li><strong>Из них прочитано:</strong> <%= Reply.where(:see => true).count %></li>
                   <hr>
+                  <li><strong>Стоимость 1-ого месяца:</strong> <%= money(Settings.period_price.to_i) %></li>
                   <li><strong>Стоимость вакансии:</strong> <%= money(Settings.vacancy_price.to_i) %></li>
                   <li><strong>Стоимость SMS:</strong> <%= money(Settings.sms_price.to_i) %></li>
                   <li><strong>Балланс SMS:</strong> <%= balance %> руб.</li>

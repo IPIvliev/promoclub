@@ -2,6 +2,7 @@
 
 class RelationshipsController < ApplicationController
   include OpinionsHelper
+  load_and_authorize_resource  
 
   def create
     @user = User.find(params[:relationship][:followed_id])

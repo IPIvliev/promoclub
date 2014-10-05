@@ -119,14 +119,18 @@ class VacanciesController < ApplicationController
   # GET /vacancies/new
   # GET /vacancies/new.json
   def new
-    @vacancy = Vacancy.new
-    @countries  = Country.all
-    @states = State.all
-    @cities   = City.all
+    if current_user && current_user.status == "agent"
+      @vacancy = Vacancy.new
+      @countries  = Country.all
+      @states = State.all
+      @cities   = City.all
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @vacancy }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @vacancy }
+      end
+    else
+      root_path
     end
   end
 
@@ -140,9 +144,14 @@ class VacanciesController < ApplicationController
     add_breadcrumb @title
 
     @vacancy = Vacancy.find(params[:id])
-    @countries  = Country.all
-    @states = State.all
-    @cities   = City.all
+
+    if current_user && current_user == @vacancy.user
+      @countries  = Country.all
+      @states = State.all
+      @cities   = City.all
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /vacancies

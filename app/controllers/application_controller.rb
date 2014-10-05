@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -8,4 +10,9 @@ class ApplicationController < ActionController::Base
     	"/users/#{current_user.id}"
   	end
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => "У вас нет доступа"
+  end
+
 end

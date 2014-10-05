@@ -71,9 +71,14 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-    @countries  = Country.all
-    @states = State.all
-    @cities   = City.all
+
+    if current_user && current_user == @user
+      @countries  = Country.all
+      @states = State.all
+      @cities   = City.all
+    else
+      redirect_to root_path
+    end
 	end
 
   def update_states

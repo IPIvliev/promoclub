@@ -8,5 +8,13 @@ class Payment < ActiveRecord::Base
 
   def approve!
     update_attribute(:pay, 1)
+
+    @user = User.find(user.id)
+
+    @sum = amount
+    @pocket = @user.pocket
+    @money = @pocket + @sum
+
+    @user.update_attribute(:pocket, @money)
   end
 end

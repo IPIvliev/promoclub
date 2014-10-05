@@ -1,5 +1,8 @@
 class OpinionsController < ApplicationController
+
   include OpinionsHelper
+
+  load_and_authorize_resource
 
   def index
     @my_opinions = current_user.opinions
