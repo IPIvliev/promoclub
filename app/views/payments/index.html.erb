@@ -43,7 +43,7 @@
     <strong>Оператор платежа:</strong> Робокасса<br>
     <strong>Сумма платёжа:</strong> <%= money(params[:amount]) %><br><br>
 
-    <%= payment_service_for current_user.id, "promoclub",
+    <%= payment_service_for current_user.payments.last.id, "promoclub",
                           :amount => params[:amount],
                           :service => :robokassa,
                           :secret => "AllpromotersINFOCOM1" do |s| %>

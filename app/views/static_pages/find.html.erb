@@ -68,7 +68,49 @@
 					<i class="fa fa-star"></i>
 				</div>
 
-					<img class="pull-right inner img-thumbnail img-responsive" src="/images/test_2_thumb.jpg" alt="image" />
+				<!-- THREE COLUMNS PRICETABLE -->
+				<div class="row pricetable-container">
+
+					<div class="col-md-4 price-table">
+						<h3>Доступ к контактам</h3>
+						<p>	
+							<%= money(Settings.period_price) %><br><br>
+							<span>за месяц</span>
+						</p>
+
+						<ul>
+							<li>Вы получайте доступ ко всем резюме</li>
+							<li>Контакты добавленных в избранное промоутеров доступны навсегда</li>
+						</ul>
+					</div>
+
+					<div class="col-md-4 price-table popular">
+						<h3>Размещение вакансий</h3>
+						<p>	
+							<%= money(Settings.vacancy_price) %><br><br>
+							<span>за вакансию</span>
+						</p>
+						<ul>
+							<li>Вашу вакансию увидят все посетители сервиса</li>
+							<li>Все подходящие под ваши требования промоутеры получат уведомления по email</li>
+						</ul>
+					</div>
+
+					<div class="col-md-4 price-table">
+						<h3>Отправка SMS</h3>
+						<p>	
+							<%= money(Settings.sms_price) %><br><br>
+							<span>за 1 SMS</span>
+						</p>
+						<ul class="pricetable-items">
+							<li>SMS отправляются только промоутерам, подходящим под требования вашей вакансии</li>
+							<li>Отправка всех sms одной кнопкой</li>
+						</ul>
+					</div>
+
+				</div>
+				<!-- /THREE COLUMNS PRICETABLE -->
+
 
 				<%= render "/shared/callout" %>
 			

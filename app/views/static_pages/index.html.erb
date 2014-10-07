@@ -53,15 +53,15 @@
 <section class="paddings white-row container">
 								<div class="row text-center countTo">
 									<div class="col-md-4">
-										<strong data-to="<%= User.where(:status => "promo").count %>">0</strong>
+										<a href="/baza-promouterov.html"><strong data-to="<%= User.where(:status => "promo").count %>">0</strong></a>
 										<label><%= Russian.pluralize(User.where(:status => "promo").count, "Промоутер", "Промоутера", "Промоутеров") %></label>
 									</div>
 									<div class="col-md-4">
-										<strong data-to="<%= User.where(:status => "agent").count %>">0</strong>
+										<a href="/rabotodateli.html"><strong data-to="<%= User.where(:status => "agent").count %>">0</strong></a>
 										<label><%= Russian.pluralize(User.where(:status => "agent").count, "Работодатель", "Работодателя", "Работодателей") %></label>
 									</div>
 									<div class="col-md-4">
-										<strong data-to="<%= Vacancy.all.count %>">0</strong>
+										<a href="/vakansii-promouterov.html"><strong data-to="<%= Vacancy.all.count %>">0</strong></a>
 										<label><%= Russian.pluralize(Vacancy.all.count, "Вакансия", "Вакансии", "Вакансий") %></label>
 									</div>
 								</div>

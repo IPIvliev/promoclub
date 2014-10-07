@@ -15,6 +15,7 @@ gem "breadcrumbs_on_rails"
 gem 'russian'
 gem 'thin'
 gem 'sitemap_generator'
+gem 'whenever', :require => false
 
 # Users
 gem 'devise'
