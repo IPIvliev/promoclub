@@ -30,14 +30,14 @@ class RobokassaController < ApplicationController
   end
   # Robokassa redirect user to this action if it’s not
   def fail
-    flash[:danger] = "Оплата не удалась. Свяжитесь с администрацией сайта! 8-905-191-6188"
+    flash[:danger] = "Оплата не удалась. Свяжитесь с администрацией сайта! Тел.: 8-905-191-6188"
     redirect_to payments_user_path(@payment.user)
   end
 
   private
 
   def create_notification
-    @notification = Robokassa::Notification.new(request.raw_post, :secret => "AllpromotersINFOCOM1")
+    @notification = Robokassa::Notification.new(request.raw_post, :secret => "Allpromoters1")
   end
 
   def find_payment

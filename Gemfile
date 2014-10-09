@@ -30,6 +30,9 @@ gem 'activemerchant', :require => 'active_merchant'
 # Work with SMS
 gem  'rest-client'
 
+# Work with social
+gem 'twitter'
+
 # Admin panel
 gem 'rails_admin'
 gem 'cancan'
