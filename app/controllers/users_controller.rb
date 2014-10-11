@@ -3,7 +3,8 @@
 class UsersController < ApplicationController
 	add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
 	add_breadcrumb "База промоутеров", "/baza-promouterov.html", :title => "Вернуться в базу промоутеров"
-
+  include ApplicationHelper
+  
   def index
     @title = "База промоутеров"
 
@@ -59,6 +60,8 @@ class UsersController < ApplicationController
   end
 
 	def show
+    profile_finish?
+
 		@promoter = User.find(params[:id])
     @newopinion = Opinion.new
 

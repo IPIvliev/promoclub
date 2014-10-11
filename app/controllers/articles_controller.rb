@@ -3,36 +3,34 @@
 class ArticlesController < ApplicationController
 add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
 add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на главную"
-
+  include ApplicationHelper
 
   def index
+    profile_finish?
+
     @title = "Блог"
 
     @articles = Article.order('created_at DESC').page(params[:page])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @articles }
-    end
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    profile_finish?
+
     @article = Article.find(params[:id])
 
     @title = @article.name
     add_breadcrumb @title
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @article }
-    end
   end
 
   # GET /articles/new
   # GET /articles/new.json
   def new
+    profile_finish?
+
     @article = Article.new
 
     respond_to do |format|
@@ -43,6 +41,8 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
 
   # GET /articles/1/edit
   def edit
+    profile_finish?
+
     @article = Article.find(params[:id])
   end
 

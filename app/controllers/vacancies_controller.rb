@@ -3,11 +3,14 @@
 class VacanciesController < ApplicationController
   include InvitesHelper
   include UsersHelper
+  include ApplicationHelper
 
   add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
   add_breadcrumb "Вакансии", "/vakansii-promouterov.html", :title => "Вернуться в базу вакансий"
 
   def index
+    profile_finish?
+
     @title = "Вакансии для промоутеров"
 
     @search = Vacancy.order("created_at DESC, price DESC").search(params[:q])
@@ -21,13 +24,11 @@ class VacanciesController < ApplicationController
       @vacancies = @search.result.page(params[:page])
     end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @vacancies }
-    end
   end
 
   def my_vacancies
+    profile_finish?
+
     @title = "Мои вакансии"
 
     add_breadcrumb @title
@@ -103,6 +104,8 @@ class VacanciesController < ApplicationController
   # GET /vacancies/1
   # GET /vacancies/1.json
   def show
+    profile_finish?
+
     @vacancy = Vacancy.find(params[:id])
 
     @title = "#{@vacancy.name} от компании: #{@vacancy.user.name}"
@@ -110,15 +113,13 @@ class VacanciesController < ApplicationController
 
     @vacancies = Vacancy.where("id != ? AND city_id = ?", @vacancy.id, @vacancy.city.id).limit(4).order("created_at DESC")
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @vacancy }
-    end
   end
 
   # GET /vacancies/new
   # GET /vacancies/new.json
   def new
+    profile_finish?
+
     if current_user && current_user.status == "agent"
       @vacancy = Vacancy.new
       @countries  = Country.all
@@ -138,6 +139,8 @@ class VacanciesController < ApplicationController
 
   # GET /vacancies/1/edit
   def edit
+    profile_finish?
+
     add_breadcrumb "Мои вакансии", "/my-vacancies.html", :title => "Вернуться в мои вакансии"
 
     @title = "Изменить вакансию"
@@ -174,10 +177,12 @@ class VacanciesController < ApplicationController
       if Settings.vacancy_cost == "true" && Settings.status == "production"
         pay(Settings.vacancy_price.to_i)
         invite_promos(@vacancy)
+
         flash[:success] = "Вы успешно создали вакансию. Стоимость услуги составила #{Settings.vacancy_price} руб."
         redirect_to @vacancy
       else
         invite_promos(@vacancy)
+        
         flash[:success] = "Вы успешно создали вакансию."
         redirect_to @vacancy
       end

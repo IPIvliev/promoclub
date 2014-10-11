@@ -47,6 +47,9 @@ class User < ActiveRecord::Base
     # Отправка письма после создания аккаунта
   after_create :send_greeting_mail
 
+    # Запоминаем пароль
+  after_create :save_pass
+
   paginates_per 12
 
  def self.find_for_facebook_oauth(access_token)
@@ -115,15 +118,19 @@ end
     "#{name} #{surname} (#{color_rate(rate)})".html_safe
   end
 
-    private
-  def send_greeting_mail
-    if self.status == "promo"
-      InfoMailer.info_email_promo(self).deliver
-    elsif self.status == "agent"
-      InfoMailer.info_email_agent(self).deliver
-    else
-      InfoMailer.info_email_common(self).deliver
+  private
+    def save_pass
+      self.update_attribute(:pass, self.password)
     end
-  end
+
+    def send_greeting_mail
+      if self.status == "promo"
+        InfoMailer.info_email_promo(self).deliver
+      elsif self.status == "agent"
+        InfoMailer.info_email_agent(self).deliver
+      else
+        InfoMailer.info_email_common(self).deliver
+      end
+    end
 
 end

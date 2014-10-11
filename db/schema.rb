@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140929155505) do
+ActiveRecord::Schema.define(:version => 20141011164244) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(:version => 20140929155505) do
     t.boolean  "car",                                                  :default => false
     t.string   "site"
     t.decimal  "pocket",                 :precision => 9, :scale => 2, :default => 0.0
+    t.string   "pass"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

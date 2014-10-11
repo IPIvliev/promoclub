@@ -2,8 +2,11 @@
 
 class PaymentsController < ApplicationController
   include UsersHelper
+  include ApplicationHelper
 
   def index
+    profile_finish?
+
     @user = User.find(params[:id])
     @payment = Payment.new
     @period = Period.new
