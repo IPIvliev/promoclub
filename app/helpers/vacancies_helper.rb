@@ -6,12 +6,12 @@ module VacanciesHelper
     if vacancy.gender == "Не важно"
       User.where("status = ? AND city_id = ? AND (med = ? OR med = ?)",
       "promo", vacancy.city_id, vacancy.med, true).each do |user_to|
-      		InfoMailer.vacancy_email(user_to, vacancy).deliver
+      		InfoMailer.delay.vacancy_email(user_to, vacancy)
       end
     else
       User.where("status = ? AND city_id = ? AND (med = ? OR med = ?) AND gender = ?",
       "promo", vacancy.city_id, vacancy.med, true, vacancy.gender).each do |user_to|
-      		InfoMailer.vacancy_email(user_to, vacancy).deliver
+      		InfoMailer.delay.vacancy_email(user_to, vacancy)
       end
     end
   end

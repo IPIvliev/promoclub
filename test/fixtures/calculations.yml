@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyString
+  name: MyString
+  address: MyString
+  inn: 1
+  kpp: 1
+  rs: 1
+  bank: MyString
+  ks: MyString
+  bik: 1
+
+two:
+  user_id: MyString
+  name: MyString
+  address: MyString
+  inn: 1
+  kpp: 1
+  rs: 1
+  bank: MyString
+  ks: MyString
+  bik: 1

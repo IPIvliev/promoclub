@@ -11,13 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141011164244) do
+ActiveRecord::Schema.define(:version => 20141013102145) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
     t.text     "text"
     t.integer  "user_id"
     t.string   "picture"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "calculations", :force => true do |t|
+    t.string   "user_id"
+    t.string   "name"
+    t.string   "address"
+    t.integer  "inn"
+    t.integer  "kpp"
+    t.integer  "rs"
+    t.string   "bank"
+    t.string   "ks"
+    t.integer  "bik"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -34,6 +48,22 @@ ActiveRecord::Schema.define(:version => 20141011164244) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0, :null => false
+    t.integer  "attempts",   :default => 0, :null => false
+    t.text     "handler",                   :null => false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "invites", :force => true do |t|
     t.integer  "user_id"
@@ -69,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20141011164244) do
     t.decimal  "amount",     :precision => 9, :scale => 2, :default => 0.0
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
+    t.integer  "status",                                   :default => 0
   end
 
   create_table "periods", :force => true do |t|

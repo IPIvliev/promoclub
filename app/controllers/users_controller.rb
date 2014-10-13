@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   include ApplicationHelper
   
   def index
+    profile_finish?
+    
     @title = "База промоутеров"
 
     @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").search(params[:q])

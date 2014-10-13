@@ -22,7 +22,7 @@ module InvitesHelper
     if vacancy.gender == "Не важно"
       User.where("status = ? AND city_id = ? AND (med = ? OR med = ?)",
       "promo", vacancy.city_id, vacancy.med, true).each do |user_to|
-        RestClient.post(
+        RestClient.delay.post(
           "http://sms.ru/sms/send", 
           :api_id => "9d3359eb-9224-2384-5d06-1118975a2cd2", 
           :to => user_to.phone, 
@@ -34,7 +34,7 @@ module InvitesHelper
     else
       User.where("status = ? AND city_id = ? AND (med = ? OR med = ?) AND gender = ?",
       "promo", vacancy.city_id, vacancy.med, true, vacancy.gender).each do |user_to|
-        RestClient.post(
+        RestClient.delay.post(
           "http://sms.ru/sms/send", 
           :api_id => "9d3359eb-9224-2384-5d06-1118975a2cd2", 
           :to => user_to.phone, 

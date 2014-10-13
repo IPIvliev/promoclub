@@ -1,5 +1,5 @@
 class Payment < ActiveRecord::Base
-  attr_accessible :amount, :pay, :user_id
+  attr_accessible :amount, :pay, :user_id, :status
 
   belongs_to :user
 

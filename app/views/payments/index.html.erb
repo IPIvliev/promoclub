@@ -28,6 +28,29 @@
             <ul class="list-icon">
                 <li><strong><i class='fa fa-certificate'></i> Средства на счёте:</strong> <%= money(current_user.pocket) %></li>
             </ul>
+
+            <% if !current_user.calculation.blank? %>
+              <% @calculation = current_user.calculation %>
+              <br><br>
+              <h3><strong>Ваши реквизиты</strong></h3>
+              <ul class="list-icon">
+                  <li><strong><i class='fa fa-certificate'></i> Наименование юридического лица: </strong> <%= @calculation.name %></li>
+                  <li><strong><i class='fa fa-certificate'></i> ИНН: </strong> <%= @calculation.inn %></li>
+                  <li><strong><i class='fa fa-certificate'></i> КПП: </strong> <%= @calculation.kpp %></li>
+                  <li><strong><i class='fa fa-certificate'></i> Наименование банка: </strong> <%= @calculation.bank %></li>
+                  <li><strong><i class='fa fa-certificate'></i> БИК: </strong> <%= @calculation.bik %></li>
+                  <li><strong><i class='fa fa-certificate'></i> Корреспондентский счёт: </strong> <%= @calculation.ks %></li>
+                  <li><strong><i class='fa fa-certificate'></i> Расчётный счёт: </strong> <%= @calculation.rs %></li>
+                  <li><strong><i class='fa fa-certificate'></i> Почтовый адресс юридического лица: </strong> <%= @calculation.address %></li>
+              </ul>
+              <%= link_to "Изменить реквизиты", edit_calculation_path(current_user.calculation) %>
+              <br>
+            <% else %>
+              <a href="#" data-toggle="modal" data-target="#essentials" class="btn btn-success">Заполните реквизиты для безналичного расчёта</a>
+              <%= render "/shared/calculation" %>
+            <% end %>
+
+
             <br>
             <% if params[:amount] %>
               <h3><strong>Проверьте реквизиты платежа</strong></h3>
@@ -48,13 +71,26 @@
                           :service => :robokassa,
                           :secret => "Allpromoters1" do |s| %>
       <div class="col-md-6">
-        <%= submit_tag "Внести взнос", :class => "btn btn-success" %>
-      </div>
-      <div class="col-md-6">
-        <%= link_to "Изменить сумму", destroy_payment_path(params[:payment]), method: :delete, :class => "btn btn-warning" %>
+        <%= submit_tag "Внести взнос On-Line", :class => "btn btn-success" %>
       </div>
     <% end %>
-
+    <br><br><br>
+      <div class="col-md-12">
+          <% if current_user.calculation.blank? %>
+            <a href="#" data-toggle="modal" data-target="#essentials" class="btn btn-success">Заполните реквизиты для безналичного расчёта</a>
+            <%= render "/shared/calculation" %>
+          <% else %>
+              <%= form_for @payment, :url => {:controller => "payments", :action => "create" }, :class => "white-row" do |f| %>
+                <%= f.hidden_field :amount, :value => params[:amount] %>
+                <%= f.hidden_field :status, :value => 1 %>
+                <%= f.submit :value => "Получить счёт для безналичного расчёта", :class => "btn btn-success" %>
+              <% end %>
+          <% end %>
+      </div>
+<br><br><br>
+      <div class="col-md-12">
+        <%= link_to "Изменить сумму", destroy_payment_path(params[:payment]), method: :delete, :class => "btn btn-warning" %>
+      </div>
   <% else %>
 
     <%= form_for @payment, :url => {:controller => "payments", :action => "create" }, :class => "white-row" do |f| %>
@@ -140,6 +176,11 @@
   g.column name: 'Статус платежа' do |payment|
     payment_status(payment)
   end
+
+  g.column name: 'Способ платежа' do |payment|
+    payment_how(payment)
+    link_to "Скачать", payment_path(payment, format: 'pdf')
+  end  
 
 end -%>
 

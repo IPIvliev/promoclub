@@ -16,6 +16,7 @@ gem 'russian'
 gem 'thin'
 gem 'sitemap_generator'
 gem 'whenever', :require => false
+gem 'delayed_job_active_record'
 
 # Users
 gem 'devise'
@@ -26,6 +27,9 @@ gem 'ransack'
 
 # Money
 gem 'activemerchant', :require => 'active_merchant'
+gem 'prawn'
+gem 'prawn-table'
+gem 'prawn-rails'
 
 # Work with SMS
 gem  'rest-client'

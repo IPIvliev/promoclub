@@ -48,7 +48,11 @@ Promoclub::Application.routes.draw do
   match '/users/:id/payments', to: 'payments#index', as: :payments_user
   match '/payments/:id/destroy', to: 'payments#destroy', as: :destroy_payment
   match '/payments/create', to: 'payments#create'
+  match '/payments/create_calculation', to: 'payments#create_calculation'
+  match '/payments/edit_calculation', to: 'payments#edit_calculation', as: :edit_calculation
   match '/payments/new_period', to: 'payments#new_period'
+  match '/payments/:id', to: 'payments#show', as: :payment
+
 # Проплата
   scope 'robokassa' do
     match 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request

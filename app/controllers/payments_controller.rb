@@ -14,10 +14,29 @@ class PaymentsController < ApplicationController
 	@payments = initialize_grid(Payment, :conditions => ['user_id = ?', current_user.id])    
   end
 
+def show
+  @payment = Payment.find(params[:id])
+
+  respond_to do |format|
+    format.html
+    format.pdf { render :layout => false }
+  end
+end
+
   def create
   	@payment = current_user.payments.build(params[:payment])
   	@payment.save
-  	redirect_to payments_user_path(current_user, :payment => @payment, :amount => @payment.amount)
+    if @payment.status == 1
+      redirect_to payments_user_path(current_user)
+    else
+      redirect_to payments_user_path(current_user, :payment => @payment, :amount => @payment.amount)
+    end
+  end
+
+  def create_essentials
+    @payment = current_user.payments.build(params[:payment])
+    @payment.save
+    redirect_to payments_user_path(current_user, :payment => @payment, :amount => @payment.amount)
   end
 
   def destroy
@@ -55,6 +74,18 @@ class PaymentsController < ApplicationController
       end
 
       redirect_to :back
+  end
+
+  def create_calculation
+    @calculation = current_user.build_calculation(params[:calculation])
+
+    if @calculation.save
+      flash[:success] = "Вы успешно добавили реквизиты. Теперь Вы можете заказать счёт для оплаты."
+    else
+      flash[:danger] = "При добавлении реквизитов произошла ошибка. Проверьте правильность реквизитов"
+    end
+
+    redirect_to payments_user_path(current_user)
   end
 
 end

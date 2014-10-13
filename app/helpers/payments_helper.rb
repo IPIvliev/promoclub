@@ -11,6 +11,15 @@ module PaymentsHelper
     end
   end
 
+  def payment_how(payment)
+    case payment.status
+    when 0
+      "<span>Робокасса</span>".html_safe
+    when 1
+      "<span>По счёту</span>".html_safe
+    end
+  end  
+
   def period_phone
   	@period = current_user.periods.last
 
