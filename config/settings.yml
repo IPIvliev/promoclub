@@ -11,8 +11,8 @@ sms_price: "2.00"
 
 # Плата за создание вакансий: true, false. Влияет на стоимость вакансий
 vacancy_cost: "false"
-vacancy_price: "200.00"
+vacancy_price: "199.00"
 
 # Плата за просмотр контактов промоутеров: true, false. Влияет на стоимость месяца доступа к базе
 period_cost: "false"
-period_price: "500.00"
+period_price: "1190.00"
