@@ -16,8 +16,8 @@ module PaymentsHelper
     when 0
       "<span>Робокасса</span>".html_safe
     when 1
-      "<span>По счёту</span>".html_safe
-    end
+      "<span>По счёту</span> - #{link_to 'Скачать', payment_path(payment, format: 'pdf')}".html_safe
+    end 
   end  
 
   def period_phone
