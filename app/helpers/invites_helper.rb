@@ -19,6 +19,7 @@ module InvitesHelper
   end
 
   def sms_invite_promos(vacancy)
+    @text = "Новая вакансия на http://allpromoters.ru Телефон: #{vacancy.user.phone}".encode("UTF-8")
     if vacancy.gender == "Не важно"
       User.where("status = ? AND city_id = ? AND (med = ? OR med = ?)",
       "promo", vacancy.city_id, vacancy.med, true).each do |user_to|
@@ -26,7 +27,7 @@ module InvitesHelper
           "http://sms.ru/sms/send", 
           :api_id => "9d3359eb-9224-2384-5d06-1118975a2cd2", 
           :to => user_to.phone, 
-          :text => "Новая вакансия на http://allpromoters.ru Телефон: #{vacancy.user.phone}"
+          :text => @text
           )
         invite = vacancy.user.sms_invites.build(:user_to_id => user_to.id, :vacancy_id => vacancy.id)
         invite.save
@@ -38,7 +39,7 @@ module InvitesHelper
           "http://sms.ru/sms/send", 
           :api_id => "9d3359eb-9224-2384-5d06-1118975a2cd2", 
           :to => user_to.phone, 
-          :text => "Новая вакансия на http://allpromoters.ru Телефон: #{vacancy.user.phone}"
+          :text => @text
           )
         invite = vacancy.user.sms_invites.build(:user_to_id => user_to.id, :vacancy_id => vacancy.id)
         invite.save
