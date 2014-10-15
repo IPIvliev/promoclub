@@ -5,3 +5,7 @@ User-agent: *
 Disallow: /admin
 
 Sitemap: http://allpromoters.ru/sitemaps/sitemap.xml.gz
+
+User-agent: Yandex
+Disallow:
+Host: allpromoters.ru

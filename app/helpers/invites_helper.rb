@@ -19,7 +19,7 @@ module InvitesHelper
   end
 
   def sms_invite_promos(vacancy)
-    @text = "Новая вакансия на http://allpromoters.ru Телефон: #{vacancy.user.phone}".encode("UTF-8")
+    @text = "Novaya podhodyashaya vakansiya promoutera na http://allpromoters.ru Tel.: #{vacancy.user.phone}".encode("UTF-8")
     if vacancy.gender == "Не важно"
       User.where("status = ? AND city_id = ? AND (med = ? OR med = ?)",
       "promo", vacancy.city_id, vacancy.med, true).each do |user_to|

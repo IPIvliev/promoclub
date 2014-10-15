@@ -51,6 +51,9 @@ class User < ActiveRecord::Base
     # Запоминаем пароль
   after_create :save_pass
 
+    # Акция. Пополнить счёт 1200 руб.
+  after_create :more_money if Settings.action == "true"
+
   paginates_per 12
 
  def self.find_for_facebook_oauth(access_token)
@@ -131,6 +134,12 @@ end
         InfoMailer.info_email_agent(self).deliver
       else
         InfoMailer.info_email_common(self).deliver
+      end
+    end
+
+    def more_money
+      if self.status == "agent"
+        self.update_attribute(:pocket, Settings.action_money.to_i)
       end
     end
 

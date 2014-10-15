@@ -5,12 +5,12 @@ class InfoMailer < ActionMailer::Base
 
   def info_email_promo(user)
   	@user = user
-    mail(to: user.email, subject: 'Ищите работу промоутером? Успешная регистрация')
+    mail(to: user.email, subject: 'Ищите работу промоутером? Успешная регистрация в базе промоутеров!')
   end
 
   def info_email_agent(user)
   	@user = user
-    mail(to: user.email, subject: 'Ищите промоутеров? Успешная регистрация')
+    mail(to: user.email, subject: 'Ищите промоутеров? Успешная регистрация в базе промоутеров!')
   end
 
   def info_email_common(user)

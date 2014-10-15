@@ -16,3 +16,7 @@ vacancy_price: "199.00"
 # Плата за просмотр контактов промоутеров: true, false. Влияет на стоимость месяца доступа к базе
 period_cost: "false"
 period_price: "1190.00"
+
+# Акции
+action: "true"
+action_money: 1200

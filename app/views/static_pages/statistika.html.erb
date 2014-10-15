@@ -36,6 +36,15 @@
                   <li><strong>Балланс SMS:</strong> <%= balance %> руб.</li>
                   <br>
                   <li><strong>Средств на счетах:</strong> <%= money(User.where(:status => "agent").sum(:pocket).to_i) %></li>
+                </ul>
+
+                <% if Settings.action == "true" %>
+                <br><br>
+                  <div class="alert alert-danger">
+                    <i class="fa fa-check-circle"></i> 
+                    <strong>Внимание!</strong> Действует акция. Каждый новый работодатель получает <strong><%= money(Settings.action_money.to_i) %></strong>
+                  </div>
+                <% end %>
 
               <% else %>
                 <p>У вас нет прав доступа в этот раздел.</p>
