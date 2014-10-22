@@ -6,15 +6,15 @@ status: "production"
 sms_can: "true"
 
 # Плата за отправку смс: true, false. Влияет на стоимость смс
-sms_cost: "false"
+sms_cost: "true"
 sms_price: "2.00"
 
 # Плата за создание вакансий: true, false. Влияет на стоимость вакансий
-vacancy_cost: "false"
+vacancy_cost: "true"
 vacancy_price: "199.00"
 
 # Плата за просмотр контактов промоутеров: true, false. Влияет на стоимость месяца доступа к базе
-period_cost: "false"
+period_cost: "true"
 period_price: "1190.00"
 
 # Акции

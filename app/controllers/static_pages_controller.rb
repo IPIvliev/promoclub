@@ -19,6 +19,13 @@ class StaticPagesController < ApplicationController
     add_breadcrumb @title
   end
 
+  def public
+    profile_finish?
+
+    @title = "Пользовательское соглашение"
+    add_breadcrumb @title
+  end  
+
   def services
     profile_finish?
 
