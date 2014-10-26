@@ -68,10 +68,11 @@ Promoclub::Application.configure do
   config.action_mailer.default_url_options = {:host => 'allpromoters.ru'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "smtp.yandex.ru",
-    :port => 25,
+    :address => "smtp.mandrillapp.com",
+    :port => 587,
     :authentication => :login,
-    :user_name => "allpromoters@yandex.ru",
-    :password => "Huteras1"
+    :user_name => "cccp1945@mail.ru",
+    :password => "ZcIqZkjqRPiJny0maGm9Ww",
+    :enable_starttls_auto => true
   }
 end

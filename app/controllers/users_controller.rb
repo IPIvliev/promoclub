@@ -12,8 +12,10 @@ class UsersController < ApplicationController
 
     @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").search(params[:q])
     if params[:city]
+      @users = User.where(city_id: params[:city], status: "promo").search(params[:q]).result
       @promoters = User.where(city_id: params[:city], status: "promo").search(params[:q]).result.order('rate DESC, created_at DESC').page(params[:page])
     else
+      @users = @search.result
       @promoters = @search.result.order('rate DESC, created_at DESC').page(params[:page])
     end
   end

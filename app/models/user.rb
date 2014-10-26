@@ -45,11 +45,11 @@ class User < ActiveRecord::Base
   has_many :sms_invites, :dependent => :destroy
   has_many :sms_invites_to_me, foreign_key: "user_to_id", class_name: "SmsInvite"
 
-    # Отправка письма после создания аккаунта
-  after_create :send_greeting_mail
-
     # Запоминаем пароль
   after_create :save_pass
+
+    # Отправка письма после создания аккаунта
+  after_create :send_greeting_mail
 
     # Акция. Пополнить счёт 1200 руб.
   after_create :more_money if Settings.action == "true"
@@ -129,11 +129,11 @@ end
 
     def send_greeting_mail
       if self.status == "promo"
-        InfoMailer.info_email_promo(self).deliver
+        InfoMailer.delay.info_email_promo(self)
       elsif self.status == "agent"
-        InfoMailer.info_email_agent(self).deliver
+        InfoMailer.delay.info_email_agent(self)
       else
-        InfoMailer.info_email_common(self).deliver
+        InfoMailer.delay.info_email_common(self)
       end
     end
 

@@ -1,16 +1,91 @@
-<h2>Change your password</h2>
+		<!-- WRAPPER -->
+		<div id="wrapper">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+			<div id="shop">
 
-  <div><%= f.label :password, "New password" %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %></div>
+				<!-- PAGE TITLE -->
+				<header id="page-title">
+					<div class="container">
+						<h1>Восстановить пароль</h1>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+						<ul class="breadcrumb">
+							<li><a href="/index.html">Главная</a></li>
+							<li class="active">Восстановить пароль</li>
+						</ul>
+					</div>
+				</header>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+				<section class="container">
+
+					<div class="row">
+
+						<!-- LOGIN -->
+						<div class="col-md-6">
+
+							<h2>Измените <strong>Пароль</strong></h2>
+
+							<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, :class => "white-row" }) do |f| %>
+
+							  <%= devise_error_messages! %>
+							  <%= f.hidden_field :reset_password_token %>
+
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Новый пароль</label>
+											 <%= f.password_field :password, autofocus: true, autocomplete: "off", :class => "form-control" %>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Новый пароль ещё раз</label>
+											<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<%= f.submit "Изменить мой пароль", :class => "btn btn-primary pull-right" %>
+									</div>
+								</div>
+								
+							<% end %>
+
+						</div>
+						<!-- /LOGIN -->
+
+						<!-- PASSWORD -->
+						<div class="col-md-6">
+
+							<h2>Дополнительная <strong>Информация</strong>?</h2>
+
+							<div class="white-row">
+
+								<p>
+									Мы всегда рады приветствовать Вас на сервисе "Клуб промоутеров"!
+								</p>
+
+								
+							
+
+							</div>
+
+						</div>
+						<!-- /PASSWORD -->
+
+					</div>
+
+
+					<p class="white-row">
+						Вы ещё не успели зарегистрироваться? <a href="/users/sign_up">Нажмите здесь для регистрации</a>, это абсолютно бесплатно!
+					</p>
+
+				</section>
+
+			</div>
+		</div>
+		<!-- /WRAPPER -->
+
