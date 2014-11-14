@@ -1,0 +1,1 @@
+mail._domainkey IN TXT "v=DKIM1; k=rsa; t=y; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeQdOdx/y4gj/XSnrOt+xo4h3wOBFUucYH023I2bFAR4nHotuzRYusHehh37/0jVyQ9JiRYqXYtCV+19FiMnEsTaQaP1MlJaTj7icxvO4uk9vvgLo8v7BAWps3bNJI3xRGblYbFKnjxEwbvDatC+KxHt79yrqreEUn99c4mOluZQIDAQAB" ; ----- DKIM key mail for allpromoters.ru

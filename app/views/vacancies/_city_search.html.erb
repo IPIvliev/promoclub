@@ -13,13 +13,11 @@
                     <p>В данном списке представлены только те города, в которых имеются зарегистрированные вакансии. В скобках указано количество зарегистрированных вакансий.</p>
                 <ul>
 
-              <% cache 'vacancy_cities_list' do %>
-                <% City.all.each do |city| %>
-                  <% if Vacancy.where(:city_id => city.id).count > 0 %>
+
+                <% City.joins(:vacancies).group("vacancies.city_id").order("count(vacancies.city_id) desc").limit(30).each do |city| %>
                     <li><%= link_to "#{city.name} (#{city.vacancies.count})", vacancy_city_path(city) %></li>
-                  <% end %>
                 <% end %>
-              <% end %>
+
 
                 </ul>
 

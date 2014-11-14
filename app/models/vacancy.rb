@@ -20,6 +20,6 @@ class Vacancy < ActiveRecord::Base
   private
 
 	  def send_info_mail
-	  	email_invite_promos(self)
+	  	delay.email_invite_promos(self)
 	  end
 end

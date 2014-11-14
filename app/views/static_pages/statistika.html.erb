@@ -36,6 +36,7 @@
                   <li><strong>Балланс SMS:</strong> <%= balance %> руб.</li>
                   <br>
                   <li><strong>Средств на счетах:</strong> <%= money(User.where(:status => "agent").sum(:pocket).to_i) %></li>
+                  <li><strong>Оплачено:</strong> <%= money(Payment.where(:pay => 1).sum(:amount).to_i) %> руб.</li>
                 </ul>
 
                 <% if Settings.action == "true" %>

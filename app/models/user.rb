@@ -128,12 +128,14 @@ end
     end
 
     def send_greeting_mail
-      if self.status == "promo"
-        InfoMailer.delay.info_email_promo(self)
-      elsif self.status == "agent"
-        InfoMailer.delay.info_email_agent(self)
-      else
-        InfoMailer.delay.info_email_common(self)
+      if self.sent == true
+        if self.status == "promo"
+          InfoMailer.delay.info_email_promo(self)
+        elsif self.status == "agent"
+          InfoMailer.delay.info_email_agent(self)
+        else
+          InfoMailer.delay.info_email_common(self)
+        end
       end
     end
 

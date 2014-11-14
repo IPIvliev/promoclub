@@ -1,16 +1,16 @@
 # encoding: utf-8
 
 class InfoMailer < ActionMailer::Base
-   default from: "allpromoters@yandex.ru"
+   default from: 'Сервис Клуб Промоутеров <info@allpromoters.ru>'
 
   def info_email_promo(user)
   	@user = user
-    mail(to: user.email, subject: 'Ищите работу промоутером? Успешная регистрация в базе промоутеров!')
+    mail(to: user.email, subject: 'Ищите работу промоутером? Успешная регистрация в базе промоутеров')
   end
 
   def info_email_agent(user)
   	@user = user
-    mail(to: user.email, subject: 'Ищите промоутеров? Успешная регистрация в базе промоутеров!')
+    mail(to: user.email, subject: 'Ищите промоутеров? Успешная регистрация в базе промоутеров')
   end
 
   def info_email_common(user)

@@ -44,9 +44,7 @@ ActiveRecord::Schema.define(:version => 20141026103838) do
   end
 
   create_table "countries", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "name", :limit => 128, :default => "", :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -115,7 +113,7 @@ ActiveRecord::Schema.define(:version => 20141026103838) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
+    t.integer  "year",       :limit => 8
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
@@ -164,11 +162,11 @@ ActiveRecord::Schema.define(:version => 20141026103838) do
   end
 
   create_table "states", :force => true do |t|
-    t.string   "name"
-    t.integer  "country_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "country_id",               :default => 0,  :null => false
+    t.string  "name",       :limit => 64, :default => "", :null => false
   end
+
+  add_index "states", ["country_id"], :name => "country_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                                :default => "",    :null => false

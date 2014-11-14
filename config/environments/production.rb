@@ -66,13 +66,52 @@ Promoclub::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.action_mailer.default_url_options = {:host => 'allpromoters.ru'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address => "smtp.mandrillapp.com",
-    :port => 587,
-    :authentication => :login,
-    :user_name => "cccp1945@mail.ru",
-    :password => "ZcIqZkjqRPiJny0maGm9Ww",
-    :enable_starttls_auto => true
-  }
+#  config.action_mailer.delivery_method = :smtp
+#  config.action_mailer.smtp_settings = {
+  #  :address => "smtp.mandrillapp.com",
+#    :address => "smtp.mailgun.org",
+#    :port => 587,
+ #   :authentication => :plain,
+   # :user_name => "allpromoters@yandex.ru",
+   # :password => "aDDw5IUx1GWKn8SmpvTTXA",    
+   # :user_name => "AKIAJAA2E3FETVZ4Y5CA",
+   # :password => "AjidD5TTjCnXYPRF61e+hnmLUf7KQiwMB9As3fJRm1RJ",
+   # :user_name => "postmaster@allpromoters.ru",
+    #:password => "acfa4bfc452072db5f83896efff057ff",    
+   # :enable_starttls_auto => true
+
+  #  :user_name => "cccp1945@mail.ru",
+  #  :password => "ZcIqZkjqRPiJny0maGm9Ww",
+ # }
+
+# config.action_mailer.delivery_method = :postmark
+
+#config.action_mailer.smtp_settings = {
+#    :address   => "smtp.mandrillapp.com",
+#    :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+#    :enable_starttls_auto => true, # detects and uses STARTTLS
+#    :user_name => "allpromoters@yandex.ru",
+#    :password  => "aDDw5IUx1GWKn8SmpvTTXA", # SMTP password is any valid API key
+#    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+#    :domain => 'allpromoters.ru', # your domain to identify your server when connecting
+#  }
+
+# config.action_mailer.postmark_settings = { :api_key => "7af6bbd6-f25c-4c45-96f3-41ae9a2cd851" }
+
+
+#config.action_mailer.mailgun_settings = {
+#        api_key: 'key-f4fc3bcba285f27fac6b9c598e6d8040',
+#        domain: 'allpromoters.ru'
+
+      #  api_key: 'key-f4fc3bcba285f27fac6b9c598e6d8040',
+      #  domain: 'allpromoters.ru'
+#}
+
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = { 
+   address: "127.0.0.1", 
+   port: 25, 
+   enable_starttls_auto: false 
+}
+
 end
