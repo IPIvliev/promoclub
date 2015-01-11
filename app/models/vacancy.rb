@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Vacancy < ActiveRecord::Base
   include VacanciesHelper
 
@@ -15,9 +17,20 @@ class Vacancy < ActiveRecord::Base
   paginates_per 7
 
   # Отправка письма после создания вакансии
-  after_create :send_info_mail
+  after_create :send_info_mail, :add_to_social
 
   private
+
+  def add_to_social
+
+	@title = truncate(self.name, :length => 80, :omission => "...")
+	@text = "#{@title} http://allpromoters.ru/vacancies/#{self.id} #промоутеры #реклама"
+	
+	SocialPoster.write(:vk, @text, nil, from_group: 1, owner_id: '-80069050')
+	SocialPoster.write(:twitter, @text)
+
+  end
+
 
 	  def send_info_mail
 	  	delay.email_invite_promos(self)

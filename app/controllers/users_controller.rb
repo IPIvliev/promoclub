@@ -7,6 +7,11 @@ class UsersController < ApplicationController
   
   def index
     profile_finish?
+
+      @countries  = Country.all
+      @states = State.all
+      @cities   = City.all
+
     
     @title = "База промоутеров"
 

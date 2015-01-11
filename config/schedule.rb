@@ -9,6 +9,6 @@ end
 #  rake "csv:create_promos"
 # end
 
-every 1.day, :at => '08:30 am' do
-  rake "csv:create_agents"
-end
+# every 1.day, :at => '08:30 am' do
+#  rake "csv:create_agents"
+# end

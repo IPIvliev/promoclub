@@ -37,6 +37,7 @@ gem  'rest-client'
 
 # Work with social
 gem 'twitter'
+gem 'social_poster'
 
 # Admin panel
 gem 'rails_admin'

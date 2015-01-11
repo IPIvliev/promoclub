@@ -1,22 +1,22 @@
 
 # Статус приложение: test, production. Влияет на наличие счёта у работодателя и работу всех платных услуг
-status: "production"
+status: "test"
 
 # Отправка смс: true, false. Влияет на отображения информации об смс и на возможность отправки смс в меню "Мои вакансии"
-sms_can: "true"
+sms_can: "false"
 
 # Плата за отправку смс: true, false. Влияет на стоимость смс
 sms_cost: "true"
 sms_price: "2.00"
 
 # Плата за создание вакансий: true, false. Влияет на стоимость вакансий
-vacancy_cost: "true"
+vacancy_cost: "false"
 vacancy_price: "199.00"
 
 # Плата за просмотр контактов промоутеров: true, false. Влияет на стоимость месяца доступа к базе
-period_cost: "true"
+period_cost: "false"
 period_price: "1190.00"
 
 # Акции
-action: "true"
+action: "false"
 action_money: 1200

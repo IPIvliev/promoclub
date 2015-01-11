@@ -12,18 +12,18 @@ class Article < ActiveRecord::Base
   paginates_per 3
 
   # Отправка в twitter
-  # after_create :tweet
+   after_create :add_to_social
 
   private
 
-  def tweet
-	client = Twitter::Client.new do |config|
-		config.consumer_key        = "NLuHFi35VJ4VS2izyu02Zvjqt"
-		config.consumer_secret     = "ceWCb0Tj2xOi2aHmGfjoHFABEqvhSFHiHlVqUsoClZAXmTrkr3"
-	end
+  def add_to_social
 
 	@title = truncate(self.name, :length => 80, :omission => "...")
 	@text = "#{@title} http://allpromoters.ru/articles/#{self.id} #промоутеры #реклама"
-	client.update(@text)
+	
+	SocialPoster.write(:vk, @text, nil, from_group: 1, owner_id: '-80069050')
+	SocialPoster.write(:twitter, @text)
+
   end
+
 end

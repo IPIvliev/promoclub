@@ -13,7 +13,7 @@
                     <p>В данном списке представлены только те города, в которых имеются зарегистрированные промоутеры. В скобках указано количество зарегистрированных промоутеров.</p>
                 <ul>
 
-                <% City.joins(:users).where("users.status = ?", "promo").group("users.city_id").order("count(users.city_id) desc").limit(30).each do |city| %>
+                <% City.joins(:users).where("users.status = ?", "promo").group("users.city_id").order("count(users.city_id) desc").limit(50).each do |city| %>
                     <li><%= link_to "#{city.name} (#{city.users.where(:status => 'promo').count})", promo_city_path(city) %></li>
                 <% end %>
 
