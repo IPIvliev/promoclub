@@ -18,6 +18,7 @@ gem 'thin'
 gem 'sitemap_generator'
 gem 'whenever', :require => false
 gem 'delayed_job_active_record'
+gem 'rails3-jquery-autocomplete'
 
 # Users
 gem 'devise'

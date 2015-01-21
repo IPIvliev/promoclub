@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require autocomplete-rails
 //= require wice_grid
 //= require_tree .

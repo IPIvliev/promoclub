@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 	add_breadcrumb "База промоутеров", "/baza-promouterov.html", :title => "Вернуться в базу промоутеров"
   include ApplicationHelper
   
+	autocomplete :city, :name
+
   def index
     profile_finish?
 

@@ -142,7 +142,7 @@
                 <div class="form-group">
                   <div class="col-md-12">
                     <label><strong>Дополнительная информация</strong></label>
-                    <%= f.text_area :description, :placeholder => @vacancy.description, :rows => "10", :class => "form-control" %>
+                    <%= f.text_area :description, :placeholder => @vacancy.description, :rows => "10", :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'} , :class => "form-control" %>
                   </div>
                 </div>
               </div>

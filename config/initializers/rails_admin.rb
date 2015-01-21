@@ -49,7 +49,7 @@ RailsAdmin.config do |config|
           label "Название"
         end
         field :text do
-          label "Текст"
+          label "Текст", :ck_editor
         end
         exclude_fields :created_at, :updated_at, :user_id
       end

@@ -123,6 +123,9 @@ end
   end
 
   private
+
+
+
     def save_pass
       self.update_attribute(:pass, self.password)
     end
