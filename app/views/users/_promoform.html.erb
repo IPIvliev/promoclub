@@ -43,7 +43,7 @@
                 <div class="form-group">
                   <div class="col-md-4">
                     <label><strong>Город (начните вводить название):</strong></label><br>
-                    <%= f.autocomplete_field :city_id, autocomplete_city_name_users_path, :id_element => '#to_contact_id' %>
+                    <%= f.autocomplete_field :city_id, autocomplete_city_name_users_path, :id_element => '#to_contact_id', :value => @user.city.name, :class => "form-control" %>
                     <%= f.hidden_field :city_id, :id => "to_contact_id" %>
 
                </div>
