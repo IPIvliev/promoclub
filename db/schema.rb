@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20141210113712) do
 
-  create_table "articles", :force => true do |t|
+  create_table 'articles', :force => true do |t|
     t.string   "name"
     t.text     "text"
     t.integer  "user_id"
@@ -44,7 +44,9 @@ ActiveRecord::Schema.define(:version => 20141210113712) do
   end
 
   create_table "countries", :force => true do |t|
-    t.string "name", :limit => 128, :default => "", :null => false
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -77,9 +79,9 @@ ActiveRecord::Schema.define(:version => 20141210113712) do
     t.string   "name"
     t.string   "email"
     t.string   "phone"
-    t.text     "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "text",       :limit => 255
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "opinions", :force => true do |t|
@@ -113,7 +115,7 @@ ActiveRecord::Schema.define(:version => 20141210113712) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
+    t.integer  "year",       :limit => 5
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
@@ -162,11 +164,11 @@ ActiveRecord::Schema.define(:version => 20141210113712) do
   end
 
   create_table "states", :force => true do |t|
-    t.integer "country_id",               :default => 0,  :null => false
-    t.string  "name",       :limit => 64, :default => "", :null => false
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "states", ["country_id"], :name => "country_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                                :default => "",    :null => false

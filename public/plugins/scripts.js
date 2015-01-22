@@ -141,7 +141,7 @@ var	$googlemap_latitude 	= 56.2907606,
 						jQuery(this).parents("li").addClass("resp-active");
 					}
 
-					return;
+
 
 				});
 
@@ -477,7 +477,7 @@ var	$googlemap_latitude 	= 56.2907606,
 						afterAction: false,
 						startDragging : false,
 						afterLazyLoad : false
-					}
+					};
 
 					var config = jQuery.extend({}, defaults, options, slider.data("plugin-options"));
 
@@ -785,7 +785,7 @@ var	$googlemap_latitude 	= 56.2907606,
 
 			}
 
-		}
+		};
 
 		jQuery(window).ready(function () {
 			Core.initialize();
@@ -903,8 +903,9 @@ var	$googlemap_latitude 	= 56.2907606,
 			var scale = scale_h > scale_v ? scale_h : scale_v;
 
 			// don't allow scaled width < minimum video width
-			if (scale * vid_w_orig < min_w) {scale = min_w / vid_w_orig;};
-
+			if (scale * vid_w_orig < min_w) {
+				scale = min_w / vid_w_orig;
+			}
 			// now scale the video
 			jQuery('video, source').width(scale * vid_w_orig);
 			jQuery('video, source').height(scale * vid_h_orig);
@@ -1322,14 +1323,8 @@ jQuery.fn.unFitVids = function () {
 };
 
 
-
-
-
-/** WAIT FOR IMAGES [used by masonry]
-	https://github.com/alexanderdickson/waitForImages
- **************************************************************** **/
-;(function ($) {
-    // Namespace all events.
+(function ($) {
+	// Namespace all events.
     var eventNamespace = 'waitForImages';
 
     // CSS properties which contain references to images.

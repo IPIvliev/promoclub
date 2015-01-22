@@ -6,15 +6,14 @@ gem "wice_grid", '3.4.2'
 gem "rails_config"
 gem 'mandrill-rails'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Server
+  gem 'thin'
 
 gem 'sqlite3'
 
 # Общее
 gem "breadcrumbs_on_rails"
 gem 'russian'
-gem 'thin'
 gem 'sitemap_generator'
 gem 'whenever', :require => false
 gem 'delayed_job_active_record'
@@ -54,7 +53,7 @@ gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 
 group :production do
-  gem 'mysql2'
+#  gem 'mysql2'
 end
 
 group :assets do
