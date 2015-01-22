@@ -39,8 +39,8 @@
       <div class="form-group">
         <div class="col-md-6">
           <label><strong>Город (начните вводить название):</strong></label><br>
-          <% if @user.city.present? %>
-              <%= f.autocomplete_field :city_id, autocomplete_city_name_users_path, :id_element => '#to_contact_id', :value => @user.city.name, :class => "form-control" %>
+          <% if @vacancy.city.present? %>
+              <%= f.autocomplete_field :city_id, autocomplete_city_name_users_path, :id_element => '#to_contact_id', :value => @vacancy.city.name, :class => "form-control" %>
           <% else %>
               <%= f.autocomplete_field :city_id, autocomplete_city_name_users_path, :id_element => '#to_contact_id', :class => "form-control" %>
           <% end %>
