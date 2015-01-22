@@ -9,38 +9,10 @@
 
 <div class="form-group">
 
-                    <label><strong>Страна:</strong></label><br>
-<%= f.collection_select :country_id,  @countries,  :id, :name, {:prompt   => "Выберите страну"}, {:id => 'countries_select', :required => true} %>
-<br>
-<label><strong>Регион:</strong></label><br>
-<%= f.collection_select :state_id, @states, :id, :name, {:prompt   => "Выберите регион"}, {:id => 'states_select', :required => true} %>
-<br>
-<label><strong>Город:</strong></label><br>
-<%= f.collection_select :city_id_eq, @cities, :id, :name, {:prompt   => "Выберите город"}, {:id => 'cities_select', :required => true} %>
+                    <label><strong>Город (начните вводить название):</strong></label><br>
 
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#countries_select').change(function() {
-      $.ajax({
-        url: "<%= update_states_path %>",
-        data: {
-          country_id : $('#countries_select').val()
-        },
-        dataType: "script"
-      });
-    });
-    $('#states_select').change(function() {
-      $.ajax({
-        url: "<%= update_cities_path %>",
-        data: {
-          state_id : $('#states_select').val()
-        },
-        dataType: "script"
-      });
-    });
-  });
-</script>
+  <%= f.autocomplete_field 'city_id', autocomplete_city_name_users_path, :id_element => '#to_contact_id', :class => "form-control" %>
+  <%= f.hidden_field :city_id_eq, :id => "to_contact_id" %>
 
                   </div>
 
