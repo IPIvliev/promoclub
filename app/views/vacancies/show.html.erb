@@ -1,122 +1,121 @@
 <!-- WRAPPER -->
-    <div id="wrapper">
+<div id="wrapper">
 
-      <!-- PAGE TITLE -->
-      <%= render "/shared/bread" %>
+  <!-- PAGE TITLE -->
+  <%= render "/shared/bread" %>
 
-      <%= render '/shared/moremenu' %>
+  <%= render '/shared/moremenu' %>
 
-      <section id="portfolio" class="container">
+  <section id="portfolio" class="container">
 
-        <h2><strong><%= @vacancy.name %></strong></h2>
+    <h2><strong><%= @vacancy.name %></strong></h2>
 
 
-        <div class="row">
-          <p id="notice"><%= notice %></p>
-          <div class="col-sm-5 col-md-7">
-            <div class="controlls-over product-image">
-              <div>
-                <%= image_tag @vacancy.user.avatar.url, :class => "img-responsive" %>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-sm-7 col-md-5">
-            <% if @vacancy.user == current_user %>
-              <%= link_to "Изменить вакансию", edit_vacancy_path(@vacancy), :class => "btn btn-info" %>
-              <%= link_to "Удалить вакансию", vacancy_path(@vacancy), method: :delete, data: { confirm: "Вы уверены?" }, :class => "btn btn-danger" %><br><br>
-              <p><strong>Количество отправленных приглашений:</strong> <%= @vacancy.invites.count %></p>
-            <% end %>
-
-            <% if @vacancy.user == current_user %>
-              <h3>Так Ваша вакансия выглядит у промоутера.</h3>
-            <% else %>
-              <h3>Вы можете принять участие в конкурсе на замещение данной вакансии.</h3>
-            <% end %>
-
-            <ul class="list-icon">
-                <li><i class='fa fa-certificate'></i> Наниматель: <%= link_to @vacancy.user.name_with_rate, user_path(@vacancy.user) %></li>
-                <br>
-                <li><i class='fa fa-flag'></i> Страна: <%= @vacancy.country.name %></li>
-                <li><i class='fa fa-bookmark-o'></i> Город: <%= link_to "#{@vacancy.city.name} <i class='fa fa-external-link'></i>".html_safe, vacancy_city_path(@vacancy.city) %></li>
-                </li>
-                
-                <br>
-                <li><i class='fa fa-male'></i> Количество вакантных мест: <%= @vacancy.amount %></li>
-                <li><i class='fa fa-female'></i> Требования к полу промоутеров: <%= @vacancy.gender %></li> 
-                <li><i class='fa fa-clock-o'></i> Зарплата: <%= @vacancy.price %> рублей в час</li>
-                <li><i class='fa fa-female'></i> Минимальный возраст: <%= @vacancy.start_age %></li> 
-                <li><i class='fa fa-clock-o'></i> Максимальный возраст: <%= @vacancy.finish_age %></li>
-                <br>
-                <li><i class='fa fa-chevron-right'></i> Начало акции: <%= Russian::strftime(@vacancy.start_date, "%d %B %Y") %></li>
-                <li><i class='fa fa-chevron-left'></i> Окончание акции: <%= Russian::strftime(@vacancy.finish_date, "%d %B %Y") %></li>
-                <br>
-                <li><i class='fa fa-medkit'></i> Необходимость медицинской книжки: <%= have_it(@vacancy.med) %></li>
-                <li><i class='fa fa-truck'></i> Необходимость автомобиля: <%= have_it(@vacancy.car) %></li>
-            </ul>
-            <br>
-            <% if current_user %>
-              <strong class="alert alert-success"><i class='fa fa-phone'></i> Номер телефона: <%= @vacancy.user.phone %></strong>
-            <% else %>
-              <p class="alert alert-warning">Только зарегистрированные пользователи могут видеть номер телефона. <a href="/users/sign_up">Зарегистрироваться</a></p>
-            <% end %>
-
-<% if current_user && current_user.status == "promo" %>
-  <br><br>
-  <div id="follow_form">
-  <% if current_user.reply?(@vacancy) %>
-    <%= render 'unfollow' %>
-  <% else %>
-    <%= render 'follow' %>
-  <% end %>
-  </div>
-<% elsif !current_user %>
-    <br>
-    <a href="/users/sign_up" class="btn btn-success">Откликнуться на вакансию</a>
-<% end %>
-            
-
+    <div class="row">
+      <p id="notice"><%= notice %></p>
+      <div class="col-sm-5 col-md-7">
+        <div class="controlls-over product-image">
+          <div>
+            <%= image_tag @vacancy.user.avatar.url, :class => "img-responsive" %>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-12">
+      </div>
 
-  <h3><strong>Дополнительная информация</strong></h3>
-  <% if @vacancy.description.blank? %>
-    <p>Работодатель не указал дополнительной информации о вакансии.</p>
-  <% else %>
-    <p><%= @vacancy.description.html_safe %></p>
-  <% end %>
+      <div class="col-sm-7 col-md-5">
+        <% if @vacancy.user == current_user %>
+            <%= link_to "Изменить вакансию", edit_vacancy_path(@vacancy), :class => "btn btn-info" %>
+            <%= link_to "Удалить вакансию", vacancy_path(@vacancy), method: :delete, data: { confirm: "Вы уверены?" }, :class => "btn btn-danger" %><br><br>
+            <p><strong>Количество отправленных приглашений:</strong> <%= @vacancy.invites.count %></p>
+        <% end %>
 
-                <!-- SOCIAL -->
-                <p class="socials">
-                  <script type="text/javascript">(function() {
-                  if (window.pluso)if (typeof window.pluso.start == "function") return;
-                  if (window.ifpluso==undefined) { window.ifpluso = 1;
+        <% if @vacancy.user == current_user %>
+            <h3>Так Ваша вакансия выглядит у промоутера.</h3>
+        <% else %>
+            <h3>Вы можете принять участие в конкурсе на замещение данной вакансии.</h3>
+        <% end %>
+
+        <ul class="list-icon">
+          <li><i class='fa fa-certificate'></i> Наниматель: <%= link_to @vacancy.user.name_with_rate, user_path(@vacancy.user) %></li>
+          <br>
+          <li><i class='fa fa-bookmark-o'></i> Город: <%= link_to "#{@vacancy.city.name} <i class='fa fa-external-link'></i>".html_safe, vacancy_city_path(@vacancy.city) %></li>
+          </li>
+
+          <br>
+          <li><i class='fa fa-male'></i> Количество вакантных мест: <%= @vacancy.amount %></li>
+          <li><i class='fa fa-female'></i> Требования к полу промоутеров: <%= @vacancy.gender %></li>
+          <li><i class='fa fa-clock-o'></i> Зарплата: <%= @vacancy.price %> рублей в час</li>
+          <li><i class='fa fa-female'></i> Минимальный возраст: <%= @vacancy.start_age %></li>
+          <li><i class='fa fa-clock-o'></i> Максимальный возраст: <%= @vacancy.finish_age %></li>
+          <br>
+          <li><i class='fa fa-chevron-right'></i> Начало акции: <%= Russian::strftime(@vacancy.start_date, "%d %B %Y") %></li>
+          <li><i class='fa fa-chevron-left'></i> Окончание акции: <%= Russian::strftime(@vacancy.finish_date, "%d %B %Y") %></li>
+          <br>
+          <li><i class='fa fa-medkit'></i> Необходимость медицинской книжки: <%= have_it(@vacancy.med) %></li>
+          <li><i class='fa fa-truck'></i> Необходимость автомобиля: <%= have_it(@vacancy.car) %></li>
+        </ul>
+        <br>
+        <% if current_user %>
+            <strong class="alert alert-success"><i class='fa fa-phone'></i> Номер телефона: <%= @vacancy.user.phone %></strong>
+        <% else %>
+            <p class="alert alert-warning">Только зарегистрированные пользователи могут видеть номер телефона. <a href="/users/sign_up">Зарегистрироваться</a></p>
+        <% end %>
+
+        <% if current_user && current_user.status == "promo" %>
+            <br><br>
+            <div id="follow_form">
+              <% if current_user.reply?(@vacancy) %>
+                  <%= render 'unfollow' %>
+              <% else %>
+                  <%= render 'follow' %>
+              <% end %>
+            </div>
+        <% elsif !current_user %>
+            <br>
+            <a href="/users/sign_up" class="btn btn-success">Откликнуться на вакансию</a>
+        <% end %>
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <h3><strong>Дополнительная информация</strong></h3>
+        <% if @vacancy.description.blank? %>
+            <p>Работодатель не указал дополнительной информации о вакансии.</p>
+        <% else %>
+            <p><%= @vacancy.description.html_safe %></p>
+        <% end %>
+
+        <!-- SOCIAL -->
+        <p class="socials">
+          <script type="text/javascript">(function() {
+              if (window.pluso)if (typeof window.pluso.start == "function") return;
+              if (window.ifpluso==undefined) { window.ifpluso = 1;
                   var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
                   s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
                   s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
                   var h=d[g]('body')[0];
                   h.appendChild(s);
-                  }})();</script>
-                  <div class="pluso pull-right" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
-                </p>
+              }})();</script>
+        <div class="pluso pull-right" data-background="#ebebeb" data-options="big,round,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google" data-user="1766695154"></div>
+        </p>
 
 
-              <div class="divider"><!-- divider -->
-                <i class="fa fa-star"></i>
-              </div>
-              
-              <%= render "/shared/important" %>
+        <div class="divider"><!-- divider -->
+          <i class="fa fa-star"></i>
+        </div>
+
+        <%= render "/shared/important" %>
+      </div>
     </div>
-   </div>
 
-            <% if @vacancies.count > 0 %>
-              <%= render "/shared/related_vacancies" %>
-            <% end %>
-      </section>
+    <% if @vacancies.count > 0 %>
+        <%= render "/shared/related_vacancies" %>
+    <% end %>
+  </section>
 
 </div>
-    <!-- /WRAPPER -->
+<!-- /WRAPPER -->
