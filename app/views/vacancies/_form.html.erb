@@ -1,155 +1,124 @@
 <%= form_for(@vacancy) do |f| %>
-  <% if @vacancy.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vacancy.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <% if @vacancy.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@vacancy.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-      <% @vacancy.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-            <% if Settings.vacancy_cost == "true" && Settings.status == "production" %>
-              <div class="alert alert-danger">
-                <i class="fa fa-check-circle"></i> 
-                <strong>Внимание!</strong> Стоимость размещения вакансии составляет <strong><%= money(Settings.vacancy_price.to_i) %>
-                </strong>
-              </div>
-
-            <% else %>
-              <div class="alert alert-danger">
-                <i class="fa fa-check-circle"></i> 
-                <strong>Внимание!</strong> На период теста сервиса добавление вакансий <strong>ЯВЛЯЕТСЯ БЕСПЛАТНЫМ</strong>.
-              </div>
+          <ul>
+            <% @vacancy.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
             <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <% if Settings.vacancy_cost == "true" && Settings.status == "production" %>
+        <div class="alert alert-danger">
+          <i class="fa fa-check-circle"></i>
+          <strong>Внимание!</strong> Стоимость размещения вакансии составляет <strong><%= money(Settings.vacancy_price.to_i) %>
+        </strong>
+        </div>
+
+    <% else %>
+        <div class="alert alert-danger">
+          <i class="fa fa-check-circle"></i>
+          <strong>Внимание!</strong> На период теста сервиса добавление вакансий <strong>ЯВЛЯЕТСЯ БЕСПЛАТНЫМ</strong>.
+        </div>
+    <% end %>
 
 
-              <div class="col-md-12"><br><br>
-                <div class="form-group">
-                  <div class="col-md-4">
-                    <label><strong>Заголовок:</strong></label>
-                    <%= f.text_field :name, :placeholder => @vacancy.name, :class => "form-control", :required => "required" %>
-                  </div>
-                  <div class="col-md-4">
-                    <label><strong>Количество человек:</strong></label>
-                    <%= f.number_field :amount, :placeholder => @vacancy.amount, :class => "form-control", :required => "required" %>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-md-4">
-                    <label><strong>Страна:</strong></label><br>
-<%= f.collection_select :country_id,  @countries,  :id, :name, {:prompt   => "Выберите страну"}, {:id => 'countries_select', :required => true} %>
-</div>
+    <div class="col-md-12"><br><br>
+      <div class="form-group">
+        <div class="col-md-4">
+          <label><strong>Заголовок:</strong></label>
+          <%= f.text_field :name, :placeholder => @vacancy.name, :class => "form-control", :required => "required" %>
+        </div>
+        <div class="col-md-4">
+          <label><strong>Количество человек:</strong></label>
+          <%= f.number_field :amount, :placeholder => @vacancy.amount, :class => "form-control", :required => "required" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-4">
+          <label><strong>Город (начните вводить название):</strong></label><br>
+          <%= f.autocomplete_field :city_id, autocomplete_city_name_users_path, :id_element => '#to_contact_id', :class => "form-control" %>
+          <%= f.hidden_field :city_id, :id => "to_contact_id" %>
+        </div>
 
-<div class="col-md-4">
-<label><strong>Регион:</strong></label><br>
-<%= f.collection_select :state_id, @states, :id, :name, {:prompt   => "Выберите регион"}, {:id => 'states_select', :required => true} %>
-</div>
 
-<div class="col-md-4">
-<label><strong>Город:</strong></label><br>
-<%= f.collection_select :city_id, @cities, :id, :name, {:prompt   => "Выберите город"}, {:id => 'cities_select', :required => true} %>
-</div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6">
+          <label><strong>Дата начала:</strong></label>
+          <%= f.date_select :start_date,
+                            {:start_year => Time.now.year,
+                             :end_year => 2015,
+                             :use_short_month => false,
+                             :order => [:day, :month, :year],
+                             :prompt => {:month => 'Месяц', :day => 'День', :year => 'Год'}},
+                            {:class => 'year',
+                             :id => 'user_birthday', :required => "required"}
+          %>
+        </div>
+        <div class="col-md-6">
+          <label><strong>Дата окончания:</strong></label>
+          <%= f.date_select :finish_date,
+                            {:start_year => Time.now.year,
+                             :end_year => 2016,
+                             :use_short_month => false,
+                             :order => [:day, :month, :year],
+                             :prompt => {:month => 'Месяц', :day => 'День', :year => 'Год'}},
+                            {:class => 'year',
+                             :id => 'user_birthday', :required => "required"}
+          %>
+        </div>
+      </div>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#countries_select').change(function() {
-      $.ajax({
-        url: "<%= update_states_path %>",
-        data: {
-          country_id : $('#countries_select').val()
-        },
-        dataType: "script"
-      });
-    });
-    $('#states_select').change(function() {
-      $.ajax({
-        url: "<%= update_cities_path %>",
-        data: {
-          state_id : $('#states_select').val()
-        },
-        dataType: "script"
-      });
-    });
-  });
-</script>
+      <div class="form-group">
+        <div class="col-md-6">
+          <label><strong>Минимальный возраст:</strong></label>
+          <%= f.select :start_age, (14..99).to_a, { :include_blank=>true }, :required => "required" %>
 
-                  </div>
-                 <div class="form-group">
-                  <div class="col-md-6">
-                    <label><strong>Дата начала:</strong></label>
-                      <%= f.date_select :start_date,
-                        {:start_year => Time.now.year,
-                        :end_year => 2015,
-                        :use_short_month => false,
-                        :order => [:day, :month, :year],
-                        :prompt => {:month => 'Месяц', :day => 'День', :year => 'Год'}},
-                        {:class => 'year',
-                        :id => 'user_birthday', :required => "required"}
-                      %>
-                  </div>
-                  <div class="col-md-6">
-                    <label><strong>Дата окончания:</strong></label>
-                      <%= f.date_select :finish_date,
-                        {:start_year => Time.now.year,
-                        :end_year => 2016,
-                        :use_short_month => false,
-                        :order => [:day, :month, :year],
-                        :prompt => {:month => 'Месяц', :day => 'День', :year => 'Год'}},
-                        {:class => 'year',
-                        :id => 'user_birthday', :required => "required"}
-                      %>
-                  </div>
-                </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6">
+          <label><strong>Максимальный возраст:</strong></label>
+          <%= f.select :finish_age, (14..99).to_a, { :include_blank=>true }, :required => "required" %>
+        </div>
+      </div>
 
-                 <div class="form-group">
-                  <div class="col-md-6">
-                    <label><strong>Минимальный возраст:</strong></label>
-                      <%= f.select :start_age, (14..99).to_a, { :include_blank=>true }, :required => "required" %>
-                    
-                  </div>
-                 </div>
-                 <div class="form-group">
-                  <div class="col-md-6">
-                    <label><strong>Максимальный возраст:</strong></label>
-                      <%= f.select :finish_age, (14..99).to_a, { :include_blank=>true }, :required => "required" %>
-                  </div>
-                </div>
+      <div class="form-group">
+        <div class="col-md-6">
+          <%= f.check_box :med %>  <label><strong>Требования к наличию медицинской книжки</strong></label>
+        </div>
+      </div>
 
-                <div class="form-group">
-                  <div class="col-md-6">
-                    <%= f.check_box :med %>  <label><strong>Требования к наличию медицинской книжки</strong></label>
-                  </div>
-                </div>
+      <div class="form-group">
+        <div class="col-md-12">
+          <label><strong>Пол промоутеров:</strong></label><br>
+          <%= f.select :gender, options_for_select([ "Не важно", "Мужской", "Женский" ], @vacancy.gender), :class => "form-control", :required => "required" %>
+        </div>
+      </div>
 
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <label><strong>Пол промоутеров:</strong></label><br>
-                    <%= f.select :gender, options_for_select([ "Не важно", "Мужской", "Женский" ], @vacancy.gender), :class => "form-control", :required => "required" %>
-                  </div>
-                </div>
+      <div class="form-group">
+        <div class="col-md-6">
+          <label><strong>Стоимость за час:</strong></label>
+          <%= f.number_field :price, :placeholder => @vacancy.price, :required => "required", :id => "phone", :class => "form-control" %>
+        </div>
+      </div>
+    </div>
 
-                <div class="form-group">
-                  <div class="col-md-6">
-                    <label><strong>Стоимость за час:</strong></label>
-                    <%= f.number_field :price, :placeholder => @vacancy.price, :required => "required", :id => "phone", :class => "form-control" %>
-                  </div>
-                </div>
-              </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-12">
+          <label><strong>Дополнительная информация</strong></label>
+          <%= f.text_area :description, :placeholder => @vacancy.description, :rows => "10", :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'} , :class => "form-control" %>
+        </div>
+      </div>
+    </div>
 
-              <div class="row">
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <label><strong>Дополнительная информация</strong></label>
-                    <%= f.text_area :description, :placeholder => @vacancy.description, :rows => "10", :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'} , :class => "form-control" %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <%= f.submit :value => "Отправить", :class => "btn btn-primary", :disable_with => "Вакансия создаётся. Процесс может занять несколько минут.." %>
-                </div>
-              </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.submit :value => "Отправить", :class => "btn btn-primary", :disable_with => "Вакансия создаётся. Процесс может занять несколько минут.." %>
+      </div>
+    </div>
 <% end %>
