@@ -44,8 +44,6 @@ gem 'rails_admin'
 gem 'cancan'
 
 # Blog
-gem 'rich'
-gem 'ckeditor'
 gem 'truncate_html'
 
 # Images

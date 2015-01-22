@@ -1,6 +1,4 @@
 Promoclub::Application.routes.draw do
-  mount Rich::Engine => '/rich', :as => 'rich'
-
   resources :vacancies do
     member do
       get :replies
@@ -65,7 +63,7 @@ Promoclub::Application.routes.draw do
 	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, :only => [:index, :show, :edit, :update, :destroy] do
-	get :autocomplete_city_name, :on => :collection
+	  get :autocomplete_city_name, :on => :collection
     member do
       get :following, :followers
       get :replies

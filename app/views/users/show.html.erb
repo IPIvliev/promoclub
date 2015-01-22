@@ -45,7 +45,7 @@
                 <br>
                 <li><i class='fa fa-certificate'></i> Рейтинг: <%= color_rate(@promoter.rate) %></li>
                 <br>
-                <li><i class='fa fa-flag'></i> Страна: <%= @promoter.country.name %></li>
+                <li><i class='fa fa-flag'></i> Страна: <%= @promoter.city.state.country.name %></li>
                 <li><i class='fa fa-bookmark-o'></i> Город: <%= link_to @promoter.city.name, promo_city_path(@promoter.city) %></li>
                 
                 <br>
@@ -57,7 +57,7 @@
               <% else %>
                 <li><i class='fa fa-certificate'></i> Рейтинг: <%= color_rate(@promoter.rate) %></li>
                 <br>
-                <li><i class='fa fa-flag'></i> Страна: <%= @promoter.country.name %></li>
+                <li><i class='fa fa-flag'></i> Страна: <%= @promoter.city.state.country.name %></li>
                 <li><i class='fa fa-bookmark-o'></i> Город: <%= link_to @promoter.city.name, agent_city_path(@promoter.city) %></a></li>
                 
                 <% if !@promoter.site.blank? %>
