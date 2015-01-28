@@ -109,7 +109,7 @@ Promoclub::Application.configure do
 
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = { 
-   address: "localhost", 
+   address: "allpromoters.ru", 
    port: 25,
    domain: "allpromoters.ru"
 }
