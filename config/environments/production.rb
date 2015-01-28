@@ -111,7 +111,8 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = { 
    address: "localhost", 
    port: 25,
-   domain: "allpromoters.ru"
+   domain: "allpromoters.ru",
+   enable_starttls_auto: false  
 }
 
 end
