@@ -133,11 +133,11 @@ end
     def send_greeting_mail
       if self.sent == true
         if self.status == "promo"
-          InfoMailer.info_email_promo(self)
+          InfoMailer.info_email_promo(self).deliver
         elsif self.status == "agent"
-          InfoMailer.info_email_agent(self)
+          InfoMailer.info_email_agent(self).deliver
         else
-          InfoMailer.info_email_common(self)
+          InfoMailer.info_email_common(self).deliver
         end
       end
     end
