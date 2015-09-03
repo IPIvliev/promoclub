@@ -24,7 +24,9 @@
                     <div class="item-box-desc">
                       <h4><%= promoter.name_with_rate %></h4>
                       <small class="styleColor"><%= link_to promoter.city.name, promo_city_path(promoter.city) %></small>
-                      <strong><%= calculate_age(promoter.birth) %> <%= Russian.pluralize(calculate_age(promoter.birth), "год", "года", "лет") %></strong>
+                      <% if promoter.birth != nil %>
+                        <strong><%= calculate_age(promoter.birth) %> <%= Russian.pluralize(calculate_age(promoter.birth), "год", "года", "лет") %></strong>
+                      <% end %>
 
                       <span class="fsize12 pull-right">
                         <%= "<i class='fa fa-medkit styleSecondColor' title='Имеется медицинская книжка'></i>".html_safe if promoter.med %>

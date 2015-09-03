@@ -50,7 +50,9 @@
                 
                 <br>
                 <li><i class='fa fa-male'></i> Пол: <%= @promoter.gender %></li> 
+                <% if @promoter.birth != nil %>
                 <li><i class='fa fa-clock-o'></i> Возраст: <%= "#{calculate_age(@promoter.birth)} #{Russian.pluralize(calculate_age(@promoter.birth), "год", "года", "лет")}" %>
+                <% end %>
                 <br>
                 <li><i class='fa fa-medkit'></i> Наличие медицинской книжки: <%= have_it(@promoter.med) %></li>
                 <li><i class='fa fa-truck'></i> Наличие автомобиля: <%= have_it(@promoter.car) %></li>
