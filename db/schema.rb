@@ -9,226 +9,224 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141210113712) do
+ActiveRecord::Schema.define(version: 20141210113712) do
 
-  create_table 'articles', :force => true do |t|
-    t.string   "name"
-    t.text     "text"
-    t.integer  "user_id"
-    t.string   "picture"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "articles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.text     "text",       limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.string   "picture",    limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "calculations", :force => true do |t|
-    t.string   "user_id"
-    t.string   "name"
-    t.string   "address"
-    t.integer  "inn"
-    t.integer  "kpp"
-    t.integer  "rs"
-    t.string   "bank"
-    t.string   "ks"
-    t.integer  "bik"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "calculations", force: :cascade do |t|
+    t.string   "user_id",    limit: 255
+    t.string   "name",       limit: 255
+    t.string   "address",    limit: 255
+    t.integer  "inn",        limit: 4
+    t.integer  "kpp",        limit: 4
+    t.integer  "rs",         limit: 4
+    t.string   "bank",       limit: 255
+    t.string   "ks",         limit: 255
+    t.integer  "bik",        limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "cities", :force => true do |t|
-    t.string   "name"
-    t.integer  "state_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "cities", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "state_id",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "countries", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "countries", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0, :null => false
-    t.integer  "attempts",   :default => 0, :null => false
-    t.text     "handler",                   :null => false
-    t.text     "last_error"
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   limit: 4,     default: 0, null: false
+    t.integer  "attempts",   limit: 4,     default: 0, null: false
+    t.text     "handler",    limit: 65535,             null: false
+    t.text     "last_error", limit: 65535
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "locked_by",  limit: 255
+    t.string   "queue",      limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "invites", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "user_to_id"
-    t.integer  "vacancy_id"
-    t.boolean  "see",        :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+  create_table "invites", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "user_to_id", limit: 4
+    t.integer  "vacancy_id", limit: 4
+    t.boolean  "see",        limit: 1, default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "messages", :force => true do |t|
-    t.boolean  "answer"
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone"
-    t.text     "text",       :limit => 255
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+  create_table "messages", force: :cascade do |t|
+    t.boolean  "answer",     limit: 1
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "phone",      limit: 255
+    t.text     "text",       limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "opinions", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "user_to_id"
-    t.text     "text"
-    t.integer  "rate"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "opinions", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "user_to_id", limit: 4
+    t.text     "text",       limit: 65535
+    t.integer  "rate",       limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "payments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "pay",                                      :default => 0
-    t.decimal  "amount",     :precision => 9, :scale => 2, :default => 0.0
-    t.datetime "created_at",                                                :null => false
-    t.datetime "updated_at",                                                :null => false
-    t.integer  "status",                                   :default => 0
+  create_table "payments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "pay",        limit: 4,                         default: 0
+    t.decimal  "amount",               precision: 9, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "status",     limit: 4,                         default: 0
   end
 
-  create_table "periods", :force => true do |t|
-    t.integer  "user_id"
+  create_table "periods", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
     t.date     "finish_date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "rails_admin_histories", :force => true do |t|
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+  create_table "rails_admin_histories", force: :cascade do |t|
+    t.text     "message",    limit: 65535
+    t.string   "username",   limit: 255
+    t.integer  "item",       limit: 4
+    t.string   "table",      limit: 255
+    t.integer  "month",      limit: 2
+    t.integer  "year",       limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
 
-  create_table "relationships", :force => true do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id", limit: 4
+    t.integer  "followed_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
-  add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
-  create_table "replies", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "user_to_id"
-    t.boolean  "see",        :default => false
-    t.integer  "vacancy_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+  create_table "replies", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "user_to_id", limit: 4
+    t.boolean  "see",        limit: 1, default: false
+    t.integer  "vacancy_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "rich_rich_files", :force => true do |t|
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.string   "rich_file_file_name"
-    t.string   "rich_file_content_type"
-    t.integer  "rich_file_file_size"
-    t.datetime "rich_file_updated_at"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.text     "uri_cache"
-    t.string   "simplified_type",        :default => "file"
+  create_table "rich_rich_images", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+    t.string   "owner_type",         limit: 255
+    t.integer  "owner_id",           limit: 4
   end
 
-  create_table "sms_invites", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "user_to_id"
-    t.integer  "vacancy_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "sms_invites", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "user_to_id", limit: 4
+    t.integer  "vacancy_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "states", :force => true do |t|
-    t.string   "name"
-    t.integer  "country_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "states", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "country_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                                                :default => "",    :null => false
-    t.string   "encrypted_password",                                   :default => "",    :null => false
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255,                           default: "",    null: false
+    t.string   "encrypted_password",     limit: 255,                           default: "",    null: false
     t.datetime "birth"
-    t.string   "avatar"
-    t.string   "name"
-    t.string   "surname"
-    t.string   "patronymic"
-    t.boolean  "med"
-    t.text     "description"
-    t.string   "reset_password_token"
+    t.string   "avatar",                 limit: 255
+    t.string   "name",                   limit: 255
+    t.string   "surname",                limit: 255
+    t.string   "patronymic",             limit: 255
+    t.boolean  "med",                    limit: 1
+    t.text     "description",            limit: 65535
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                        :default => 0,     :null => false
+    t.integer  "sign_in_count",          limit: 4,                             default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                                              :null => false
-    t.datetime "updated_at",                                                              :null => false
-    t.string   "status"
-    t.string   "facebook_url"
-    t.string   "vk_url"
-    t.string   "phone"
-    t.integer  "uid"
-    t.string   "provider"
-    t.string   "gender"
-    t.integer  "city_id"
-    t.integer  "country_id"
-    t.integer  "state_id"
-    t.integer  "rate",                                                 :default => 0
-    t.boolean  "car",                                                  :default => false
-    t.string   "site"
-    t.decimal  "pocket",                 :precision => 9, :scale => 2, :default => 0.0
-    t.string   "pass"
-    t.boolean  "sent",                                                 :default => true
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "status",                 limit: 255
+    t.string   "facebook_url",           limit: 255
+    t.string   "vk_url",                 limit: 255
+    t.string   "phone",                  limit: 255
+    t.integer  "uid",                    limit: 4
+    t.string   "provider",               limit: 255
+    t.string   "gender",                 limit: 255
+    t.integer  "city_id",                limit: 4
+    t.integer  "country_id",             limit: 4
+    t.integer  "state_id",               limit: 4
+    t.integer  "rate",                   limit: 4,                             default: 0
+    t.boolean  "car",                    limit: 1,                             default: false
+    t.string   "site",                   limit: 255
+    t.decimal  "pocket",                               precision: 9, scale: 2, default: 0.0
+    t.string   "pass",                   limit: 255
+    t.boolean  "sent",                   limit: 1,                             default: true
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "vacancies", :force => true do |t|
-    t.integer  "amount"
-    t.integer  "city_id"
-    t.string   "name"
-    t.boolean  "med"
+  create_table "vacancies", force: :cascade do |t|
+    t.integer  "amount",      limit: 4
+    t.integer  "city_id",     limit: 4
+    t.string   "name",        limit: 255
+    t.boolean  "med",         limit: 1
     t.datetime "start_date"
     t.datetime "finish_date"
-    t.text     "description"
-    t.integer  "price"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "user_id"
-    t.integer  "country_id"
-    t.integer  "state_id"
-    t.boolean  "car",         :default => false
-    t.string   "gender"
-    t.integer  "start_age"
-    t.integer  "finish_age"
+    t.text     "description", limit: 65535
+    t.integer  "price",       limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",     limit: 4
+    t.integer  "country_id",  limit: 4
+    t.integer  "state_id",    limit: 4
+    t.boolean  "car",         limit: 1,     default: false
+    t.string   "gender",      limit: 255
+    t.integer  "start_age",   limit: 4
+    t.integer  "finish_age",  limit: 4
   end
 
 end

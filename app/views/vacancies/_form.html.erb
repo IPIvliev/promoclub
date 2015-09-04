@@ -1,3 +1,12 @@
+
+
+    <script>
+        $(document).ready(function () { $("#texxt").cleditor(); });
+    </script>
+    <link rel="stylesheet" href="/cleditor/jquery.cleditor.css" />
+    <script src="/cleditor/jquery.min.js"></script>
+    <script src="/cleditor/jquery.cleditor.min.js"></script>
+
 <%= form_for(@vacancy) do |f| %>
     <% if @vacancy.errors.any? %>
         <div id="error_explanation">
@@ -116,7 +125,7 @@
       <div class="form-group">
         <div class="col-md-12">
           <label><strong>Дополнительная информация</strong></label>
-          <%= f.text_area :description, :placeholder => @vacancy.description, :rows => "10", :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'} , :class => "form-control" %>
+          <%= f.text_area :description, :class => "form-control ckeditor", :id => "texxt", :placeholder => @vacancy.description, :rows => "20", :required => true %>
         </div>
       </div>
     </div>
@@ -127,3 +136,4 @@
       </div>
     </div>
 <% end %>
+

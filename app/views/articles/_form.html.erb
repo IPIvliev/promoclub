@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :text %><br />
-    <%= f.text_field :text %>
+    <%= f.text_field :text, :class => "ckeditor", :id => "texxt", :rows => "20", :required => true %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br />
@@ -31,3 +31,10 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+    <script>
+        $(document).ready(function () { $("#texxt").cleditor(); });
+    </script>
+    <link rel="stylesheet" href="/cleditor/jquery.cleditor.css" />
+    <script src="/cleditor/jquery.min.js"></script>
+    <script src="/cleditor/jquery.cleditor.min.js"></script>

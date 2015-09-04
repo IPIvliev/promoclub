@@ -1,4 +1,5 @@
-Promoclub::Application.routes.draw do
+Rails.application.routes.draw do
+
   resources :vacancies do
     member do
       get :replies
@@ -6,8 +7,6 @@ Promoclub::Application.routes.draw do
   end
 
   get "/my-vacancies.html", to: "vacancies#my_vacancies"
-
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   get "omniauth_callbacks/facebook"
 
@@ -33,7 +32,7 @@ Promoclub::Application.routes.draw do
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   # Отзывы о пользователе
-    match "newopinion", :to => 'opinions#new'
+    get "newopinion", :to => 'opinions#new'
     resources :opinions
 
   get 'users/update_states', :as => 'update_states'
@@ -44,26 +43,26 @@ Promoclub::Application.routes.draw do
   get '/vacancies/cities/:city', to: 'vacancies#index', as: :vacancy_city
 
 # Финансы пользователя
-  match '/users/:id/payments', to: 'payments#index', as: :payments_user
-  match '/payments/:id/destroy', to: 'payments#destroy', as: :destroy_payment
-  match '/payments/create', to: 'payments#create'
-  match '/payments/create_calculation', to: 'payments#create_calculation'
-  match '/payments/edit_calculation', to: 'payments#edit_calculation', as: :edit_calculation
-  match '/payments/new_period', to: 'payments#new_period'
-  match '/payments/:id', to: 'payments#show', as: :payment
+  get '/users/:id/payments', to: 'payments#index', as: :payments_user
+  get '/payments/:id/destroy', to: 'payments#destroy', as: :destroy_payment
+  get '/payments/create', to: 'payments#create'
+  get '/payments/create_calculation', to: 'payments#create_calculation'
+  get '/payments/edit_calculation', to: 'payments#edit_calculation', as: :edit_calculation
+  get '/payments/new_period', to: 'payments#new_period'
+  get '/payments/:id', to: 'payments#show', as: :payment
 
 # Проплата
   scope 'robokassa' do
-    match 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request
+    get 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request
 
-    match 'success' => 'robokassa#success', :as => :robokassa_success # to handle Robokassa success redirect
-    match 'fail'    => 'robokassa#fail',    :as => :robokassa_fail # to handle Robokassa fail redirect
+    get 'success' => 'robokassa#success', :as => :robokassa_success # to handle Robokassa success redirect
+    get 'fail'    => 'robokassa#fail',    :as => :robokassa_fail # to handle Robokassa fail redirect
   end  
 
-	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, :only => [:index, :show, :edit, :update, :destroy] do
-	  get :autocomplete_city_name, :on => :collection
+    get :autocomplete_city_name, :on => :collection
     member do
       get :following, :followers
       get :replies
@@ -78,10 +77,10 @@ Promoclub::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
 # Отправка сообщений
-  match "messages/messagecreate", :to => 'messages#messagecreate'
+  post "messages/messagecreate", :to => 'messages#messagecreate'
 
 # Отправка sms-приглашений
-  match "/vacancy/:id/sms_invite", :to => 'vacancies#sms_invites', as: :vacancy_sms_invite
+  get "/vacancy/:id/sms_invite", :to => 'vacancies#sms_invites', as: :vacancy_sms_invite
 
   root :to => 'static_pages#index'
 

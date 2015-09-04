@@ -120,7 +120,7 @@ class VacanciesController < ApplicationController
   def new
     profile_finish?
 
-    if current_user && current_user.status == "agent"
+    if current_user && ( current_user.status == "agent" || current_user.status == "admin" )
       @vacancy = Vacancy.new
       @countries  = Country.all
       @states = State.all
