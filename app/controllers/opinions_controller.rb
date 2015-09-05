@@ -2,10 +2,8 @@ class OpinionsController < ApplicationController
   include ApplicationHelper
   include OpinionsHelper
 
-  load_and_authorize_resource
-
   def index
-    #profile_finish?
+    profile_finish?
     
     @my_opinions = current_user.opinions
   end

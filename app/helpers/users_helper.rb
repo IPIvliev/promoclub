@@ -43,4 +43,17 @@ module UsersHelper
       hash[4..-1]
   end
 
+#Meta данные
+  def metachange(user)
+    if user.status == "agent" || user.status == "admin"
+      @page_title = "Рекламное агентство #{user.name}, город #{user.city.name}"
+      @page_description = "Данные рекламного промо агентства  из города #{user.city.name}"
+      @page_keywords    = "заказать промо в городе #{user.city.name}, рекламная акция #{user.city.name}, проведение дегустации, рекламное агенство #{user.name}, btl агентство #{user.name}, семплинг #{user.city.name}, дегустация"
+    else
+      @page_title = "Промоутер #{user.name} #{user.surname}, город #{user.city.name}"
+      @page_description = "Контактыне данные промоутера из города #{user.city.name}"
+      @page_keywords    = "#{user.city.name} промоутер, работа промоутером, данные для промо, промоперсонал, телефоны промоутеров, контакты для btl"
+    end
+  end
+
 end

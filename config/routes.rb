@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   # Отзывы о пользователе
-    get "newopinion", :to => 'opinions#new'
+    post "newopinion", :to => 'opinions#new'
     resources :opinions
 
   get 'users/update_states', :as => 'update_states'
@@ -80,7 +80,7 @@ Rails.application.routes.draw do
   post "messages/messagecreate", :to => 'messages#messagecreate'
 
 # Отправка sms-приглашений
-  get "/vacancy/:id/sms_invite", :to => 'vacancies#sms_invites', as: :vacancy_sms_invite
+  post "/vacancy/:id/sms_invite", :to => 'vacancies#sms_invites', as: :vacancy_sms_invite
 
   root :to => 'static_pages#index'
 

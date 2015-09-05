@@ -7,15 +7,14 @@
 
 <%= search_form_for @search, :url => @url do |f| %>
 
-<div class="form-group">
-
-                    <label><strong>Город (начните вводить название):</strong></label><br>
-
-  <%= f.autocomplete_field 'city_id', autocomplete_city_name_users_path, :id_element => '#to_contact_id', :class => "form-control" %>
-  <%= f.hidden_field :city_id_eq, :id => "to_contact_id" %>
-
-                  </div>
-
+  <div class="widget">
+    <h4>Промоутеры в городах</h4>
+    <ul>
+    <% City.joins(:users).where("users.status = ?", "promo").group("users.city_id").order("count(users.city_id) desc").limit(30).each do |city| %>
+        <li><%= link_to "#{city.name} (#{city.users.where(:status => 'promo').count})", promo_city_path(city) %></li>
+    <% end %>
+    </ul>
+  </div>
   <div class="form-group">
     <label><strong>Укажите пол:</strong></label><br>
      <%= f.radio_button :gender_eq, "" %>

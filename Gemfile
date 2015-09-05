@@ -4,18 +4,20 @@ gem 'rails', '4.2.0'
 gem 'kaminari'
 gem "wice_grid", '3.4.2'
 gem "config"
-gem 'mandrill-rails'
 
 # Database
 gem 'mysql2'
 
 # Общее
-gem "breadcrumbs_on_rails"
 gem 'russian'
 gem 'sitemap_generator'
 gem 'whenever', :require => false
-gem 'delayed_job_active_record'
+# gem 'delayed_job_active_record'
 gem 'rails3-jquery-autocomplete'
+
+# SEO
+gem 'meta-tags'
+gem "breadcrumbs_on_rails"
 
 #Update to rails 4
  gem 'protected_attributes'
@@ -33,8 +35,9 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'prawn-rails'
 
-# Work with SMS
-gem  'rest-client'
+# Work with SMS and Email
+gem 'rest-client'
+gem 'mandrill-rails'
 
 # Work with social
 gem 'twitter'
@@ -50,7 +53,6 @@ gem 'truncate_html'
 # Images
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
-
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

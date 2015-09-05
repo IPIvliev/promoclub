@@ -1,26 +1,15 @@
 		<!-- WRAPPER -->
 		<div id="wrapper">
-
 			<div id="shop">
-
 				<!-- PAGE TITLE -->
 			<%= render "/shared/bread" %>
-
 			<%= render "/shared/moremenu" %>
-
 				<section class="container">
-
 					<div class="row">
-
 						<div class="col-md-9">
-
-					
 							<div class="row">
-							
-
 								<% @agents.each do |agent| %>
 								<!-- items -->
-
 									<!-- article summary -->
 						<div class="row">
 							<div class="col-md-4 text-center">
@@ -40,50 +29,32 @@
 									<strong>Дата регистрации: </strong><small class="styleSecondColor"><%= Russian::strftime(agent.created_at, "%d %B %Y") %></small><br>
 									<strong>Номер телефона: </strong><small class="styleSecondColor"><%= agent.phone %></small><br>
 									<strong>Местоположение: </strong><span class="styleColor"><%= link_to "#{agent.city.name} <i class='fa fa-external-link'></i>".html_safe, agent_city_path(agent.city) %>
-									
 								</p>
 							</div>
 						</div>
-
 						<div class="divider"><!-- divider -->
 							<i class="fa fa-star"></i>
 						</div>
-
-					
-
 								<% end %>
-
               <!-- PAGINATION -->
               <div class="text-center">
                 <%= paginate @agents %>
               </div>
               <!-- /PAGINATION -->
-							
 							</div>
-
 						</div><!-- /col-md-9 -->
-
 						<div class="col-md-3">
 							<div class="widget">
-
-
-								<h4>Список городов</h4>
+								<h4>Работодатели в городах</h4>
 								<ul>
 								<% City.joins(:users).where("users.status = ?", "agent").group("users.city_id").order("count(users.city_id) desc").limit(30).each do |city| %>
 										<li><%= link_to "#{city.name} (#{city.users.where(:status => 'agent').count})", agent_city_path(city) %></li>
 								<% end %>
-
 								</ul>
-
-
 							</div>
-
 						</div>
-
 					</div><!-- /row -->
-
 				</section>
-
 			</div>
 		</div>
 		<!-- /WRAPPER -->

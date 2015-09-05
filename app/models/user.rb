@@ -124,8 +124,6 @@ end
 
   private
 
-
-
     def save_pass
       self.update_attribute(:pass, self.password)
     end
@@ -133,11 +131,11 @@ end
     def send_greeting_mail
       if self.sent == true
         if self.status == "promo"
-          InfoMailer.info_email_promo(self).deliver
+          InfoMailer.info_email_promo(self).deliver_later
         elsif self.status == "agent"
-          InfoMailer.info_email_agent(self).deliver
+          InfoMailer.info_email_agent(self).deliver_later
         else
-          InfoMailer.info_email_common(self).deliver
+          InfoMailer.info_email_common(self).deliver_later
         end
       end
     end

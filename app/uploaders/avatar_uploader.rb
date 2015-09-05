@@ -12,9 +12,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   process :resize_to_fill => [555, 555]
+  process :quality => 50 
 
   version :thumb do
     process :resize_to_fill => [260, 260]
+    process :quality => 30 
   end
 
 end

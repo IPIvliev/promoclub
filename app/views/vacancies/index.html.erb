@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-md-8">
 
-                                <h4><%= link_to vacancy.name, vacancy_path(vacancy), :class => "styleColor" %></h4>
+                                <h3><%= link_to vacancy.name, vacancy_path(vacancy), :class => "styleColor" %></h3>
 
                                 <% if vacancy.user == current_user %>
                                   <%= link_to "Изменить вакансию", edit_vacancy_path(vacancy), :class => "btn btn-xs btn-info" %>
@@ -96,14 +96,21 @@
                         </div><!-- /col-md-9 -->
 
 
-            <aside class="col-md-3">
-              <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-thumbs-o-up"></i>ВЫБОР ГОРОДА</a>
-              <br><br>
-              <%= render "/vacancies/city_search" %>
+            <div class="col-md-3">
+
+
+              <div class="widget">
+                <h4>Вакансии в городах</h4>
+                <ul>
+                    <% City.joins(:vacancies).group("vacancies.city_id").order("count(vacancies.city_id) desc").limit(30).each do |city| %>
+                        <li><%= link_to "#{city.name} (#{city.vacancies.count})", vacancy_city_path(city) %></li>
+                    <% end %>
+                </ul>
+              </div>
 
               <%= render "/vacancies/search_form" %>
 
-            </aside>
+            </div>
 
                     </div><!-- /row -->
 

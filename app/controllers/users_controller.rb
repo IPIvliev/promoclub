@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 	add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
 	add_breadcrumb "База промоутеров", "/baza-promouterov.html", :title => "Вернуться в базу промоутеров"
   include ApplicationHelper
-  
+  include UsersHelper
+
 	autocomplete :city, :name
 
   def index
@@ -15,7 +16,9 @@ class UsersController < ApplicationController
       @cities   = City.all
 
     
-    @title = "База промоутеров"
+    @page_title = 'Контакты промоутеров'
+    @page_description = 'База контактов промоутеров с телефонами из разных городов России'
+    @page_keywords    = 'телефоны промоутеров, контакты промоутера, найти промоутеров, данные промовтера, вакансии на временную работу, временная работа промоутером, работа на btl, работа на дегустации'
 
     @search = User.where("avatar IS NOT NULL AND city_id IS NOT NULL AND name IS NOT NULL AND phone IS NOT NULL AND status = ?", "promo").search(params[:q])
     if params[:city]
@@ -47,8 +50,11 @@ class UsersController < ApplicationController
   end
 
   def replies
-    @title = "Ваши отклики на вакансии"
-    add_breadcrumb @title
+    @page_title = 'Ваши отклики на вакансии'
+    @page_description = 'Отклики на вакансии для работы промоутером'
+    @page_keywords    = 'вакансия промоутера, работа промоутером, временная работа, btl промо, promo мнения'
+
+    add_breadcrumb @page_title
 
     @promoter = User.find(params[:id])
     @replies = initialize_grid(Reply, :conditions => ['user_id = ?', @promoter.id])
@@ -56,8 +62,8 @@ class UsersController < ApplicationController
   end
 
   def invites
-    @title = "Отправленные вам приглашения"
-    add_breadcrumb @title
+    @page_title = "Отправленные вам приглашения"
+    add_breadcrumb @page_title
 
     @promoter = User.find(params[:id])
     @invites = initialize_grid(Invite, :conditions => ['user_to_id = ?', @promoter.id])
@@ -79,8 +85,9 @@ class UsersController < ApplicationController
     @promoters = User.where("id != ? AND avatar IS NOT NULL AND city_id = ? AND status = ?", @promoter.id, @promoter.city.id, "promo").limit(4).order('rate DESC, created_at DESC')
     @agents = User.where("id != ? AND avatar IS NOT NULL AND city_id = ? AND status = ?", @promoter.id, @promoter.city.id, "agent").limit(4).order('rate DESC, created_at DESC')
 
-		@title = "#{@promoter.name} #{@promoter.surname}"
-    add_breadcrumb @title
+    metachange(@promoter)
+
+    add_breadcrumb @page_title
 	end
 
 	def edit
@@ -126,7 +133,7 @@ end
     respond_to do |format|
       if @user.update_attributes(params[:user])
 
-        format.html { redirect_to @user, notice: 'user was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Данные пользователя обновлены.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

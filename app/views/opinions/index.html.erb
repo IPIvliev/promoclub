@@ -11,7 +11,6 @@
         <h2><strong><%= current_user.name_with_rate %></strong></h2>
         <p>Здесь отображены все отзывы, которые вы оставили. Всего вы оставили <strong><%= @my_opinions.count %> <%= Russian.pluralize(@my_opinions.count, "отзыв", "отзыва", "отзывов") %></strong>.</p>
 
-
         <div class="row">
 
   <!-- COMMENTS -->
@@ -20,7 +19,6 @@
                 <!-- comment item -->
                 <% @my_opinions.each do |opinion| %>
                   <div class="comment" style="background-color:<%= opinion_rate_bg(opinion.rate) %>; padding: 10px;">
-
                     <!-- user-avatar -->
                     <span class="user-avatar">
                       <%= link_to image_tag(opinion.user_to.avatar.thumb, :class => "pull-left media-object", :width => "64", :height => "64", :alt => opinion.user_to.name), opinion.user_to %>
@@ -30,26 +28,15 @@
                     <% if current_user %>
                       <%= link_to "Удалить отзыв", opinion_path(opinion), method: :delete, data: { confirm: "Вы уверены? В дальнейшем отзыв нельзя будет восстановить!" }, :class => "scrollTo replyBtn" if opinion.user == current_user || current_user.status == "admin" %>
                     <% end %>
-
                       <h4 class="media-heading bold"><%= link_to opinion.user_to.name_with_rate, opinion.user_to %></h4>
                       <small class="block"><%= Russian::strftime(opinion.created_at, "%d %B %Y") %> <%= opinion_rate(opinion.rate) %></small>
                       <%= opinion.text %>
                     </div>
                   </div>
                 <% end %>
-    
-
-              
-
               </div><!-- /COMMENTS -->
-
             </div>
-
-
-
         </div>
-
       </section>
-
     </div>
     <!-- /WRAPPER -->

@@ -8,7 +8,9 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
   def index
     profile_finish?
 
-    @title = "Блог"
+    @page_title = 'Блог'
+    @page_description = 'Новости и статьи о btl и промомероприятиях. Аналитика и исследования в области промо.'
+    @page_keywords    = 'промо, новости промоушинга, promo события, тенденции в области btl, рекламные новости'
 
     @articles = Article.order('created_at DESC').page(params[:page])
 
@@ -21,8 +23,9 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
 
     @article = Article.find(params[:id])
 
-    @title = @article.name
-    add_breadcrumb @title
+    @page_title = @article.name
+
+    add_breadcrumb @page_title
 
   end
 
