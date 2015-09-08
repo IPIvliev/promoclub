@@ -108,7 +108,7 @@
       <div class="form-group">
         <div class="col-md-12">
           <label><strong>Дополнительная информация</strong></label>
-          <%= f.text_area :description, :class => "ckeditor form-control", :placeholder => @vacancy.description, :rows => "20", :required => true %>
+          <%= f.cktext_area :description, :class => "form-control", :placeholder => @vacancy.description, :rows => "20", :required => true, :ckeditor => { :toolbar => 'mini'} %>
         </div>
       </div>
     </div>

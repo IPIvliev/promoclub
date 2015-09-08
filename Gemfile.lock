@@ -55,8 +55,13 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
     chronic (0.10.2)
-    ckeditor_rails (4.5.2)
-      railties (>= 3.0)
+    ckeditor (4.1.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -143,7 +148,6 @@ GEM
       mini_portile (~> 0.6.0)
     nokogiri (1.6.6.2-x86-mingw32)
       mini_portile (~> 0.6.0)
-    non-stupid-digest-assets (1.0.5)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -329,7 +333,7 @@ DEPENDENCIES
   breadcrumbs_on_rails
   cancan
   carrierwave
-  ckeditor_rails
+  ckeditor
   coffee-rails (~> 4.1.0)
   config
   devise
@@ -339,7 +343,6 @@ DEPENDENCIES
   mandrill-rails
   meta-tags
   mysql2
-  non-stupid-digest-assets
   omniauth
   omniauth-facebook
   omniauth-vkontakte

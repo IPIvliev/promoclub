@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
-//= require ckeditor-jquery
+//= require ckeditor/init
 //= require jquery.turbolinks
 //= require wice_grid
 //= require_tree .
