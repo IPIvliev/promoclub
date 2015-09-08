@@ -143,6 +143,7 @@ GEM
       mini_portile (~> 0.6.0)
     nokogiri (1.6.6.2-x86-mingw32)
       mini_portile (~> 0.6.0)
+    non-stupid-digest-assets (1.0.5)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -338,6 +339,7 @@ DEPENDENCIES
   mandrill-rails
   meta-tags
   mysql2
+  non-stupid-digest-assets
   omniauth
   omniauth-facebook
   omniauth-vkontakte
