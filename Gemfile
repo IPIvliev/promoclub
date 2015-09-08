@@ -49,6 +49,7 @@ gem 'cancan'
 
 # Blog
 gem 'truncate_html'
+gem 'ckeditor_rails'
 
 # Images
 gem 'carrierwave'
@@ -64,7 +65,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+# gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
