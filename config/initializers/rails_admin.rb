@@ -48,8 +48,8 @@ RailsAdmin.config do |config|
         field :name do
           label "Название"
         end
-        field :text do
-          label "Текст", :ck_editor
+        field :text, :ck_editor do
+          label "Текст"
         end
         exclude_fields :created_at, :updated_at, :user_id
       end
