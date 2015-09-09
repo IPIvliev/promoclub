@@ -21,7 +21,7 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
   def show
     profile_finish?
 
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
 
     @page_title = @article.name
 
@@ -46,7 +46,7 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
   def edit
     profile_finish?
 
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   # POST /articles
@@ -68,7 +68,7 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
   # PUT /articles/1
   # PUT /articles/1.json
   def update
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
@@ -84,7 +84,7 @@ add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на гл
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @article.destroy
 
     respond_to do |format|

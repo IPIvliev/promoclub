@@ -22,7 +22,7 @@
 
             <!-- FOOTER CONTACT INFO -->
             <div class="column col-md-4">
-              <h3>КОНТАКТЫ</h3>
+              <div style="color: #FFF !important; font-weight: 200; font-size: 16px; font-family: 'Open Sans'; margin: 0px 0px 12px;">КОНТАКТЫ</div>
 
               <p class="contact-desc">
                 Появились вопросы? Всегда рады новым клиентам. Наши менеджеры ждут звонка именно от Вас.               
@@ -63,11 +63,11 @@
 
             <!-- FOOTER LATEST POSTS -->
             <div class="column col-md-4 text-right">
-              <h3>ПОСЛЕДНИЕ НОВОСТИ</h3>
+              <div style="color: #FFF !important; font-weight: 200; font-size: 16px; font-family: 'Open Sans'; margin: 0px 0px 12px;">ПОСЛЕДНИЕ НОВОСТИ</div>
               <% Article.limit(3).order("created_at DESC").each do |article| %>
                 <div class="post-item">
                   <small><%= Russian::strftime(article.created_at, "%B %d, %Y") %></small>
-                  <h3><%= link_to article.name, article %></h3>
+                  <span style="letter-spacing: normal; font-family: 'Open Sans';"><%= link_to article.name, article %></span>
                 </div>
               <% end %>
 

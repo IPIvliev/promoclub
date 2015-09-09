@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905103446) do
+ActiveRecord::Schema.define(version: 20150909144910) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20150905103446) do
     t.string   "picture",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug",       limit: 255
   end
+
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
 
   create_table "calculations", force: :cascade do |t|
     t.string   "user_id",    limit: 255

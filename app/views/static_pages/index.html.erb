@@ -64,7 +64,7 @@
 
 	<section id="portfolio" class="container">
 
-				<h2>Добро пожаловать в <strong>Клуб Промоутеров</strong></h2>
+				<div style="font-size: 2.2em; font-weight: 300; line-height: 42px; font-family: 'Open Sans'; margin: 0px 0px 12px;">Добро пожаловать в <strong>Клуб Промоутеров</strong></div>
 
 				<p class="lead"> 
 					Найти промоутера не так просто, как может показаться на первый взгляд. Команда разработчиков проекта allpromoters.ru принимала участие в организации btl-акций по всей России. Мы решили, что современные технологии могут помочь найти временную работу промоутером. Наш проект предлагает к вашим услугам сотни контактов людей, которые хотят работать промоутером. Спешите пользоваться!
@@ -158,7 +158,7 @@
 									<%= image_tag promoter.avatar.thumb.url, :class => "img-responsive", :alt => "#{promoter.name} #{promoter.surname}", :title => "Промоутер: #{promoter.name} #{promoter.surname}" %>
 								</figure>
 								<div class="item-box-desc">
-									<h4><%= promoter.name_with_rate %></h4>
+									<div style="font-size: 18px; line-height: 23px; font-family: 'Open Sans';"><%= promoter.name_with_rate %></div>
 									<small class="styleColor"><%= link_to promoter.city.name, promo_city_path(promoter.city) %></small>
 				                    <span class="fsize12 pull-right">
 					                    <%= "<i class='fa fa-medkit styleSecondColor' title='Имеется медицинская книжка'></i>".html_safe if promoter.med %>
@@ -172,9 +172,40 @@
 					<% end %>
 					</ul>
 
-				</div><!-- /.masonry-container -->
+				</div>
 
+							<div class="divider styleColor"><!-- divider -->
+								<i class="fa fa-leaf"></i>
+							</div>
 
+				<div style="font-size: 1.8em; font-weight: 200; line-height: 24px; font-family: 'Open Sans'; margin: 0px 0px 12px;">
+					Новости проекта
+				</div>
+                    <!-- article summary -->
+                    <div class="row">
+                        <div class="col-md-12">
+
+		              <% Article.order("created_at DESC").limit(3).each do |article| %>
+		                <!-- blog item -->
+		                <div class="item">
+		                  <!-- article title -->
+		                  <div class="item-title">
+		                    <h2><%= link_to article.name, article %></h2>
+		                  </div>
+		                  <!-- image -->
+		                  <figure>
+		                    <%= image_tag article.picture.url, :class => "img-responsive", :alt => article.name %>
+		                  </figure>
+		                  <!-- blog short preview  -->
+		                  <p>
+		                    <%= truncate( raw( sanitize(article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 200, :omission => "...") %>
+		                  </p>
+		                  <!-- read more button -->
+		                  <%= link_to "<i class='fa fa-sign-out'></i> ЧИТАТЬ ПОЛНОСТЬЮ".html_safe, article_path(article), :class => "btn btn-xs" %>
+		                </div>
+		              <% end %>
+                        </div>
+                    </div>
 
 			</section>
 
@@ -189,7 +220,11 @@
           <div class="row">
             <!-- left content -->
             <div class="col-md-7 animation_fade_in">
-              <h2><strong>Добро пожаловать!</strong></h2>
+            	<div style="color: #FFF !important; font-size: 2.2em; font-weight: 300; line-height: 42px; font-family: 'Open Sans'; margin: 0px 0px 12px;">
+	              	<strong>
+	              		Добро пожаловать!
+	              	</strong>
+            	</div>
               <p class="lead">
                 Целью нашего проекта является помочь всем желающим найти работу промоутером. Промоутеры в Москве, промоутеры в Нижем Новгороде, промоутеры в Санкт-Петербурге - для всех городов России btl-агентства ищут промоутеров именно у нас!
               </p>

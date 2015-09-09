@@ -50,6 +50,7 @@ gem 'cancan'
 # Blog
 gem 'truncate_html'
 gem 'ckeditor'
+gem 'friendly_id'
 
 # Images
 gem 'carrierwave'
