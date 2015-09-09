@@ -67,7 +67,8 @@
 				<h2>Добро пожаловать в <strong>Клуб Промоутеров</strong></h2>
 
 				<p class="lead"> 
-					Найти промоутера не так просто, как может показаться на первый взгляд. Команда разработчиков проекта allpromoters.ru принимала участие в организации btl-акций по всей России. Мы решили, что современные технологии могут помочь найти временную работу промоутером. Наш проект предлагает к вашим услугам сотни контактов людей, которые хотят работать промоутером. Спешите пользоваться!</p>
+					Найти промоутера не так просто, как может показаться на первый взгляд. Команда разработчиков проекта allpromoters.ru принимала участие в организации btl-акций по всей России. Мы решили, что современные технологии могут помочь найти временную работу промоутером. Наш проект предлагает к вашим услугам сотни контактов людей, которые хотят работать промоутером. Спешите пользоваться!
+				</p>
 
 							<div class="divider styleColor"><!-- divider -->
 								<i class="fa fa-leaf"></i>
@@ -102,14 +103,14 @@
                                 <h4><%= link_to vacancy.name, vacancy_path(vacancy), :class => "styleColor" %></h4>
 
                                 <small><strong>Организатор: </strong><%= link_to vacancy.user.name_with_rate, user_path(vacancy.user) %></small>
-                                <p>
+                               
                                     <% if vacancy.description.blank? %>
                                         В данной вакансии отсутствует дополнительное описание. Мы рекомендуем рекламодателям полностью заполнять формы вакансий: это стимулирует потенциальных сотрудников к работе с вами.
                                     <% else %>
                                         <%= truncate_html(vacancy.description, length: 250, omission: '...') %>
                                     <% end %>
-                                </p>
-                                <p>
+
+                           
                                     <span class="fsize12 pull-right">
                                         <strong><span class="styleSecondColor"><%= vacancy.price %></span> рублей в час</strong><br><br><br>
                                         <%= link_to "Посмотреть вакансию", vacancy_path(vacancy), :class => "btn btn-info" %>
@@ -118,8 +119,11 @@
                                     <strong>Дата начала акции: </strong><span class="styleSecondColor"><%= Russian::strftime(vacancy.start_date, "%d %B %Y") %></span><br>
                                     <strong>Дата окончания акции: </strong><span class="styleSecondColor"><%= Russian::strftime(vacancy.finish_date, "%d %B %Y") %></span><br>
                                     <strong>Количество промоутеров: </strong><span class="styleSecondColor"><%= vacancy.amount %> <%= Russian.pluralize(vacancy.amount, "человек", "человека", "человек") %></span><br>
-                                    <strong>Местоположение: </strong><span class="styleColor"><%= link_to "#{vacancy.city.name} <i class='fa fa-external-link'></i>".html_safe, vacancy_city_path(vacancy.city) %>
-                                </p>
+                                    <strong>Местоположение: </strong>
+                                    <span class="styleColor">
+                                    	<%= link_to "#{vacancy.city.name} <i class='fa fa-external-link'></i>".html_safe, vacancy_city_path(vacancy.city) %>
+                                	</span>
+                         
                             </div>
                         </div>
                         <!-- /article summary -->
@@ -133,7 +137,7 @@
 
 				<h3>Новые промоутеры</h3>
 				<ul class="nav nav-pills isotope-filter isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
-					<p>Последние <i>16 зарегистрировавшихся промоутеров</i>. Для просмотра полного списка зайдите в базу.</p>
+					Последние <i>16 зарегистрировавшихся промоутеров</i>. Для просмотра полного списка зайдите в базу.
 				</ul>
 
 				<div class="row">
