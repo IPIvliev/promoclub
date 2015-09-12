@@ -25,9 +25,9 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :vacancies, :dependent => :destroy
 
-  belongs_to :city, :dependent => :destroy
-  belongs_to :state, :dependent => :destroy
-  belongs_to :country, :dependent => :destroy
+  belongs_to :city
+  belongs_to :state
+  belongs_to :country
 
   has_many :payments
   has_many :periods
