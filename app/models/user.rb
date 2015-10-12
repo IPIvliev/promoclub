@@ -132,7 +132,7 @@ end
     end
 
     def if_vk
-      self.update_attribute(:sent, false) if self.email[-7,7] == "@vk.com"
+      self.update_attribute(:sent, false) if self.email[-7,7] == "@vk.vom"
     end
 
     def send_greeting_mail
