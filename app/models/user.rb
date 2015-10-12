@@ -48,6 +48,9 @@ class User < ActiveRecord::Base
     # Запоминаем пароль
   after_create :save_pass
 
+    # Не отправлять почту, если пользователь из VK
+  after_create :if_vk
+
     # Отправка письма после создания аккаунта
   after_create :send_greeting_mail
 
@@ -126,6 +129,10 @@ end
 
     def save_pass
       self.update_attribute(:pass, self.password)
+    end
+
+    def if_vk
+      self.update_attribute(:sent, false) if self.email[-7,7] == "@vk.com"
     end
 
     def send_greeting_mail
