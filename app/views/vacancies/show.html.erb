@@ -16,7 +16,7 @@
       <div class="col-sm-5 col-md-7">
         <div class="controlls-over product-image">
           <div>
-            <link rel="image_src" href="#{@vacancy.user.avatar.url}">
+            <link rel="image_src" href="<%= #{@vacancy.user.avatar.url} %>">
             <%= image_tag @vacancy.user.avatar.url, :class => "img-responsive" %>
           </div>
         </div>
