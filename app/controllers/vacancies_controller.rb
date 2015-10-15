@@ -110,8 +110,8 @@ class VacanciesController < ApplicationController
 
     @vacancy = Vacancy.find(params[:id])
 
-    @page_title = "#{@vacancy.name} от компании: #{@vacancy.user.name}"
-    @page_description = "Работа промоутером от компании #{@vacancy.user.name} по направлению #{@vacancy.name}"
+    @page_title = "Вакансия {@vacancy.name} от компании #{@vacancy.user.name}"
+    @page_description = "Вакансия для работы промоутером в сфере btl проектов от компании #{@vacancy.user.name} в городе #{@vacancy.user.city.name}"
     @page_keywords    = "вакансия промоутером, работа промоутером, промоутер, #{@vacancy.name}, рекламная акция #{@vacancy.user.name}, рекламное агенство #{@vacancy.user.name}, btl агентство #{@vacancy.user.name}, промо акция, вакансия промоутером в #{@vacancy.user.city.name}"
  
     add_breadcrumb @page_title
