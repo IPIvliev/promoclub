@@ -11,8 +11,10 @@ class VacanciesController < ApplicationController
   def index
     profile_finish?
 
-    @title = "Вакансии для промоутеров"
-
+    @page_title = "Работа для промоутеров"
+    @page_description = "Вакансии со стоимостью для работы на рекламных акциях в разных городах России."
+    @page_keywords    = "вакансия промоутером, работа промоутером, промоутер, промо акция, временная работа, работа для студентов, найти работу промоутером"
+ 
     @search = Vacancy.order("created_at DESC, price DESC").search(params[:q])
     if params[:find_job] == "true"
       @vacancies = Vacancy.where("city_id = ? AND (med = ? OR med = ?) AND (gender = ? OR gender = ?) AND start_age <= ? AND finish_age >= ?",
@@ -108,8 +110,11 @@ class VacanciesController < ApplicationController
 
     @vacancy = Vacancy.find(params[:id])
 
-    @title = "#{@vacancy.name} от компании: #{@vacancy.user.name}"
-    add_breadcrumb @title
+    @page_title = "#{@vacancy.name} от компании: #{@vacancy.user.name}"
+    @page_description = "Работа промоутером от компании #{@vacancy.user.name} по направлению #{@vacancy.name}"
+    @page_keywords    = "вакансия промоутером, работа промоутером, промоутер, #{@vacancy.name}, рекламная акция #{@vacancy.user.name}, рекламное агенство #{@vacancy.user.name}, btl агентство #{@vacancy.user.name}, промо акция, вакансия промоутером в #{@vacancy.user.city.name}"
+ 
+    add_breadcrumb @page_title
 
     @vacancies = Vacancy.where("id != ? AND city_id = ?", @vacancy.id, @vacancy.city.id).limit(4).order("created_at DESC")
 
