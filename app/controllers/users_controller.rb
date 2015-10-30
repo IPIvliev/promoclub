@@ -130,7 +130,7 @@ end
   def update
     @user = User.find(params[:id])
 
-    if @user.status == "agent" && params[:user][:site] != nil
+    if params[:user][:site] != nil
       @site = params[:user][:site].sub(/^https?\:\/\//, '').sub(/^www./,'')
     end
 

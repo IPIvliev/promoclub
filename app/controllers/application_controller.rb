@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :configure_devise_params, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
     if current_user.avatar.blank?
@@ -9,6 +10,12 @@ class ApplicationController < ActionController::Base
     else
     	"/users/#{current_user.id}"
   	end
+  end
+
+  def configure_devise_params
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:name, :email, :password, :password_confirmation, :status)
+    end
   end
 
   rescue_from CanCan::AccessDenied do |exception|
