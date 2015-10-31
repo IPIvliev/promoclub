@@ -55,6 +55,7 @@ gem 'friendly_id'
 # Images
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
+gem 'carrierwave-crop'
 
 group :production do
   gem 'rails_12factor'

@@ -137,7 +137,13 @@ end
     respond_to do |format|
       if @user.update_attributes(params[:user].merge(:site => @site))
 
-        format.html { redirect_to @user, notice: 'Данные пользователя обновлены.' }
+        format.html {
+        #  if params[:user][:avatar].present?
+        #    render :crop  ## Render the view for cropping
+        #  else
+            redirect_to @user, notice: 'Данные пользователя обновлены.'
+        #  end
+        }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

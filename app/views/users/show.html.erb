@@ -13,16 +13,32 @@
 
         <div class="row">
           <p id="notice"><%= notice %></p>
-          <div class="col-sm-5 col-md-7">
-            <div class="controlls-over product-image">
-              <div>
-                <%= image_tag @promoter.avatar.url, :class => "img-responsive" %>
+          <div class="col-sm-5 col-md-5">
+
+              <div class="item-box">
+                <figure>
+                  <% if current_user.status == "admin" || current_user == @promoter %>
+                  <a class="item-hover" href="#" data-toggle="modal" data-target="#editavatar">>
+                    <span class="overlay color2"></span>
+                    <span class="inner">
+                      <span class="block fa fa-plus fsize20"></span>
+                      <strong>ИЗМЕНИТЬ</strong> ИЗОБРАЖЕНИЕ
+                    </span>
+                  </a>
+                  <% end %>
+                  <div class="controlls-over product-image">
+                    <div>
+                      <%= image_tag @promoter.avatar.croped.url, :class => "img-responsive", :alt => "#{@promoter.name} #{@promoter.surname}", :title => "Промоутер: #{@promoter.name} #{@promoter.surname}" %>
+                    </div>
+                  </div>
+                </figure>
               </div>
-            </div>
+
+              <%= render "/shared/edit_avatar" %>
 
           </div>
 
-          <div class="col-sm-7 col-md-5">
+          <div class="col-sm-7 col-md-7">
             <% if @promoter == current_user %>
               <%= link_to "Удалить анкету", admin_destroy_user_path(current_user), method: :delete, data: { confirm: "You sure?" }, :class => "btn btn-danger" %><br><br>
             <% end %>

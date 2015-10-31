@@ -18,7 +18,26 @@
 
     <div class="col-md-3">
       <% if @user.avatar? %>
-          <%= image_tag @user.avatar.thumb.url %> <%= f.file_field :avatar, :class => "form-control" %>
+              <div class="item-box">
+                <figure>
+                  <% if current_user.status == "admin" || current_user == @user %>
+                  <a class="item-hover" href="#" data-toggle="modal" data-target="#editavatar">>
+                    <span class="overlay color2"></span>
+                    <span class="inner">
+                      <span class="block fa fa-plus fsize20"></span>
+                      <strong>ИЗМЕНИТЬ</strong> ИЗОБРАЖЕНИЕ
+                    </span>
+                  </a>
+                  <% end %>
+                  <div class="controlls-over product-image">
+                    <div>
+                      <%= image_tag @user.avatar.croped.url, :class => "img-responsive", :alt => "#{@user.name} #{@user.surname}", :title => "Промоутер: #{@user.name} #{@user.surname}" %>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+
+              <%= render "/shared/edit_user_avatar" %>
       <% else %>
           <%= f.file_field :avatar, :class => "form-control", :required => "required" %>
       <% end %>

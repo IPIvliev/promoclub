@@ -1,0 +1,39 @@
+<!-- modal dialog -->
+<div class="modal fade" id="editavatar" tabindex="-3" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+
+      <!-- modal body -->
+      <div class="modal-body">
+      <%= form_for (@promoter) do |f| %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <label><strong>Предпросмотр</strong></label>
+              <%= f.previewbox :avatar, :class => "form-control" %>
+            </div>
+            <div class="col-md-10">
+              <%= f.cropbox :avatar, :class => "form-control", :class => "form-control" %>
+            </div> 
+          </div>
+        </div>              
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-12">
+              <label><strong>Загрузить новое изображение</strong></label>
+              <%= f.file_field :avatar, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= f.submit :value => "Сохранить", :class => "btn btn-lg btn-success" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <!-- /modal body -->
+  </div>
+</div>
