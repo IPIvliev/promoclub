@@ -21,7 +21,7 @@
                   <div class="comment" style="background-color:<%= opinion_rate_bg(opinion.rate) %>; padding: 10px;">
                     <!-- user-avatar -->
                     <span class="user-avatar">
-                      <%= link_to image_tag(opinion.user_to.avatar.thumb, :class => "pull-left media-object", :width => "64", :height => "64", :alt => opinion.user_to.name), opinion.user_to %>
+                      <%= link_to image_tag(opinion.user_to.avatar.thumb.url, :class => "pull-left media-object", :width => "64", :height => "64", :alt => opinion.user_to.name), opinion.user_to %>
                     </span>
 
                     <div class="media-body">

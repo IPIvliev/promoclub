@@ -19,11 +19,11 @@ module InvitesHelper
   end
 
   def sms_invite_promos(vacancy)
-    @text = "Novaya podhodyashaya vakansiya promoutera na http://allpromoters.ru Tel.: #{vacancy.user.phone}".encode("UTF-8")
+    @text = "Подходящая Вам вакансия промоутера появилась на http://allpromoters.ru Тел.: #{vacancy.user.phone}".encode("UTF-8")
     if vacancy.gender == "Не важно"
       User.where("status = ? AND city_id = ? AND (med = ? OR med = ?)",
       "promo", vacancy.city_id, vacancy.med, true).each do |user_to|
-        RestClient.delay.post(
+        RestClient.post(
           "http://sms.ru/sms/send", 
           :api_id => "9d3359eb-9224-2384-5d06-1118975a2cd2", 
           :to => user_to.phone, 
@@ -35,7 +35,7 @@ module InvitesHelper
     else
       User.where("status = ? AND city_id = ? AND (med = ? OR med = ?) AND gender = ?",
       "promo", vacancy.city_id, vacancy.med, true, vacancy.gender).each do |user_to|
-        RestClient.delay.post(
+        RestClient.post(
           "http://sms.ru/sms/send", 
           :api_id => "9d3359eb-9224-2384-5d06-1118975a2cd2", 
           :to => user_to.phone, 

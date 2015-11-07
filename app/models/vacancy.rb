@@ -2,6 +2,7 @@
 
 class Vacancy < ActiveRecord::Base
   include VacanciesHelper
+  include InvitesHelper
 
   attr_accessible :name, :amount, :country_id, :state_id, :city_id, :description, :finish_date, :med, :price,
                   :start_date, :gender, :start_age, :finish_age
@@ -19,6 +20,7 @@ class Vacancy < ActiveRecord::Base
   # Отправка письма после создания вакансии
   after_create :send_info_mail
   after_create :add_to_social
+  after_create :send_sms_to_promoters
 
   private
 
@@ -34,5 +36,9 @@ class Vacancy < ActiveRecord::Base
 
   def send_info_mail
     email_invite_promos(self)
+  end
+
+  def send_sms_to_promoters
+    sms_invite_promos(self)
   end
 end

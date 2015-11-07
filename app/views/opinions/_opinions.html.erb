@@ -29,7 +29,7 @@
 
 								<hr />
 
-<% if current_user && current_user.status == "agent" && @promoter.status == "promo" %>
+<% if current_user && ( current_user.status == "agent" || current_user.status == "admin" ) && @promoter.status == "promo" %>
 								<h4>
 									Оставить отзыв
 									<small class="block fsize13 font300">Отзывы влияют на рейтинг промоутера.</small>
