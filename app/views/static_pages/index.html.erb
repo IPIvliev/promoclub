@@ -178,36 +178,6 @@
 								<i class="fa fa-leaf"></i>
 							</div>
 
-				<div style="font-size: 1.8em; font-weight: 200; line-height: 24px; font-family: 'Open Sans'; margin: 0px 0px 12px;">
-					Новости проекта
-				</div>
-                    <!-- article summary -->
-                    <div class="row">
-                        <div class="col-md-12">
-
-		              <% Article.order("created_at DESC").limit(3).each do |article| %>
-		                <!-- blog item -->
-		                <div class="item">
-		                  <!-- article title -->
-		                  <div class="item-title">
-		                    <h2><%= link_to article.name, article %></h2>
-		                  </div>
-		                  <!-- image -->
-		                  <figure>
-		                    <%= image_tag article.picture.url, :class => "img-responsive", :alt => article.name %>
-		                  </figure>
-		                  <!-- blog short preview  -->
-		                  <p>
-		                    <%= truncate( raw( sanitize(article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 200, :omission => "...") %>
-		                  </p>
-		                  <!-- read more button -->
-		                  <%= link_to "<i class='fa fa-sign-out'></i> ЧИТАТЬ ПОЛНОСТЬЮ".html_safe, article_path(article), :class => "btn btn-xs" %>
-		                </div>
-		                <hr>
-		              <% end %>
-                        </div>
-                    </div>
-
 			</section>
 
 <%= render "/shared/callout" %>
