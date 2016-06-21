@@ -17,6 +17,7 @@
 
               <div class="item-box">
                 <figure>
+		<% if current_user %>
                   <% if current_user.status == "admin" || current_user == @promoter %>
                   <a class="item-hover" href="#" data-toggle="modal" data-target="#editavatar">>
                     <span class="overlay color2"></span>
@@ -26,6 +27,7 @@
                     </span>
                   </a>
                   <% end %>
+		<% end %>
                   <div class="controlls-over product-image">
                     <div>
                       <%= image_tag @promoter.avatar.croped.url, :class => "img-responsive", :alt => "#{@promoter.name} #{@promoter.surname}", :title => "Промоутер: #{@promoter.name} #{@promoter.surname}" %>
