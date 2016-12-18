@@ -86,10 +86,10 @@ config.action_mailer.default_url_options = { :host => "allpromoters.ru" }
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.jino.com",
+   :address              => "smtp.mandrillapp.com",
    :port                 => 587,
-   :user_name            => 'info@allpromoters.ru',
-   :password             => 'Huteras1',
+   :user_name            => 'Allpromoters',
+   :password             => 'Bl8ZqzHWhOhZCKecAcUpgQ',
    :authentication       => "plain",
   :enable_starttls_auto => true
 }
