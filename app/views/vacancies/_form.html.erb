@@ -47,7 +47,7 @@
           <label><strong>Дата начала:</strong></label>
           <%= f.date_select :start_date,
                             {:start_year => Time.now.year,
-                             :end_year => 2016,
+                             :end_year => 2017,
                              :use_short_month => false,
                              :order => [:day, :month, :year],
                              :prompt => {:month => 'Месяц', :day => 'День', :year => 'Год'}},
@@ -59,7 +59,7 @@
           <label><strong>Дата окончания:</strong></label>
           <%= f.date_select :finish_date,
                             {:start_year => Time.now.year,
-                             :end_year => 2017,
+                             :end_year => 2018,
                              :use_short_month => false,
                              :order => [:day, :month, :year],
                              :prompt => {:month => 'Месяц', :day => 'День', :year => 'Год'}},
