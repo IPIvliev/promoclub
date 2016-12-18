@@ -35,7 +35,7 @@ class Vacancy < ActiveRecord::Base
   end
 
   def send_info_mail
-   # email_invite_promos(self)
+    email_invite_promos(self)
   end
 
   def send_sms_to_promoters
